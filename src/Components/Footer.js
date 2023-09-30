@@ -64,8 +64,8 @@ const Footer = () => {
          
             <div className="col-lg-3">
                 <div className="footerform">
-                <h3> </h3>
-                    <h6> Join a Newsletter</h6>
+                <h3> Join a Newsletter</h3>
+                    {/* <h6> </h6> */}
                     <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Your Email</label>

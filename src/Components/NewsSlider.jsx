@@ -42,7 +42,7 @@ const NewsSlider = () => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     arrows: false,
     responsive: [
       {
@@ -82,16 +82,17 @@ const NewsSlider = () => {
       </div>
       <Slider {...sliderSettings}>
         {sliderData.map((slide, index) => (
-          <div className="col-lg-3 col-md-2 col-sm-12">
+          <div className="col-lg-3 col-md-2 col-sm-12 news-slide">
             <div className="image" key={index}>
               <img
                 src={slide.slideImage}
                 alt={`${slide.slideTitle}`}
                 style={{
                   objectFit: "cover",
-                  minHeight: "450px",
+                  minHeight: "300px",
                   width: "100%",
                 }}
+                loading="lazy"
               />
               <div className="overlay">
                 <h2 className="news-title">{slide.slideTitle}</h2>

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import mainlogo from "../assets/logo.png";
 
 import TopMenu from "./TopMenu";
+import MegaMenu from "./MegaMenu";
 
 const Header = () => {
   return (
@@ -28,24 +29,9 @@ const Header = () => {
                       <Link to="/">Home</Link>
 
                       <Link to="/aboutus">About Us</Link>
-                      <NavDropdown
-                        title={<Link to="/busniessunits">Business Units</Link>}
-                        id="basic-nav-dropdown"
-                      >
-                        <NavDropdown.Item href="/askerifuel">
-                          askerifuel
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/faujisecurity">
-                          faujisecurity
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/askariguard">
-                          askariguard
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="/askarirealstate">
-                          askarirealstate
-                        </NavDropdown.Item>
-                      </NavDropdown>
+
+                      <MegaMenu />
+
                       <Link to="/mdmessage">MD’s Message</Link>
                       <Link to="/bordofdirector">BOD’s</Link>
 

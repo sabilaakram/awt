@@ -6,6 +6,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import headerImage1 from "../assets/AWT PICS/header-img-2.jpg";
 import headerImage2 from "../assets/AWT PICS/header-img.jpeg";
 import headerImage3 from "../assets/AWT PICS/header-img-3.jpg";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 const sliderData = [
   {
@@ -36,6 +39,17 @@ const CustomArrow = ({ onClick, icon, className }) => (
 );
 
 const HeaderSlider = () => {
+  const [sliders, setSliders] = useState([]);
+
+  useEffect(() => {
+    function getsliders() {
+      axios
+        .get(`https://api.zalimburgers.com/awt-api/home`)
+        .then((res) => setSliders(res.data.data))
+        .catch((err) => console.log(err));
+    }
+  });
+
   const sliderSettings = {
     infinite: true,
     speed: 1500,
@@ -54,7 +68,7 @@ const HeaderSlider = () => {
             <div
               style={{
                 background: `url(${slide.slideImage}) no-repeat`,
-                minHeight: "100vh",
+                minHeight: "400px",
                 width: "100vw",
                 backgroundSize: "cover",
               }}

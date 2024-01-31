@@ -97,7 +97,7 @@ const Home = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="aboutus">
-                <span className="linesheading">Our Value</span>
+                <span className="linesheading">Introduction</span>
                 <h2>A Promise of Resolute and Exceptional Cooperation</h2>
                 <p>
                   We are excelling and achieving our objective with 53 years of
@@ -116,7 +116,8 @@ const Home = () => {
       </section>
 
       <NewsSlider />
-      <section>
+
+      {/* <section>
         <div className="container">
           <div className="row  d-flex justify-content-start align-items-center">
             <div className="col-lg-6">
@@ -191,12 +192,13 @@ const Home = () => {
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; "
+                  loading="lazy"
                 ></iframe>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="bggrayy">
         <div className="container-fluid">
@@ -284,7 +286,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div class="col-8 col-md-8 col-ms-12">
+            <div class="col-md-8">
               <div class="tab-content" id="v-tabs-tabContent">
                 <div
                   class="tab-pane fade show active"

@@ -1,50 +1,115 @@
+import { Col, Container, Row } from "react-bootstrap";
 import bod from "../assets/Bod/admin.png";
-import trust1 from "../assets/contactus/trust1.png";
-import trust2 from "../assets/contactus/trust2.png";
-import trust3 from "../assets/contactus/trust3.png";
-import trust4 from "../assets/contactus/trust4.png";
-import trust5 from "../assets/contactus/trsut5.png";
-import trsut6 from "../assets/contactus/trust6.png";
-import Slider from "react-slick";
+import ImagesSlider from "../Components/ImagesSlider";
+
+const committeOfAdministration = [
+  {
+    boardRank: "Chairman",
+    boardName: "Chief of Army Staff",
+    boardImage: bod,
+  },
+  {
+    boardRank: "Vice Chairman",
+    boardName: "Adjutant General",
+    boardImage: bod,
+  },
+  {
+    boardRank: "Member",
+    boardName: "Chief of General Staff",
+    boardImage: bod,
+  },
+  {
+    boardRank: "Member",
+    boardName: "Quarter Master General",
+    boardImage: bod,
+  },
+  {
+    boardRank: "Member",
+    boardName: "Chief of Logistics Staff",
+    boardImage: bod,
+  },
+  {
+    boardRank: "In attendance",
+    boardName: "Managing Director, AWT",
+    boardImage: bod,
+  },
+  {
+    boardRank: "Secretary",
+    boardName: "Secretary AWT",
+    boardImage: bod,
+  },
+];
+
+const boardOfDirectors = [
+  {
+    memberRank: "Chairman",
+    memberPosition: "Adjutant General, Pakistan Army",
+    memberName: "Lt Gen Muhammad Asim Malik",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Vice Chairman & MD",
+    memberPosition: "Managing Director AWT",
+    memberName: "Lt Gen Naveed Mukhtar, HI(M) (Retd)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director General Welfare & Rehabilitation",
+    memberName: "Maj. Gen Azhar Iqbal Abbasi, HI(M)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Rizwan ullah Khan (COO)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Air Vice Marshal Muhammad Athar Shams HI(M) (Retd), ED (A&F)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Maj Gen Fida Hussain Malik, HI(M) (Retd), ED(IF&T)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Maj Gen Muhammad Samrez Salik, HI(M) (Retd), ED(S)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Brig. Farooq Zaman (Retd), DIR (HR)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Malik Riffat Mahmood",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Brig Musharaf khan, (Retd) SI(M)",
+    memberImage: bod,
+  },
+  {
+    memberRank: "Member",
+    memberPosition: "Director",
+    memberName: "Brig Mukhtar Ahmed, (Retd) SI(M)",
+    memberImage: bod,
+  },
+];
+
 const BOD = () => {
-  var settingsllogo = {
-
-
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
- 
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          infinite: true,
-        
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
   return (
     <div>
       <section className="commonbg">
@@ -82,122 +147,25 @@ const BOD = () => {
           </div>
         </div>
       </section>
-
-      <section>
-        <div className="container">
-          <div className="row spacepadding ">
-            <div className="col-lg-3">
+      <Container>
+        <Row className="pb-5 justify-content-center">
+          {committeOfAdministration.map((item, index) => (
+            <Col key={index} md={index < 2 ? 5 : 4} className="card-col">
               <div className="fourimgsbox">
                 <div class="block">
                   <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
+                    <img src={item.boardImage} className="img-fluid" alt="" />
                   </div>
                 </div>
               </div>
               <div className="adminbox">
-                <h3> Chairman</h3>
-                <p>Chief of Army Staff</p>
+                <h3>{item.boardRank}</h3>
+                <h5>{item.boardName}</h5>
               </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Vice Chairman
-</h3>
-                <p>Adjutant General	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member</h3>
-                <p>Chief of General Staff	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member
-</h3>
-                <p>Quarter Master General	</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row justify-content-md-center">
-    <div class="col col-lg-3">
-    <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member</h3>
-                <p>Chief of Logistics Staff	</p>
-              </div>
-    </div>
-    <div class="col-md-3 ">
-    <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> In attendance
-</h3>
-                <p>Managing Director, AWT</p>
-              </div>
-    </div>
-    <div class="col col-lg-3">
-    <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Secretary
-</h3>
-                <p>Secretary AWT	</p>
-              </div>
-    </div>
-  </div>
-        </div>
-      </section>
-
+            </Col>
+          ))}
+        </Row>
+      </Container>
 
       <section className="aboutusbox">
         <div className="container">
@@ -216,304 +184,34 @@ const BOD = () => {
         </div>
       </section>
 
-
-      <section>
-        <div className="container">
-          <div className="row spacepadding ">
-            <div className="col-lg-3">
+      <Container>
+        <Row className="pb-5 justify-content-center">
+          {boardOfDirectors.map((item, index) => (
+            <Col key={index} md={4} className="card-col">
               <div className="fourimgsbox">
                 <div class="block">
                   <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
+                    <img src={item.memberImage} className="img-fluid" alt="" />
                   </div>
                 </div>
               </div>
               <div className="adminbox">
-                <h3> Chairman</h3>
-                <p>Lt Gen Muhammad Asim Malik, HI(M)
-Adjutant General, Pakistan Army</p>
+                <h3>{item.memberRank}</h3>
+                <h5>{item.memberName}</h5>
+                <p>{item.memberPosition}</p>
               </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Vice Chairman & MD
-
-</h3>
-                <p>Lt Gen Naveed Mukhtar, HI(M) (Retd)
-Managing Director AWT	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member</h3>
-                <p>Maj. Gen Azhar Iqbal Abbasi, HI(M)
-Director General Welfare & Rehabilitation	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member
-</h3>
-                <p>Rizwan ullah Khan (COO)
-Director	</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div className="row spacepadding ">
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member</h3>
-                <p>Air Vice Marshal Muhammad Athar Shams, HI(M) (Retd), ED (A&F)
-Director
-
-</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member
-
-</h3>
-                <p>Maj. Gen Muhammad Imtiaz Khan, HI(M) (Retd), ED(Medask)
-Director	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member</h3>
-                <p>Maj Gen Fida Hussain Malik, HI(M) (Retd), ED(IF&T)
-Director	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member
-</h3>
-                <p>Maj Gen Muhammad Samrez Salik, HI(M) (Retd), ED(S)
-Director	</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div className="row spacepadding ">
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member</h3>
-                <p>Brig. Farooq Zaman (Retd), DIR (HR) Director
-
-
-
-
-</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member
-
-</h3>
-                <p>Malik Riffat Mahmood
-
-Director	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member</h3>
-                <p>Brig Musharaf khan, (Retd) SI(M)
-
-Director	</p>
-              </div>
-            </div>
-
-            <div className="col-lg-3">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4 sub-b">
-                    {" "}
-                    <img src={bod} className="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div className="adminbox">
-                <h3> Member
-</h3>
-                <p>Brig Mukhtar Ahmed, (Retd) SI(M)
-
-                Secretary AWT
-
-</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+            </Col>
+          ))}
+        </Row>
+      </Container>
 
       <section className="spaceupdowngray">
         <div className="container-fluid overflow-hidden no-gutters p-0">
-  <div className="row">
-  <Slider {...settingsllogo }>
-    
-    <div>
-      <div className="trsutimages">    <img src={trust1} className="img-fluid" />  </div>
-        
+          <div className="row">
+            <ImagesSlider />
           </div>
-          <div>
-          <div className="trsutimages">       <img src={trust2} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">       <img src={trust3} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">       <img src={trust4} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">        <img src={trsut6} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">      <img src={trust5} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">         <img src={trust2} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">         <img src={trust1} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">          <img src={trust4} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">        <img src={trust5} className="img-fluid" /> </div>
-          </div>
-   
-          <div>
-          <div className="trsutimages">           <img src={trsut6} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">        <img src={trust3} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">         <img src={trust3} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">        <img src={trust4} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">         <img src={trust5} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">      <img src={trust3} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">           <img src={trust2} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">     <img src={trust1} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">      <img src={trust4} className="img-fluid" /> </div>
-          </div>
-          <div>
-          <div className="trsutimages">  <img src={trust5} className="img-fluid" /> </div>
-          </div>
-        
-        </Slider>
-    </div>
-</div>
-    </section>
+        </div>
+      </section>
     </div>
   );
 };

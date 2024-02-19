@@ -2,35 +2,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
-import headerImage1 from "../assets/AWT PICS/header-img-2.jpg";
-import headerImage2 from "../assets/AWT PICS/header-img.jpeg";
-import headerImage3 from "../assets/AWT PICS/header-img-3.jpg";
-import { useState } from "react";
-import { useEffect } from "react";
 import axios from "axios";
-
-const sliderData = [
-  {
-    slideTitle: "Excellence Rooted in Trust and Commitment",
-    slideText:
-      "Army Welfare Trust is raised with noble aspirations of offering supporting hands to the welfare of families of Martyrs, soldiers affected by the adversities of war & conflicts, and veterans",
-    slideImage: headerImage1,
-  },
-  {
-    slideTitle: "Standing Strong for Nation’s Heroes' Welfare",
-    slideText:
-      "Army Welfare Trust is raised with noble aspirations of offering supporting hands to the welfare of families of Martyrs, soldiers affected by the adversities of war & conflicts, and veterans",
-    slideImage: headerImage2,
-  },
-  {
-    slideTitle:
-      "Strengthening Pakistan’s Economy Through Commercial Enterprises",
-    slideText:
-      "Army Welfare Trust is raised with noble aspirations of offering supporting hands to the welfare of families of Martyrs, soldiers affected by the adversities of war & conflicts, and veterans",
-    slideImage: headerImage3,
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import LoadingSpinner from "./LoadingSpinner";
 
 const CustomArrow = ({ onClick, icon, className }) => (
   <div className={`custom-arrow ${className}`} onClick={onClick}>
@@ -39,16 +13,16 @@ const CustomArrow = ({ onClick, icon, className }) => (
 );
 
 const HeaderSlider = () => {
-  const [sliders, setSliders] = useState([]);
+  const apiURL = "https://api.zalimburgers.com/awt-api/home";
 
-  useEffect(() => {
-    function getsliders() {
-      axios
-        .get(`https://api.zalimburgers.com/awt-api/home`)
-        .then((res) => setSliders(res.data.data))
-        .catch((err) => console.log(err));
-    }
+  const { data, isPending, error } = useQuery({
+    queryKey: ["headersData"],
+    queryFn: () => axios.get(apiURL).then((res) => res.data.data),
   });
+
+  if (isPending) return <LoadingSpinner />;
+
+  if (error) return "Cannot fetch data";
 
   const sliderSettings = {
     infinite: true,
@@ -63,11 +37,11 @@ const HeaderSlider = () => {
   return (
     <section>
       <Slider {...sliderSettings}>
-        {sliderData.map((slide, index) => (
-          <div key={index}>
+        {data.map((slide) => (
+          <div key={slide.id}>
             <div
               style={{
-                background: `url(${slide.slideImage}) no-repeat`,
+                background: `url(https://api.zalimburgers.com/${slide?.image}) no-repeat`,
                 minHeight: "400px",
                 width: "100vw",
                 backgroundSize: "cover",
@@ -76,8 +50,8 @@ const HeaderSlider = () => {
             >
               <div className="dark-overlay"></div>
               <div className="headerpage">
-                <h1 className="text-center">{slide.slideTitle}</h1>
-                <p className="text-center">{slide.slideText}</p>
+                <h1 className="text-center">{slide.title}</h1>
+                <p className="text-center">{slide.description}</p>
               </div>
             </div>
           </div>

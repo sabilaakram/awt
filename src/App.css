@@ -1248,11 +1248,15 @@ section.spaceupdowngray {
 }
 
 .adminbox {
-  padding: 50px 10px 30px 10px;
+  padding: 50px 0 30px 0;
   background-color: #f3f3f3;
   text-align: center;
   margin-top: -40px;
   border-radius: 12px;
+}
+
+.card-col {
+  max-width: 450px !important;
 }
 
 .adminbox h3 {
@@ -1264,11 +1268,20 @@ section.spaceupdowngray {
   padding: 5px;
 }
 
+.adminbox h5 {
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c3a27;
+  padding: 0.5rem 0.25rem 0;
+}
+
 .adminbox p {
   font-family: "DM Sans";
   font-size: 18px;
   font-weight: 400;
   color: #1c3a27;
+  padding: 0 0.25rem;
 }
 
 .card {
@@ -1819,5 +1832,44 @@ section.spaceupdown .card p {
   .vertical-timeline-element-icon i {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+}
+
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: gray;
+  border-color: rgb(28, 58, 39) transparent rgb(179, 132, 42) transparent;
+  border-radius: 100%;
+  animation: spin 1s linear infinite;
+}
+
+.loadingSpinnerContainer h1 {
+  color: #fff;
+  padding-left: 1rem;
+  font-size: 2.25rem;
+  line-height: 3rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

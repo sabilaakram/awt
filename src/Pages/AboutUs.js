@@ -1,50 +1,10 @@
 import AboutTimeline from "../Components/AboutTimeline.jsx";
 
 import visionarmyhelp from "../assets/Aboutus/visionarmyhelp.png";
-import trust1 from "../assets/contactus/trust1.png";
-import trust2 from "../assets/contactus/trust2.png";
-import trust3 from "../assets/contactus/trust3.png";
-import trust4 from "../assets/contactus/trust4.png";
-import trust5 from "../assets/contactus/trsut5.png";
-import trsut6 from "../assets/contactus/trust6.png";
-import Slider from "react-slick";
+
+import ImagesSlider from "../Components/ImagesSlider.jsx";
 
 const AboutUs = () => {
-  var settingsllogo = {
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
   return (
     <div>
       <section className="commonbg">
@@ -295,129 +255,7 @@ const AboutUs = () => {
       <section className="spaceupdowngray">
         <div className="container-fluid overflow-hidden no-gutters p-0">
           <div className="row">
-            <Slider {...settingsllogo}>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust1} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust2} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust3} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust4} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trsut6} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust5} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust2} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust1} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust4} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust5} className="img-fluid" />{" "}
-                </div>
-              </div>
-
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trsut6} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust3} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust3} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust4} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust5} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust3} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust2} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust1} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust4} className="img-fluid" />{" "}
-                </div>
-              </div>
-              <div>
-                <div className="trsutimages">
-                  {" "}
-                  <img src={trust5} className="img-fluid" />{" "}
-                </div>
-              </div>
-            </Slider>
+            <ImagesSlider />
           </div>
         </div>
       </section>

@@ -17,6 +17,7 @@ import Media from "./Pages/Media";
 import Careers from "./Pages/Careers";
 
 import "./App.css";
+import BusinessUnit from "./Pages/BusinessUnit";
 
 function App() {
   return (
@@ -27,11 +28,13 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/mdmessage" element={<MDmessage />} />
         <Route path="/bordofdirector" element={<BOD />} />
-        <Route path="/busniessunits" element={<BusinessUnits />} />
-        <Route path="/askerifuel" element={<AskeriFuel />} />
-        <Route path="/faujisecurity" element={<FaujiSecurity />} />
-        <Route path="/askariguard" element={<AskariGuards />} />
-        <Route path="/askarirealstate" element={<AskariRealEstate />} />
+        <Route path="/business-units" element={<BusinessUnits />}>
+          <Route path="business-unit/:id" element={<BusinessUnit />} />
+        </Route>
+        <Route path="/askari-fuel" element={<AskeriFuel />} />
+        <Route path="/fauji-security" element={<FaujiSecurity />} />
+        <Route path="/askari-guards" element={<AskariGuards />} />
+        <Route path="/askari-realstate" element={<AskariRealEstate />} />
         <Route path="/news" element={<News />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/media" element={<Media />} />

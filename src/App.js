@@ -22,7 +22,7 @@ import BusinessUnit from "./Pages/BusinessUnit";
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />

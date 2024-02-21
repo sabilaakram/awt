@@ -1873,3 +1873,9 @@ section.spaceupdown .card p {
     transform: rotate(360deg);
   }
 }
+
+.md-message-pre {
+  text-wrap: wrap;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.25rem;
+}

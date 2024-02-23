@@ -1,3 +1,4 @@
+import { Container, Row } from "react-bootstrap";
 import new1 from "../assets/news/news1.png";
 import new2 from "../assets/news/news2.png";
 import new3 from "../assets/news/news3.png";
@@ -8,8 +9,8 @@ const News = () => {
   return (
     <div>
       <section className="commonbg">
-        <div className="container">
-          <div class="row">
+        <Container>
+          <Row>
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>
@@ -21,8 +22,8 @@ const News = () => {
                 </h5>
               </div>
             </div>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </section>
 
       <section>
@@ -36,12 +37,11 @@ const News = () => {
 
             <div className="col-lg-4">
               <div className="newsinfo">
-                <h3>
-                  {" "}
+                <h3 className="text-center">
                   Agreement Signing Ceremony - Army Welfare Trust & Pakistan
-                  Hockey Federation{" "}
+                  Hockey Federation
                 </h3>
-                <p>
+                <p className="text-center">
                   {" "}
                   AWT Determined for Revival of the Glorious Past - Pakistan
                   Hockey
@@ -63,8 +63,11 @@ const News = () => {
           <div className="row">
             <div className="col-lg-4">
               <div className="newsinfo">
-                <h3> AGL SAP Business Go-Live Ceremony </h3>
-                <p>
+                <h3 className="text-center">
+                  {" "}
+                  AGL SAP Business Go-Live Ceremony{" "}
+                </h3>
+                <p className="text-center">
                   {" "}
                   AGL SAP Business Go-Live ceremony held at AWT plaza,
                   Rawalpindi on 22 Mar 2023. Rollout of HCM apps are in
@@ -85,8 +88,11 @@ const News = () => {
 
             <div className="col-lg-4">
               <div className="newsinfo">
-                <h3> AWM Dyeing & Garments Fabrication Facility </h3>
-                <p>
+                <h3 className="text-center">
+                  {" "}
+                  AWM Dyeing & Garments Fabrication Facility{" "}
+                </h3>
+                <p className="text-center">
                   {" "}
                   Inaugurated by Lt Gen Naveed Mukhtar, HI(M) Retd MD AWT on 19
                   July 2023
@@ -108,8 +114,11 @@ const News = () => {
 
             <div className="col-lg-4">
               <div className="newsinfo">
-                <h3> Digital Transformation & Cyber Security Seminar </h3>
-                <p>
+                <h3 className="text-center">
+                  {" "}
+                  Digital Transformation & Cyber Security Seminar{" "}
+                </h3>
+                <p className="text-center">
                   {" "}
                   Digital Transformation & Cyber Security Seminar - 09 March
                   2023

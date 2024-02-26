@@ -1,40 +1,7 @@
 import { Link } from "react-router-dom";
-
-import slideImage1 from "../assets/news/news3.png";
-import slideImage2 from "../assets/news/news1.png";
-import slideImage3 from "../assets/news/news2.png";
-import slideImage4 from "../assets/news/news4.png";
-import slideImage5 from "../assets/news/news5.png";
-
 import Slider from "react-slick";
-
-const sliderData = [
-  {
-    slideTitle: "AWM Dyeing & Garments Fabrication Facility",
-    slideLink: "/news",
-    slideImage: slideImage1,
-  },
-  {
-    slideTitle: "Army Welfare Trust & Pakistan Hockey Federation",
-    slideLink: "/news",
-    slideImage: slideImage2,
-  },
-  {
-    slideTitle: "AGL SAP Business Go-Live Ceremony",
-    slideLink: "/news",
-    slideImage: slideImage3,
-  },
-  {
-    slideTitle: "Digital Transformation & Cyber Security Seminar",
-    slideLink: "/news",
-    slideImage: slideImage4,
-  },
-  {
-    slideTitle: "Agreement Signing Ceremony",
-    slideLink: "/news",
-    slideImage: slideImage5,
-  },
-];
+import LoadingSpinner from "./LoadingSpinner";
+import { useNews } from "../data/GetData";
 
 const NewsSlider = () => {
   const sliderSettings = {
@@ -42,7 +9,8 @@ const NewsSlider = () => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
+    swipeToSlide: true,
     arrows: false,
     responsive: [
       {
@@ -68,6 +36,12 @@ const NewsSlider = () => {
       },
     ],
   };
+
+  const { data, error, isPending } = useNews();
+
+  if (isPending) return <LoadingSpinner />;
+  if (error) return "An error occured!!";
+
   return (
     <section className="mb-5 container">
       <div className="mb-4">
@@ -81,12 +55,12 @@ const NewsSlider = () => {
         </div>
       </div>
       <Slider {...sliderSettings}>
-        {sliderData.map((slide, index) => (
-          <div className="col-lg-3 col-md-2 col-sm-12 news-slide">
-            <div className="image" key={index}>
+        {data.map((slide, index) => (
+          <div key={index} className="col-lg-3 col-md-2 col-sm-12 news-slide">
+            <div className="image">
               <img
-                src={slide.slideImage}
-                alt={`${slide.slideTitle}`}
+                src={`https://api.zalimburgers.com/${slide.image}`}
+                alt={`${slide.title}`}
                 style={{
                   objectFit: "cover",
                   minHeight: "300px",
@@ -95,9 +69,10 @@ const NewsSlider = () => {
                 loading="lazy"
               />
               <div className="overlay">
-                <h2 className="news-title">{slide.slideTitle}</h2>
-                <Link to={slide.slideLink} className="news-link">
-                  Learn More
+                <h2 className="news-title">{slide.title}</h2>
+
+                <Link to="/news" className="news-link">
+                  Read More
                 </Link>
               </div>
             </div>

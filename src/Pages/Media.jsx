@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Slider from "react-slick";
 
 import sliderImage1 from "../assets/contactus/trust1.png";
@@ -7,12 +9,7 @@ import sliderImage3 from "../assets/contactus/trust3.png";
 import sliderImage4 from "../assets/contactus/trust4.png";
 import sliderImage5 from "../assets/contactus/trsut5.png";
 
-import galleryImage1 from "../assets/media/gallery-1.png";
-import galleryImage2 from "../assets/media/gallery-2.png";
-import galleryImage3 from "../assets/media/gallery-3.png";
-import galleryImage4 from "../assets/media/gallery-4.png";
-import galleryImage5 from "../assets/media/gallery-5.png";
-import galleryImage6 from "../assets/media/gallery-6.png";
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 const sliderImages = [
   sliderImage1,
@@ -20,15 +17,6 @@ const sliderImages = [
   sliderImage3,
   sliderImage4,
   sliderImage5,
-];
-
-const galleryImages = [
-  galleryImage1,
-  galleryImage2,
-  galleryImage3,
-  galleryImage4,
-  galleryImage5,
-  galleryImage6,
 ];
 
 const Media = () => {
@@ -55,6 +43,23 @@ const Media = () => {
       },
     ],
   };
+
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+
+  const fetchData = async (endpoint) => {
+    const response = await axios.get(`${baseUrl}${endpoint}`);
+
+    return response.data.images;
+  };
+
+  const { data, isPending, error } = useQuery({
+    queryKey: ["media"],
+    queryFn: () => fetchData("/gallery"),
+  });
+
+  if (isPending) return <LoadingSpinner />;
+  if (error) return "An error occured!!";
+
   return (
     <>
       <section className="commonbg">
@@ -112,12 +117,12 @@ const Media = () => {
 
         <div className="container my-5 mx-auto">
           <div className="row">
-            {galleryImages.map((image, index) => (
-              <div className="col-md-4 mb-4" key={index}>
+            {data.map((image) => (
+              <div className="col-md-4 mb-4" key={image.id}>
                 <img
-                  src={image}
-                  alt={`${index + 1}`}
-                  className="img-fluid w-100"
+                  src={image.image}
+                  alt={`${image.id + 1}`}
+                  className="img-fluid w-100 rounded-4 h-100"
                 />
               </div>
             ))}

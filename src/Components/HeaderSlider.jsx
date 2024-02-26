@@ -2,9 +2,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "./LoadingSpinner";
+import { useHeadersData } from "../data/GetData";
 
 const CustomArrow = ({ onClick, icon, className }) => (
   <div className={`custom-arrow ${className}`} onClick={onClick}>
@@ -13,12 +12,7 @@ const CustomArrow = ({ onClick, icon, className }) => (
 );
 
 const HeaderSlider = () => {
-  const apiURL = "https://api.zalimburgers.com/awt-api/home";
-
-  const { data, isPending, error } = useQuery({
-    queryKey: ["headersData"],
-    queryFn: () => axios.get(apiURL).then((res) => res.data.data),
-  });
+  const { data, error, isPending } = useHeadersData();
 
   if (isPending) return <LoadingSpinner />;
 

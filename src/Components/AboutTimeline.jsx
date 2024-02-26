@@ -1,21 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import LoadingSpinner from "./LoadingSpinner";
+import { useAboutTimelineData } from "../data/GetData";
 
 const AboutTimeline = () => {
-  const apiUrl = "https://api.zalimburgers.com/awt-api/aboutus";
-  const { data, isPending, isError } = useQuery({
-    queryKey: ["about-timeline"],
-    queryFn: () => axios.get(apiUrl).then((res) => res.data.data),
-  });
+  const { data, isPending, error } = useAboutTimelineData();
   if (isPending) return <LoadingSpinner />;
-
-  if (isError) return "An error occured!!!";
+  if (error) return "An error occured!!!";
   return (
     <>
       <VerticalTimeline>

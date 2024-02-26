@@ -2,19 +2,14 @@ import { Col, Container, Row } from "react-bootstrap";
 import mdmessage from "../assets/MDmessage/mdmessageperson.png";
 import stars from "../assets/MDmessage/mdstars.png";
 import ImagesSlider from "../Components/ImagesSlider";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { useMdMessage } from "../data/GetData";
 
 const MDmessage = () => {
-  const apiUrl = "https://api.zalimburgers.com/awt-api/md";
-  const { data, isPending, isError } = useQuery({
-    queryKey: ["md-message"],
-    queryFn: () => axios.get(apiUrl).then((res) => res.data.data),
-  });
+  const { data, error, isPending } = useMdMessage();
   if (isPending) return <LoadingSpinner />;
 
-  if (isError) return "An error occured!!!";
+  if (error) return "An error occured!!!";
 
   return (
     <div>

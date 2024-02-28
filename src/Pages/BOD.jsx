@@ -1,115 +1,23 @@
 import { Col, Container, Row } from "react-bootstrap";
 import bod from "../assets/Bod/admin.png";
 import ImagesSlider from "../Components/ImagesSlider";
-
-const committeOfAdministration = [
-  {
-    boardRank: "Chairman",
-    boardName: "Chief of Army Staff",
-    boardImage: bod,
-  },
-  {
-    boardRank: "Vice Chairman",
-    boardName: "Adjutant General",
-    boardImage: bod,
-  },
-  {
-    boardRank: "Member",
-    boardName: "Chief of General Staff",
-    boardImage: bod,
-  },
-  {
-    boardRank: "Member",
-    boardName: "Quarter Master General",
-    boardImage: bod,
-  },
-  {
-    boardRank: "Member",
-    boardName: "Chief of Logistics Staff",
-    boardImage: bod,
-  },
-  {
-    boardRank: "In attendance",
-    boardName: "Managing Director, AWT",
-    boardImage: bod,
-  },
-  {
-    boardRank: "Secretary",
-    boardName: "Secretary AWT",
-    boardImage: bod,
-  },
-];
-
-const boardOfDirectors = [
-  {
-    memberRank: "Chairman",
-    memberPosition: "Adjutant General, Pakistan Army",
-    memberName: "Lt Gen Muhammad Asim Malik",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Vice Chairman & MD",
-    memberPosition: "Managing Director AWT",
-    memberName: "Lt Gen Naveed Mukhtar, HI(M) (Retd)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director General Welfare & Rehabilitation",
-    memberName: "Maj. Gen Azhar Iqbal Abbasi, HI(M)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Rizwan ullah Khan (COO)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Air Vice Marshal Muhammad Athar Shams HI(M) (Retd), ED (A&F)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Maj Gen Fida Hussain Malik, HI(M) (Retd), ED(IF&T)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Maj Gen Muhammad Samrez Salik, HI(M) (Retd), ED(S)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Brig. Farooq Zaman (Retd), DIR (HR)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Malik Riffat Mahmood",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Brig Musharaf khan, (Retd) SI(M)",
-    memberImage: bod,
-  },
-  {
-    memberRank: "Member",
-    memberPosition: "Director",
-    memberName: "Brig Mukhtar Ahmed, (Retd) SI(M)",
-    memberImage: bod,
-  },
-];
+import { useBod } from "../data/GetData";
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 const BOD = () => {
+  const { data, error, isPending } = useBod();
+  if (isPending) return <LoadingSpinner />;
+
+  if (error) return "An error occured!!!";
+
+  const committeOfAdministration = data.filter(
+    (item) => item.category === "Committee of Administration"
+  );
+
+  const boardOfDirectors = data.filter(
+    (item) => item.category === "Board of Directors"
+  );
+
   return (
     <div>
       <section className="commonbg">
@@ -154,13 +62,17 @@ const BOD = () => {
               <div className="fourimgsbox">
                 <div class="block">
                   <div class="hovicon effect-4 sub-b">
-                    <img src={item.boardImage} className="img-fluid" alt="" />
+                    <img
+                      src={`https://api.zalimburgers.com/${item.image}`}
+                      className="img-fluid"
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
               <div className="adminbox">
-                <h3>{item.boardRank}</h3>
-                <h5>{item.boardName}</h5>
+                <h3>{item.post}</h3>
+                <h5>{item.role}</h5>
               </div>
             </Col>
           ))}
@@ -191,14 +103,18 @@ const BOD = () => {
               <div className="fourimgsbox">
                 <div class="block">
                   <div class="hovicon effect-4 sub-b">
-                    <img src={item.memberImage} className="img-fluid" alt="" />
+                    <img
+                      src={`https://api.zalimburgers.com/${item.image}`}
+                      className="img-fluid"
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
               <div className="adminbox">
-                <h3>{item.memberRank}</h3>
-                <h5>{item.memberName}</h5>
-                <p>{item.memberPosition}</p>
+                <h3>{item.post}</h3>
+                <h5>{item.name}</h5>
+                <p>{item.role}</p>
               </div>
             </Col>
           ))}

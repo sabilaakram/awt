@@ -37,3 +37,7 @@ export function useNews() {
 export function useGallery() {
   return useQueryHandler("media", "/gallery");
 }
+
+export function useBod() {
+  return useQueryHandler("bods", "/bod");
+}

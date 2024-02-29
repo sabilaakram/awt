@@ -5,6 +5,30 @@ import NewsSlider from "../Components/NewsSlider.jsx";
 import businessUnitsSliderData from "../data/businessUnitsSliderData.js";
 import BusinessUnitsSlider from "../Components/BusinessUnitsSlider.jsx";
 import { useState } from "react";
+import { FaChevronLeft } from "react-icons/fa";
+
+const tabData = [
+  {
+    id: "v-tabs-allunits",
+    label: "All Companies",
+  },
+  {
+    id: "v-tabs-home",
+    label: "Public Listed Companies",
+  },
+  {
+    id: "v-tabs-profile",
+    label: "Public Unlisted Companies",
+  },
+  {
+    id: "v-tabs-messages",
+    label: "Private Limited Companies",
+  },
+  {
+    id: "v-tabs-trust",
+    label: "Other Trust Units",
+  },
+];
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("v-tabs-allunits");
@@ -169,73 +193,24 @@ const Home = () => {
                   role="tablist"
                   aria-orientation="vertical"
                 >
-                  <a
-                    class="nav-link active"
-                    id="v-tabs-home-allunits"
-                    data-bs-toggle="tab"
-                    href="#v-tabs-allunits"
-                    role="tab"
-                    aria-controls="v-tabs-allunits"
-                    aria-selected="true"
-                    onClick={() => handleTabChange("v-tabs-allunits")}
-                  >
-                    <span>All Companies</span>
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>{" "}
-                  </a>
-                  <a
-                    class="nav-link "
-                    id="v-tabs-home-tab"
-                    data-bs-toggle="tab"
-                    href="#v-tabs-home"
-                    role="tab"
-                    aria-controls="v-tabs-home"
-                    aria-selected="true"
-                    onClick={() => handleTabChange("v-tabs-home-tab")}
-                  >
-                    <span>Public Listed Companies</span>
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>{" "}
-                  </a>
-
-                  <a
-                    class="nav-link"
-                    id="v-tabs-profile-tab"
-                    data-bs-toggle="tab"
-                    href="#v-tabs-profile"
-                    role="tab"
-                    aria-controls="v-tabs-profile"
-                    aria-selected="false"
-                    onClick={() => handleTabChange("v-tabs-profile-tab")}
-                  >
-                    <span>Public Unlisted Companies </span>
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                  </a>
-                  <a
-                    class="nav-link"
-                    id="v-tabs-messages-tab"
-                    data-bs-toggle="tab"
-                    href="#v-tabs-messages"
-                    role="tab"
-                    aria-controls="v-tabs-messages"
-                    aria-selected="false"
-                    onClick={() => handleTabChange("v-tabs-messages-tab")}
-                  >
-                    <span>Private Limited Companies</span>
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                  </a>
-
-                  <a
-                    class="nav-link"
-                    id="v-tabs-trust-unit"
-                    data-bs-toggle="tab"
-                    href="#v-tabs-trust"
-                    role="tab"
-                    aria-controls="v-tabs-trust"
-                    aria-selected="false"
-                    onClick={() => handleTabChange("v-tabs-trust-unit")}
-                  >
-                    <span>Other Trust Units</span>
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                  </a>
+                  {tabData.map((tab) => (
+                    <a
+                      key={tab.id}
+                      className={`nav-link ${
+                        activeTab === tab.id ? "active" : ""
+                      }`}
+                      id={`v-tabs-${tab.id}`}
+                      data-bs-toggle="tab"
+                      href={`#v-tabs-${tab.id}`}
+                      role="tab"
+                      aria-controls={`v-tabs-${tab.id}`}
+                      aria-selected={activeTab === tab.id ? "true" : "false"}
+                      onClick={() => handleTabChange(tab.id)}
+                    >
+                      <span>{tab.label}</span>
+                      <FaChevronLeft />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

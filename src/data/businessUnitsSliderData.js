@@ -37,6 +37,24 @@ const businessUnitsSliderData = [
     sliderLink: "/life-assurance",
   },
   {
+    sliderTabId: "v-tabs-profile-tab",
+    sliderTabTitle: "Public Unlisted Companies",
+    sliderImage: malpaklimited,
+    sliderTitle: "Mal Pakistan Limited",
+    sliderText:
+      "Mal Pakistan Limited is a state-of-the-art oil lubricant company established by a strategic partnership with the Largest oil company Mobil Lubricants.",
+    sliderLink: "/mal-pakistan-ltd",
+  },
+  {
+    sliderTabId: "v-tabs-profile-tab",
+    sliderTabTitle: "Public Unlisted Companies",
+    sliderImage: awtinvestmentslimited,
+    sliderTitle: "AWT Investments Limited (Non-Banking Finance Company)",
+    sliderText:
+      "Licensed by the Securities and Exchange Commission of Pakistan, AWT Investments Limited oversees the management of open and closed-end funds.",
+    sliderLink: "/awt-investments-ltd",
+  },
+  {
     sliderTabId: "v-tabs-trust-unit",
     sliderTabTitle: "Other Trust Units",
     sliderImage: askarirealstate,
@@ -98,24 +116,6 @@ const businessUnitsSliderData = [
     sliderText:
       "Askari Shoes manufactures strong and durable DNS boots with the best missionary from DESMA. Along with this, it designs footwear for the civil market as well.",
     sliderLink: "/askari-shoes",
-  },
-  {
-    sliderTabId: "v-tabs-profile-tab",
-    sliderTabTitle: "Public Unlisted Companies",
-    sliderImage: malpaklimited,
-    sliderTitle: "Mal Pakistan Limited",
-    sliderText:
-      "Mal Pakistan Limited is a state-of-the-art oil lubricant company established by a strategic partnership with the Largest oil company Mobil Lubricants.",
-    sliderLink: "/mal-pakistan-ltd",
-  },
-  {
-    sliderTabId: "v-tabs-profile-tab",
-    sliderTabTitle: "Public Unlisted Companies",
-    sliderImage: awtinvestmentslimited,
-    sliderTitle: "AWT Investments Limited (Non-Banking Finance Company)",
-    sliderText:
-      "Licensed by the Securities and Exchange Commission of Pakistan, AWT Investments Limited oversees the management of open and closed-end funds.",
-    sliderLink: "/awt-investments-ltd",
   },
   {
     sliderTabId: "v-tabs-messages-tab",

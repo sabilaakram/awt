@@ -15,15 +15,18 @@ const Header = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-ms-12">
-              <Navbar expand="lg">
-                <Container>
+              <Navbar expand="lg" className="justify-content-center">
+                <Container className="px-0 mx-0">
                   <Navbar.Brand to="/">
                     {" "}
                     <img src={mainlogo} alt="AWT" />{" "}
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="m-auto">
+                  <Navbar.Collapse
+                    id="basic-navbar-nav"
+                    className="justify-content-end"
+                  >
+                    <Nav className="">
                       <Link to="/">Home</Link>
 
                       <Link to="/aboutus">About Us</Link>
@@ -39,9 +42,9 @@ const Header = () => {
 
                       <Link to="/contactus">Contact Us</Link>
                     </Nav>
-                    <Button variant="outline-success">
+                    {/* <Button variant="outline-success">
                       <i class="fa fa-search" aria-hidden="true"></i>
-                    </Button>
+                    </Button> */}
                   </Navbar.Collapse>
                 </Container>
               </Navbar>

@@ -6,11 +6,11 @@ import { useState } from "react";
 const publicListedMenu = [
   {
     menuLinkTitle: "Askari General Insurance Co Ltd",
-    menuLink: "general-insurance",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Life Assurance",
-    menuLink: "life-assurance",
+    menuLink: "askari-guards",
   },
 ];
 
@@ -21,73 +21,73 @@ const privateLimitedMenu = [
   },
   {
     menuLinkTitle: "MedAsk",
-    menuLink: "medask",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Enterprises",
-    menuLink: "askari-enterprises",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Fauji Security Services",
-    menuLink: "fauji-security",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Aviation",
-    menuLink: "askari-aviation",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Development & Holding",
-    menuLink: "askari-developement-and-holding",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Jolidays",
-    menuLink: "jolidays",
+    menuLink: "askari-guards",
   },
 ];
 
 const publicUnlistedCompaniesMenu = [
   {
     menuLinkTitle: "MAL Pakistan Ltd",
-    menuLink: "mal-pakistan-ltd",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "AWT investments Ltd",
-    menuLink: "awt-investments-ltd",
+    menuLink: "askari-guards",
   },
 ];
 
 const otherBusinessUnitsMenu = [
   {
     menuLinkTitle: "Askari Fuels",
-    menuLink: "askari-fuel",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "AWT Real Estate",
-    menuLink: "askari-realestate",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Shoes",
-    menuLink: "askari-shoes",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Woolen Mills",
-    menuLink: "askari-woolen-mills",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Travel Wing",
-    menuLink: "askari-travel-wing",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Askari Seeds",
-    menuLink: "askari-seeds",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Army Welfare Sugar Mills",
-    menuLink: "army-welfare-sugar-mills",
+    menuLink: "askari-guards",
   },
   {
     menuLinkTitle: "Blue Lagoon & Army Welfare Mess",
-    menuLink: "blue-lagoon-and-army-welfare-mess",
+    menuLink: "askari-guards",
   },
 ];
 
@@ -118,10 +118,7 @@ const MegaMenu = () => {
             {publicListedMenu.map((item, index) => (
               <Dropdown.Item key={index}>
                 <FaCaretRight color="gray" />{" "}
-                <Link
-                  className="nav-link"
-                  to={`business-unit/${item.menuLink}`}
-                >
+                <Link className="nav-link" to={`/${item.menuLink}`}>
                   {item.menuLinkTitle}
                 </Link>
               </Dropdown.Item>
@@ -132,10 +129,7 @@ const MegaMenu = () => {
             {privateLimitedMenu.map((item, index) => (
               <Dropdown.Item key={index}>
                 <FaCaretRight color="gray" />{" "}
-                <Link
-                  className="nav-link"
-                  to={`business-unit/${item.menuLink}`}
-                >
+                <Link className="nav-link" to={`/${item.menuLink}`}>
                   {item.menuLinkTitle}
                 </Link>
               </Dropdown.Item>
@@ -148,10 +142,7 @@ const MegaMenu = () => {
             {publicUnlistedCompaniesMenu.map((item, index) => (
               <Dropdown.Item key={index}>
                 <FaCaretRight color="gray" />
-                <Link
-                  className="nav-link"
-                  to={`business-unit/${item.menuLink}`}
-                >
+                <Link className="nav-link" to={`/${item.menuLink}`}>
                   {item.menuLinkTitle}
                 </Link>
               </Dropdown.Item>
@@ -162,10 +153,7 @@ const MegaMenu = () => {
             {otherBusinessUnitsMenu.map((item, index) => (
               <Dropdown.Item key={index}>
                 <FaCaretRight color="gray" />
-                <Link
-                  className="nav-link"
-                  to={`business-unit/${item.menuLink}`}
-                >
+                <Link className="nav-link" to={`/${item.menuLink}`}>
                   {item.menuLinkTitle}
                 </Link>
               </Dropdown.Item>

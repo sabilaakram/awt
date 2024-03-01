@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -40,4 +40,12 @@ export function useGallery() {
 
 export function useBod() {
   return useQueryHandler("bods", "/bod");
+}
+
+export function useBusinessUnit() {
+  return useQueryHandler("business-unit", "/company_service");
+}
+
+export function useBusinessUnitById(id) {
+  return useQueryHandler("unit", `/company_service/${id}`);
 }

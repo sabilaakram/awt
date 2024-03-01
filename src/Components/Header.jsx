@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
+
 import { Link } from "react-router-dom";
 import mainlogo from "../assets/logo.png";
 import TopMenu from "./TopMenu";
@@ -26,20 +26,15 @@ const Header = () => {
                     id="basic-navbar-nav"
                     className="justify-content-end"
                   >
-                    <Nav className="">
+                    <Nav className="position-relative">
                       <Link to="/">Home</Link>
-
                       <Link to="/aboutus">About Us</Link>
-
                       <MegaMenu />
-
                       <Link to="/mdmessage">MD’s Message</Link>
                       <Link to="/bordofdirector">BOD’s</Link>
-
                       <Link to="/news">News</Link>
                       <Link to="/careers">Careers</Link>
                       <Link to="/media">Media</Link>
-
                       <Link to="/contactus">Contact Us</Link>
                     </Nav>
                     {/* <Button variant="outline-success">

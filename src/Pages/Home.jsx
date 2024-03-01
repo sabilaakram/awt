@@ -1,41 +1,46 @@
 import CounterBox from "../Components/CounterBox.js";
 import HeaderSlider from "../Components/HeaderSlider.jsx";
 import NewsSlider from "../Components/NewsSlider.jsx";
-
-import businessUnitsSliderData from "../data/businessUnitsSliderData.js";
 import BusinessUnitsSlider from "../Components/BusinessUnitsSlider.jsx";
-import { useState } from "react";
-import { FaChevronLeft } from "react-icons/fa";
-
-const tabData = [
-  {
-    id: "v-tabs-allunits",
-    label: "All Companies",
-  },
-  {
-    id: "v-tabs-home",
-    label: "Public Listed Companies",
-  },
-  {
-    id: "v-tabs-profile",
-    label: "Public Unlisted Companies",
-  },
-  {
-    id: "v-tabs-messages",
-    label: "Private Limited Companies",
-  },
-  {
-    id: "v-tabs-trust",
-    label: "Other Trust Units",
-  },
-];
+import { useEffect, useState } from "react";
+import { useBusinessUnit } from "../data/GetData.jsx";
+import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("v-tabs-allunits");
+  const { data, error, isPending } = useBusinessUnit();
+  const [uniqueCategories, setUniqueCategories] = useState([]);
+  const getCompanyIdLabel = (companyId) => {
+    switch (companyId) {
+      case 1:
+        return "Public Listed Companies";
+      case 2:
+        return "Public Unlisted Companies";
+      case 3:
+        return "Private Limited Companies";
+      case 4:
+        return "Other Trust Units";
+      default:
+        return "Unknown";
+    }
+  };
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
   };
+
+  useEffect(() => {
+    if (data) {
+      const categories = [...new Set(data.map((unit) => unit.company_id))];
+      // Filter out the "Unknown" category
+      const filteredCategories = categories.filter(
+        (category) => category !== 0
+      );
+      // Sort the categories in ascending order
+      filteredCategories.sort((a, b) => a - b);
+      setUniqueCategories(filteredCategories);
+    }
+  }, [data]);
 
   const counters = [
     {
@@ -60,6 +65,9 @@ const Home = () => {
       label: "2 Billion Rupees Contributed To National Excequer",
     },
   ];
+
+  if (error) return "An error occured";
+  if (isPending) return <LoadingSpinner />;
 
   return (
     <div>
@@ -172,7 +180,6 @@ const Home = () => {
           </div>
         </div>
       </section> */}
-
       <section className="bggrayy">
         <div className="container-fluid">
           <div class="row">
@@ -193,22 +200,38 @@ const Home = () => {
                   role="tablist"
                   aria-orientation="vertical"
                 >
-                  {tabData.map((tab) => (
+                  <a
+                    className={`nav-link ${
+                      activeTab === "v-tabs-allunits" ? "active" : ""
+                    }`}
+                    id="v-tabs-allunits"
+                    data-bs-toggle="tab"
+                    href="#v-tabs-allunits"
+                    role="tab"
+                    aria-controls="v-tabs-allunits"
+                    aria-selected={activeTab === "v-tabs-allunits"}
+                    onClick={() => handleTabChange("v-tabs-allunits")}
+                  >
+                    <span>All Companies</span>
+                    <i className="fa fa-chevron-left" aria-hidden="true"></i>
+                  </a>
+
+                  {uniqueCategories.map((categoryId) => (
                     <a
-                      key={tab.id}
+                      key={categoryId}
                       className={`nav-link ${
-                        activeTab === tab.id ? "active" : ""
+                        activeTab === `v-tabs-${categoryId}` ? "active" : ""
                       }`}
-                      id={`v-tabs-${tab.id}`}
+                      id={`v-tabs-${categoryId}`}
                       data-bs-toggle="tab"
-                      href={`#v-tabs-${tab.id}`}
+                      href={`#v-tabs-${categoryId}`}
                       role="tab"
-                      aria-controls={`v-tabs-${tab.id}`}
-                      aria-selected={activeTab === tab.id ? "true" : "false"}
-                      onClick={() => handleTabChange(tab.id)}
+                      aria-controls={`v-tabs-${categoryId}`}
+                      aria-selected={activeTab === `v-tabs-${categoryId}`}
+                      onClick={() => handleTabChange(`v-tabs-${categoryId}`)}
                     >
-                      <span>{tab.label}</span>
-                      <FaChevronLeft />
+                      <span>{getCompanyIdLabel(categoryId)}</span>
+                      <i className="fa fa-chevron-left" aria-hidden="true"></i>
                     </a>
                   ))}
                 </div>
@@ -217,63 +240,40 @@ const Home = () => {
 
             <div class="col-md-8">
               <div class="tab-content" id="v-tabs-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="v-tabs-allunits"
-                  role="tabpanel"
-                  aria-labelledby="v-tabs-home-allunits"
-                >
-                  <BusinessUnitsSlider
-                    businessUnitsSliderData={businessUnitsSliderData}
-                    activeTabId={activeTab}
-                  />
-                </div>
-                <div
-                  class="tab-pane fade  "
-                  id="v-tabs-home"
-                  role="tabpanel"
-                  aria-labelledby="v-tabs-home-tab"
-                >
-                  <BusinessUnitsSlider
-                    businessUnitsSliderData={businessUnitsSliderData}
-                    activeTabId={activeTab}
-                  />
-                </div>
-
-                <div
-                  class="tab-pane fade"
-                  id="v-tabs-profile"
-                  role="tabpanel"
-                  aria-labelledby="v-tabs-profile-tab"
-                >
-                  <BusinessUnitsSlider
-                    businessUnitsSliderData={businessUnitsSliderData}
-                    activeTabId={activeTab}
-                  />
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="v-tabs-messages"
-                  role="tabpanel"
-                  aria-labelledby="v-tabs-messages-tab"
-                >
-                  <BusinessUnitsSlider
-                    businessUnitsSliderData={businessUnitsSliderData}
-                    activeTabId={activeTab}
-                  />
-                </div>
-
-                <div
-                  class="tab-pane fade"
-                  id="v-tabs-trust"
-                  role="tabpanel"
-                  aria-labelledby="v-tabs-trust-unit"
-                >
-                  <BusinessUnitsSlider
-                    businessUnitsSliderData={businessUnitsSliderData}
-                    activeTabId={activeTab}
-                  />
-                </div>
+                {activeTab === "v-tabs-allunits" ? (
+                  <div
+                    className="tab-pane fade show active"
+                    id="v-tabs-allunits"
+                    role="tabpanel"
+                    aria-labelledby="v-tabs-allunits-tab"
+                  >
+                    <BusinessUnitsSlider
+                      businessUnitsSliderData={data} // Render all data here
+                      activeTabId={activeTab}
+                    />
+                  </div>
+                ) : (
+                  uniqueCategories.map((categoryId) => (
+                    <div
+                      key={`category-${categoryId}`}
+                      className={`tab-pane fade ${
+                        activeTab === `v-tabs-${categoryId}`
+                          ? "show active"
+                          : ""
+                      }`}
+                      id={`v-tabs-${categoryId}`}
+                      role="tabpanel"
+                      aria-labelledby={`v-tabs-${categoryId}-tab`}
+                    >
+                      <BusinessUnitsSlider
+                        businessUnitsSliderData={data.filter(
+                          (item) => item.company_id === categoryId
+                        )}
+                        activeTabId={activeTab}
+                      />
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -285,16 +285,12 @@ const Home = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="ourmission">
-                <span className="leftlineheading"> Trusted Partners </span>
-                <h2>
-                  Your Trusted Partner for Automotive and Industrial lubrication
-                  Needs
-                </h2>
+                <span className="leftlineheading"> Our Contributions</span>
+                <h2>Committed Services to Pakistan’s Success</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros Lorem ipsum dolor .Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Suspendisse
-                  varius enim in eros Lorem ipsum dolor .
+                  Army Welfare Trust has been operating tirelessly and devotedly
+                  to leave a positive imprint in the lives of its Army officers
+                  and the public of Pakistan as a whole.
                 </p>
               </div>
             </div>

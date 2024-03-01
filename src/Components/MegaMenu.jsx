@@ -2,98 +2,12 @@ import { Container, Dropdown, NavDropdown, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaCaretRight } from "react-icons/fa";
 import { useState } from "react";
-
-const publicListedMenu = [
-  {
-    menuLinkTitle: "Askari General Insurance Co Ltd",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Life Assurance",
-    menuLink: "askari-guards",
-  },
-];
-
-const privateLimitedMenu = [
-  {
-    menuLinkTitle: "Askari Guards",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "MedAsk",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Enterprises",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Fauji Security Services",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Aviation",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Development & Holding",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Jolidays",
-    menuLink: "askari-guards",
-  },
-];
-
-const publicUnlistedCompaniesMenu = [
-  {
-    menuLinkTitle: "MAL Pakistan Ltd",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "AWT investments Ltd",
-    menuLink: "askari-guards",
-  },
-];
-
-const otherBusinessUnitsMenu = [
-  {
-    menuLinkTitle: "Askari Fuels",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "AWT Real Estate",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Shoes",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Woolen Mills",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Travel Wing",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Askari Seeds",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Army Welfare Sugar Mills",
-    menuLink: "askari-guards",
-  },
-  {
-    menuLinkTitle: "Blue Lagoon & Army Welfare Mess",
-    menuLink: "askari-guards",
-  },
-];
+import { useBusinessUnit } from "../data/GetData";
+import LoadingSpinner from "./LoadingSpinner";
 
 const MegaMenu = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-
+  const { data, error, isPending } = useBusinessUnit();
   const handleMouseEnter = () => {
     setShowDropdown(true);
   };
@@ -102,59 +16,81 @@ const MegaMenu = () => {
     setShowDropdown(false);
   };
 
+  if (error) return "An error occured";
+
+  if (isPending) return <LoadingSpinner />;
+
+  const publicListedCompanies = data.filter((item) => item.company_id === 1);
+  const publicUnlistedCompanies = data.filter((item) => item.company_id === 2);
+  const privateLimitedCompanies = data.filter((item) => item.company_id === 3);
+  const otherTrustUnits = data.filter((item) => item.company_id === 4);
+
   return (
     <NavDropdown
       className="p-0"
       title={<Link to="/business-units">Business Units</Link>}
-      id="basic-nav-dropdown"
       show={showDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <Container className="mega-menu">
-        <Row>
+        <Row className="justify-content-center">
           <Col className="text-left">
             <Dropdown.Header>Public Listed Companies</Dropdown.Header>
-            {publicListedMenu.map((item, index) => (
-              <Dropdown.Item key={index}>
-                <FaCaretRight color="gray" />{" "}
-                <Link className="nav-link" to={`/${item.menuLink}`}>
-                  {item.menuLinkTitle}
+            {publicListedCompanies.map((item) => (
+              <Dropdown.Item key={item.id}>
+                <FaCaretRight color="gray" />
+                <Link
+                  onClick={() => setShowDropdown(false)}
+                  className="nav-link"
+                  to={`/business-units/${item.id}`}
+                >
+                  {item.title}
                 </Link>
               </Dropdown.Item>
             ))}
             <Dropdown.Divider />
-
-            <Dropdown.Header>Private Limited Companies</Dropdown.Header>
-            {privateLimitedMenu.map((item, index) => (
-              <Dropdown.Item key={index}>
-                <FaCaretRight color="gray" />{" "}
-                <Link className="nav-link" to={`/${item.menuLink}`}>
-                  {item.menuLinkTitle}
+            <Dropdown.Header>Public Unlisted Companies</Dropdown.Header>
+            {publicUnlistedCompanies.map((item) => (
+              <Dropdown.Item key={item.id}>
+                <FaCaretRight color="gray" />
+                <Link
+                  onClick={() => setShowDropdown(false)}
+                  className="nav-link"
+                  to={`/business-units/${item.id}`}
+                >
+                  {item.title}
                 </Link>
               </Dropdown.Item>
-            ))}
+            ))}{" "}
             <Dropdown.Divider className="d-md-none" />
           </Col>
-
           <Col className="text-left">
-            <Dropdown.Header>Public Unlisted Companies</Dropdown.Header>
-            {publicUnlistedCompaniesMenu.map((item, index) => (
-              <Dropdown.Item key={index}>
+            <Dropdown.Header>Private Limited Companies</Dropdown.Header>
+            {privateLimitedCompanies.map((item) => (
+              <Dropdown.Item key={item.id}>
                 <FaCaretRight color="gray" />
-                <Link className="nav-link" to={`/${item.menuLink}`}>
-                  {item.menuLinkTitle}
+                <Link
+                  onClick={() => setShowDropdown(false)}
+                  className="nav-link"
+                  to={`/business-units/${item.id}`}
+                >
+                  {item.title}
                 </Link>
               </Dropdown.Item>
             ))}
             <Dropdown.Divider />
 
-            <Dropdown.Header>Other Business Units</Dropdown.Header>
-            {otherBusinessUnitsMenu.map((item, index) => (
-              <Dropdown.Item key={index}>
+            <Dropdown.Header>Other Trust Units</Dropdown.Header>
+            {otherTrustUnits.map((item) => (
+              <Dropdown.Item key={item.id}>
                 <FaCaretRight color="gray" />
-                <Link className="nav-link" to={`/${item.menuLink}`}>
-                  {item.menuLinkTitle}
+                <Link
+                  onClick={() => setShowDropdown(false)}
+                  className="nav-link"
+                  to={`/business-units/${item.id}`}
+                >
+                  {item.title}
                 </Link>
               </Dropdown.Item>
             ))}

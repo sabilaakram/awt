@@ -2,15 +2,29 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
-  let filteredData;
+  const filteredData =
+    activeTabId === "v-tabs-allunits"
+      ? businessUnitsSliderData
+      : businessUnitsSliderData.filter(
+          (item) =>
+            item.company_id === parseInt(activeTabId.replace("v-tabs-", ""))
+        );
 
-  if (activeTabId === "v-tabs-allunits") {
-    filteredData = businessUnitsSliderData;
-  } else {
-    filteredData = businessUnitsSliderData.filter(
-      (item) => item.sliderTabId === activeTabId
-    );
-  }
+  const getCompanyIdLabel = (companyId) => {
+    switch (companyId) {
+      case 1:
+        return "Public Listed Companies";
+      case 2:
+        return "Public Unlisted Companies";
+      case 3:
+        return "Private Limited Companies";
+      case 4:
+        return "Other Trust Units";
+      default:
+        return "Unknown";
+    }
+  };
+
   const settings = {
     infinite: false,
     speed: 500,
@@ -49,18 +63,18 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
           <div key={index}>
             <div className="unitmain-box slider__card">
               <div className="slider_card-wrapper">
-                <h5>{item.sliderTabTitle}</h5>
+                <h5>{getCompanyIdLabel(item.company_id)}</h5>
                 <img
-                  src={item.sliderImage}
+                  src={item?.images[0].image}
                   className="img-fluid"
-                  alt={item.sliderTitle}
+                  alt={item.title}
                 />
-                <h3>{item.sliderTitle}</h3>
-                <p>{item.sliderText}</p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
 
               <div className="unitbtnss">
-                <Link to={item.sliderLink}>Explore More</Link>
+                <Link to={`/business-units/${item.id}`}>Explore More</Link>
               </div>
             </div>
           </div>

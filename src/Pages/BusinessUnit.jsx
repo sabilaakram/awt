@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import ImagesSlider from "../Components/ImagesSlider";
 import { useBusinessUnitById } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
-import { FaCode } from "react-icons/fa6";
 import { Col, Container, Row } from "react-bootstrap";
 
 const ServiceCard = ({ card }) => {
@@ -32,7 +31,7 @@ const BusinessUnit = () => {
   }
 
   if (isPending) return <LoadingSpinner />;
-  console.log(data);
+
   return (
     <div>
       {data.map((data, index) => {
@@ -92,7 +91,7 @@ const BusinessUnit = () => {
               </div>
             </section>
 
-            <section>
+            {data.partners.length > 0 && (
               <Container>
                 <Row>
                   {data.partners.map((partner, index) => (
@@ -118,7 +117,7 @@ const BusinessUnit = () => {
                   ))}
                 </Row>
               </Container>
-            </section>
+            )}
 
             <section class="spaceupdown">
               <div class="container">
@@ -149,11 +148,13 @@ const BusinessUnit = () => {
                   </div>
                 </div>
 
-                <div class="row">
-                  {data.services.map((card, index) => (
-                    <ServiceCard key={index} card={card} />
-                  ))}
-                </div>
+                {data.services.length > 0 && (
+                  <div class="row">
+                    {data.services.map((card, index) => (
+                      <ServiceCard key={index} card={card} />
+                    ))}
+                  </div>
+                )}
               </div>
             </section>
 

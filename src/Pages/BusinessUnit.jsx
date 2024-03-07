@@ -3,18 +3,21 @@ import ImagesSlider from "../Components/ImagesSlider";
 import { useBusinessUnitById } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { FaCode } from "react-icons/fa6";
+import { Col, Container, Row } from "react-bootstrap";
 
 const ServiceCard = ({ card }) => {
   return (
-    <div className="col-lg-4 mb-4">
+    <Col lg={4} md={6} xs={12} className="mb-4">
       <div className="card">
-        <div className="icon-wrapper">
-          <img src={card?.image} alt="" />
-        </div>
+        {card.image !== "" && (
+          <div className="icon-wrapper">
+            <img src={card?.image} alt="" />
+          </div>
+        )}
         <h3>{card?.title}</h3>
         <p>{card?.description}</p>
       </div>
-    </div>
+    </Col>
   );
 };
 
@@ -60,7 +63,7 @@ const BusinessUnit = () => {
 
             <section class="spaceupdown">
               <div className="container">
-                <div className="row d-flex justify-content-start align-items-center">
+                <div className="row d-flex justify-content-start align-items-center gap-3 flex-lg-nowrap flex-wrap">
                   <div className="col-lg-6">
                     <div className="ourmission">
                       <span className="leftlineheading">{data.title}</span>
@@ -69,7 +72,7 @@ const BusinessUnit = () => {
                     </div>
                   </div>
                   <div className="col-lg-6">
-                    <img src={data?.images[2].image} alt="" />
+                    <img src={data?.images[2].image} alt="" className="w-100" />
                   </div>
                 </div>
               </div>
@@ -90,25 +93,31 @@ const BusinessUnit = () => {
             </section>
 
             <section>
-              <div class="container">
-                <div className="row">
+              <Container>
+                <Row>
                   {data.partners.map((partner, index) => (
-                    <div className="col-lg-4" key={index}>
-                      <div className="service-box">
-                        <div className="content">
-                          <div className="icons">
-                            <FaCode />
-                          </div>
+                    <Col lg={4} md={6} xs={12} className="p-3" key={index}>
+                      <div className="card">
+                        <div className="position-relative d-flex flex-column text-center align-items-center gap-3 w-100">
+                          {partner.image !== "" && (
+                            <div className="ms-3">
+                              <img
+                                src={partner?.image}
+                                alt=""
+                                className="w-100"
+                              />
+                            </div>
+                          )}
                           <div className="title-area">
                             <h3>{partner.title}</h3>
-                            <span>{partner.description}</span>
+                            <p className="fs-5">{partner.description}</p>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Col>
                   ))}
-                </div>
-              </div>
+                </Row>
+              </Container>
             </section>
 
             <section class="spaceupdown">

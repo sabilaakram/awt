@@ -44,18 +44,16 @@ const BusinessUnit = () => {
               }}
             >
               <div className="container">
-                <div class="row">
-                  <div class="col-lg-12 text-center">
-                    <div className="aboutuspage">
-                      <h1>
-                        {data.title} | <span>Pakistan </span>
-                      </h1>
+                <div class="row text-center">
+                  {/* <div class=""> */}
+                  <h1 className="service-title">
+                    {data.title} | <span>Pakistan </span>
+                  </h1>
 
-                      <h5>
-                        Home | <span> {data.title} </span>
-                      </h5>
-                    </div>
-                  </div>
+                  <h5 className="service-subtitle">
+                    Home | <span> {data.title} </span>
+                  </h5>
+                  {/* </div> */}
                 </div>
               </div>
             </section>
@@ -142,8 +140,8 @@ const BusinessUnit = () => {
                   <div className="col-lg-12">
                     <div className="aboutus">
                       <span className="linesheading">Our services</span>
-                      <h2>{data.service_title}</h2>
-                      <p>{data.service_description}</p>
+                      <h2>{data?.service_title}</h2>
+                      <p>{data?.service_description}</p>
                     </div>
                   </div>
                 </div>

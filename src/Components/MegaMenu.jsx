@@ -48,39 +48,8 @@ const MegaMenu = () => {
                   {item.title}
                 </Link>
               </Dropdown.Item>
-            ))}
-            <Dropdown.Divider />
-            <Dropdown.Header>Public Unlisted Companies</Dropdown.Header>
-            {publicUnlistedCompanies.map((item) => (
-              <Dropdown.Item key={item.id}>
-                <FaCaretRight color="gray" />
-                <Link
-                  onClick={() => setShowDropdown(false)}
-                  className="nav-link"
-                  to={`/business-units/${item.id}`}
-                >
-                  {item.title}
-                </Link>
-              </Dropdown.Item>
             ))}{" "}
-            <Dropdown.Divider className="d-md-none" />
-          </Col>
-          <Col className="text-left">
-            <Dropdown.Header>Private Limited Companies</Dropdown.Header>
-            {privateLimitedCompanies.map((item) => (
-              <Dropdown.Item key={item.id}>
-                <FaCaretRight color="gray" />
-                <Link
-                  onClick={() => setShowDropdown(false)}
-                  className="nav-link"
-                  to={`/business-units/${item.id}`}
-                >
-                  {item.title}
-                </Link>
-              </Dropdown.Item>
-            ))}
             <Dropdown.Divider />
-
             <Dropdown.Header>Other Trust Units</Dropdown.Header>
             {otherTrustUnits.map((item) => (
               <Dropdown.Item key={item.id}>
@@ -94,6 +63,36 @@ const MegaMenu = () => {
                 </Link>
               </Dropdown.Item>
             ))}
+          </Col>
+          <Col className="text-left">
+            {" "}
+            <Dropdown.Header>Public Unlisted Companies</Dropdown.Header>
+            {publicUnlistedCompanies.map((item) => (
+              <Dropdown.Item key={item.id}>
+                <FaCaretRight color="gray" />
+                <Link
+                  onClick={() => setShowDropdown(false)}
+                  className="nav-link"
+                  to={`/business-units/${item.id}`}
+                >
+                  {item.title}
+                </Link>
+              </Dropdown.Item>
+            ))}{" "}
+            <Dropdown.Divider />
+            <Dropdown.Header>Private Limited Companies</Dropdown.Header>
+            {privateLimitedCompanies.map((item) => (
+              <Dropdown.Item key={item.id}>
+                <FaCaretRight color="gray" />
+                <Link
+                  onClick={() => setShowDropdown(false)}
+                  className="nav-link"
+                  to={`/business-units/${item.id}`}
+                >
+                  {item.title}
+                </Link>
+              </Dropdown.Item>
+            ))}{" "}
           </Col>
         </Row>
       </Container>

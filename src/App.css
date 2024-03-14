@@ -33,12 +33,15 @@ section.commonbg {
 }
 
 section.feulaskeri {
-  background-image: url("../src/assets/askerifuel//fuelbanner.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 50px 0px;
-  height: 400px;
+  padding: 2em 0;
+  min-height: 400px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /*********** top menu css ***********/
 
@@ -590,6 +593,7 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   font-size: 40px;
 }
 .aboutuspage h1,
+.service-title,
 .headerpage h1 {
   font-family: "Roboto Slab", serif;
   font-size: 2.5rem;
@@ -620,6 +624,13 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   line-height: 3rem;
 }
 
+.service-title span {
+  color: #ebeef2;
+  font-family: "Roboto Slab", serif;
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
 .headerpage {
   position: relative;
   padding: 1em;
@@ -641,11 +652,20 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   line-height: 35px;
   letter-spacing: 0.5px;
   color: #000;
-
   font-weight: 500;
 }
 
-.aboutuspage h5 span {
+.service-subtitle {
+  font-family: "Roboto Slab", serif;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0.5px;
+  color: #ebeef2;
+  font-weight: 500;
+}
+
+.aboutuspage h5 span,
+.service-subtitle span {
   color: #b3842a;
   font-family: "Roboto Slab", serif;
   font-size: 30px;
@@ -744,10 +764,6 @@ section.commonbg {
   padding: 50px 0px;
 }
 
-/* feul page css */
-section.feulaskeri {
-}
-
 .fourboxmain {
   background: #00235a14;
   text-align: center;
@@ -834,13 +850,7 @@ section#footerbox {
   background: #1c3a27;
   padding: 50px 0px;
 }
-.getintouch {
-  margin-top: 100px;
-}
 
-.footerform {
-  margin-top: 150px;
-}
 .getintouch h3 {
   color: #fff;
   font-family: "Roboto Slab";
@@ -899,6 +909,12 @@ section#footerbox {
 .footerform label {
   color: #fff;
   margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+  .getintouch {
+    margin: 2em 0 4em;
+  }
 }
 
 button.subscribebtns {
@@ -1317,9 +1333,9 @@ section.spaceupdowngray {
   transition: 0.5s;
 }
 .card:hover {
-  background-position: 0 100%;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.3);
 }
-.card:hover .icon-wrapper {
+/* .card:hover .icon-wrapper {
   background-color: #ffffff;
   color: #b3842a;
 }
@@ -1328,7 +1344,7 @@ section.spaceupdowngray {
 }
 .card:hover p {
   color: #f0f0f0;
-}
+} */
 
 section.spaceupdown .card {
   /* height: 370px; */

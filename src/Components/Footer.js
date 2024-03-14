@@ -5,10 +5,10 @@ const Footer = () => {
     <div>
       <section id="footerbox">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-between align-items-center">
             <div className="col-lg-3">
               <div className="footer-logo">
-                <img src={footerlogo} className="img-fluid" />
+                <img src={footerlogo} className="img-fluid" alt="" />
                 <p>
                   With 53 years of dedicated investments in the industries, the
                   Army Welfare Trust generates maximum funds for soldiers’
@@ -16,26 +16,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <div className="col-lg-3">
-              <div className="getintouch ">
-                <h3> Business Units</h3>
-                <ul>
-                  <li>
-                    <a>Askari Fuels </a>
-                  </li>
-                  <li>
-                    <a>Mal Pakistan Limited </a>
-                  </li>
-                  <li>
-                    <a>Askari Real Estate </a>
-                  </li>
 
-                  <li>
-                    <a>MedAsk </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
             <div className="col-lg-3">
               <div className="getintouch">
                 <h3> Get in Touch</h3>
@@ -62,7 +43,7 @@ const Footer = () => {
             <div className="col-lg-3">
               <div className="footerform">
                 <h3 className="text-white">Join Our Newsletter</h3>
-                <form>
+                <form onClick={(e) => e.preventDefault()}>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Your Email</label>
                     <input
@@ -74,9 +55,7 @@ const Footer = () => {
                     />
                   </div>
 
-                  <button type="submit" className="subscribebtns">
-                    Subscribe
-                  </button>
+                  <button className="subscribebtns">Subscribe</button>
                 </form>
               </div>
             </div>

@@ -75,15 +75,16 @@ const BusinessUnit = () => {
               </div>
             </section>
 
-            {data.partner_title !== " " && data.partner_description !== " " && (
+            {(data.partner_title !== " " ||
+              data.partner_description !== " ") && (
               <section class="spaceupdown">
                 <div className="container">
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="aboutus">
                         <span className="linesheading"> Trusted Partners</span>
-                        <h2>{data.partner_title}</h2>
-                        <p>{data.partner_description}</p>
+                        <h2>{data?.partner_title}</h2>
+                        <p>{data?.partner_description}</p>
                       </div>
                     </div>
                   </div>
@@ -136,7 +137,8 @@ const BusinessUnit = () => {
               </div>
             </section>
 
-            {data.service_title !== " " && data.service_description !== " " && (
+            {(data.service_title !== " " ||
+              data.service_description !== " ") && (
               <section class="spaceupdown">
                 <div className="container">
                   <div className="row spacebottom">

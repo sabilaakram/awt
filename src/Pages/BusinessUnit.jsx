@@ -75,19 +75,21 @@ const BusinessUnit = () => {
               </div>
             </section>
 
-            <section class="spaceupdown">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="aboutus">
-                      <span className="linesheading"> Trusted Partners</span>
-                      <h2>{data.partner_title}</h2>
-                      <p>{data.partner_description}</p>
+            {data.partner_title !== " " && data.partner_description !== " " && (
+              <section class="spaceupdown">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="aboutus">
+                        <span className="linesheading"> Trusted Partners</span>
+                        <h2>{data.partner_title}</h2>
+                        <p>{data.partner_description}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            )}
 
             {data.partners.length > 0 && (
               <Container>
@@ -134,27 +136,29 @@ const BusinessUnit = () => {
               </div>
             </section>
 
-            <section class="spaceupdown">
-              <div className="container">
-                <div className="row spacebottom">
-                  <div className="col-lg-12">
-                    <div className="aboutus">
-                      <span className="linesheading">Our services</span>
-                      <h2>{data?.service_title}</h2>
-                      <p>{data?.service_description}</p>
+            {data.service_title !== " " && data.service_description !== " " && (
+              <section class="spaceupdown">
+                <div className="container">
+                  <div className="row spacebottom">
+                    <div className="col-lg-12">
+                      <div className="aboutus">
+                        <span className="linesheading">Our services</span>
+                        <h2>{data?.service_title}</h2>
+                        <p>{data?.service_description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {data.services.length > 0 && (
-                  <div class="row">
-                    {data.services.map((card, index) => (
-                      <ServiceCard key={index} card={card} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </section>
+                  {data.services.length > 0 && (
+                    <div class="row">
+                      {data.services.map((card, index) => (
+                        <ServiceCard key={index} card={card} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </section>
+            )}
 
             <section class="spaceupdown">
               <div className="container">

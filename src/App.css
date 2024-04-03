@@ -197,7 +197,7 @@ section.aboutusbox {
 }
 
 .dropdown-item .nav-link {
-  padding: 1rem 0 !important;
+  padding: 0.35em 0 !important;
 }
 
 .mega-menu .dropdown-divider {
@@ -513,6 +513,7 @@ section.ournewss {
 
 .overlay .news-link {
   color: #fff;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
 }
 
@@ -521,7 +522,7 @@ section.ournewss {
 }
 
 .overlay .news-title {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
 }
 
 .image:hover .overlay {
@@ -624,6 +625,12 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   line-height: 3rem;
 }
 
+.service-title {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .service-title span {
   color: #ebeef2;
   font-family: "Roboto Slab", serif;
@@ -676,9 +683,6 @@ img.rounded.sizesss {
   max-width: 100%;
 }
 
-.Corporate .input-group.mt-3 {
-}
-
 .Corporate input.form-control {
   outline: none;
   padding: 14px;
@@ -699,6 +703,12 @@ button.download {
   color: #fff;
   font-family: "Roboto Slab", serif;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .service-title {
+    max-width: 100%;
+  }
 }
 
 /* aboutus page tab and slider css */

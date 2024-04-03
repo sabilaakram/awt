@@ -10,7 +10,7 @@ import MegaMenu from "./MegaMenu";
 const Header = () => {
   return (
     <div>
-      <TopMenu />
+      {/* <TopMenu /> */}
       <section className="mainmenu">
         <div className="container-fluid">
           <div className="row">

@@ -49,7 +49,7 @@ const NewsSlider = () => {
           <div className="col-lg-12">
             <div className="aboutus">
               <span className="linesheading">Latest News and Events</span>
-              <h2>Our Contemporary Projects and Recent Updates</h2>
+              {/* <h2>Our Contemporary Projects and Recent Updates</h2> */}
             </div>
           </div>
         </div>
@@ -57,22 +57,22 @@ const NewsSlider = () => {
       <Slider {...sliderSettings}>
         {data.map((slide, index) => (
           <div key={index} className="col-lg-3 col-md-2 col-sm-12 news-slide">
-            <div className="image">
+            <div className="image rounded-2">
               <img
                 src={`https://api.zalimburgers.com/${slide.image}`}
                 alt={`${slide.title}`}
                 style={{
                   objectFit: "cover",
-                  minHeight: "300px",
+                  height: "220px",
                   width: "100%",
                 }}
                 loading="lazy"
               />
-              <div className="overlay">
+              <div className="overlay news-overlay">
                 <h2 className="news-title">{slide.title}</h2>
 
                 <Link to="/news" className="news-link">
-                  Read More
+                  View More
                 </Link>
               </div>
             </div>

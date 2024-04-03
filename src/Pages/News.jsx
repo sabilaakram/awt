@@ -7,6 +7,9 @@ const News = () => {
 
   if (isPending) return <LoadingSpinner />;
   if (error) return "An error occured!!";
+
+  // Sort the news data based on IDs in descending order
+  const sortedData = [...data].sort((a, b) => b.id - a.id);
   return (
     <div>
       <section className="commonbg">
@@ -29,7 +32,7 @@ const News = () => {
 
       <section>
         <Container className="news__container">
-          {data.map((news, index) => (
+          {sortedData.map((news, index) => (
             <Row
               key={news.id}
               className={index % 2 === 0 ? "" : "flex-row-reverse"}

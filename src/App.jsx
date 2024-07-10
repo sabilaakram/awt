@@ -17,6 +17,7 @@ import BusinessUnit from "./Pages/BusinessUnit";
 import "./App.css";
 import { Suspense } from "react";
 import LoadingSpinner from "./Components/LoadingSpinner";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   return (
@@ -28,13 +29,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/mdmessage" element={<MDmessage />} />
-            <Route path="/bordofdirector" element={<BOD />} />
+            <Route path="/boardofdirector" element={<BOD />} />
             <Route path="/business-units" element={<BusinessUnits />} />
             <Route path="/business-units/:id" element={<BusinessUnit />} />
             <Route path="/news" element={<News />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/media" element={<Media />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
 

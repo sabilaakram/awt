@@ -1,5 +1,4 @@
 import { Col, Container, Row } from "react-bootstrap";
-import bod from "../assets/Bod/admin.png";
 import ImagesSlider from "../Components/ImagesSlider";
 import { useBod } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";

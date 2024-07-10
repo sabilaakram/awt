@@ -10,6 +10,7 @@ const News = () => {
 
   // Sort the news data based on IDs in descending order
   const sortedData = [...data].sort((a, b) => b.id - a.id);
+
   return (
     <div>
       <section className="commonbg">
@@ -37,14 +38,14 @@ const News = () => {
               key={news.id}
               className={index % 2 === 0 ? "" : "flex-row-reverse"}
             >
-              <Col lg={6} className="order-lg-1">
+              <Col lg={6} className="order-lg-1 px-0">
                 <img
                   src={`https://api.zalimburgers.com/${news.image}`}
                   className="img-fluid w-100"
                   alt=""
                 />
               </Col>
-              <Col lg={6} className="order-lg-2 my-3 my-lg-0">
+              <Col lg={6} className="order-lg-2 my-3 my-lg-0 px-0">
                 <div className="h-100 d-flex flex-column gap-3 justify-content-center align-items-center">
                   <h3 className="text-center m-0">{news.title}</h3>
                   <p className="text-center m-0">{news.description}</p>

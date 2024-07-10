@@ -76,7 +76,7 @@ section.TopMenu {
 }
 .topmenusociallinks ul {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-bottom: 0px;
 }
 
@@ -366,7 +366,7 @@ section.bggrayy button.slick-arrow.slick-prev {
 }
 .tabsheadingsmove {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 20px;
 }
 div#v-tabs-tab {
@@ -525,9 +525,9 @@ section.ournewss {
   font-size: 1.35rem;
 }
 
-.image:hover .overlay {
-  /* color: black; */
-}
+/* .image:hover .overlay {
+  color: black;
+} */
 .overlay h3 {
   font-family: "Roboto Slab";
   font-size: 20px;
@@ -1146,7 +1146,6 @@ section.spaceupdowngray {
   box-sizing: content-box;
 }
 .hovicon:before {
-  speak: none;
   font-size: 48px;
   line-height: 90px;
   font-style: normal;
@@ -1620,10 +1619,6 @@ section.spaceupdown .card p {
 .service-box:hover p {
   color: #fff;
 }
-@media screen and (min-width: 768px) {
-}
-@media screen and (min-width: 992px) {
-}
 
 @media screen and (max-width: 1300px) {
   .navbar-nav a {
@@ -1640,9 +1635,9 @@ section.spaceupdown .card p {
   }
 }
 @media screen and (max-width: 1280px) {
-  section.bggrayy .nav-link {
-    /* margin-left: inherit; */
-  }
+  /* section.bggrayy .nav-link {
+    margin-left: inherit;
+  } */
   section.bggrayy .nav-link span {
     font-size: 14px;
   }

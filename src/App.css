@@ -1,14 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
 
@@ -72,7 +74,6 @@ section.TopMenu {
   font-weight: 400;
   text-decoration: none;
   color: #fff;
-  font-family: "Roboto Slab";
 }
 .topmenusociallinks ul {
   display: flex;
@@ -83,17 +84,27 @@ section.TopMenu {
 .topmenusociallinks ul li i {
   font-size: 20px;
 }
-.navbar-nav a {
-  color: #000;
-  text-decoration: none;
-  font-size: 18px;
-  font-family: "Roboto Slab", serif;
-  font-weight: 400;
-  margin: 0px 13px;
-  font-weight: 500;
-}
-/************* home page css start  ************/
 
+.nav-link,
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+.navmenu-link {
+  color: #fff;
+  text-decoration: none;
+  margin: 0px 13px;
+  position: relative;
+}
+
+.navmenu-link:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-thickness: 0.25rem;
+  text-decoration-color: #b3842a;
+}
+
+/************* home page css start  ************/
 section#homebanners {
   background-color: #1c3a27;
   padding: 50px 0px;
@@ -102,7 +113,6 @@ section#homebanners {
   padding-right: 50px;
 }
 .homebanner h1 {
-  font-family: "Roboto Slab", serif;
   font-size: 40px;
   line-height: 45px;
   letter-spacing: 0.5px;
@@ -113,7 +123,7 @@ section#homebanners {
 
 .homebanner p {
   color: #fff;
-  font-family: "DM Sans", sans-serif;
+
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5em;
@@ -139,7 +149,6 @@ button.howitworks {
   border: none;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto Slab";
 }
 
 button.contactsus {
@@ -150,7 +159,7 @@ button.contactsus {
   border: 1px solid #b3842a;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Roboto Slab";
+
   width: 50%;
   margin-right: 30px;
 }
@@ -214,6 +223,15 @@ section.aboutusbox {
   flex-wrap: nowrap;
 }
 
+.mainmenu {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .dropdown-menu {
     padding: 1em;
@@ -247,20 +265,18 @@ span.linesheading {
   position: relative;
   font-size: 20px;
   font-weight: 600;
-  font-family: "DM Sans";
+
   color: #b3842a;
   text-transform: capitalize;
 }
 
 .aboutus h2 {
-  font-family: "Roboto Slab";
   font-weight: 700;
   font-size: 30px;
   color: #1c3a27;
 }
 
 .aboutus p {
-  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5em;
@@ -272,14 +288,12 @@ span.linesheading {
   padding-right: 50px;
 }
 .ourmission h2 {
-  font-family: "Roboto Slab";
   font-weight: 700;
   font-size: 30px;
   color: #1c3a27;
 }
 
 .ourmission p {
-  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5em;
@@ -292,7 +306,7 @@ span.leftlineheading {
   color: #b3842a;
   font-size: 20px;
   font-weight: 600;
-  font-family: "DM Sans";
+
   text-transform: capitalize;
 }
 span.leftlineheading:before {
@@ -349,7 +363,7 @@ section.bggrayy .nav-link span {
   transition: 0.6s ease all;
   font-size: 20px;
   font-weight: 400;
-  font-family: "DM Sans";
+
   color: #000;
 }
 
@@ -385,20 +399,17 @@ div#v-tabs-tab {
 }
 
 .unitmain-box h5 {
-  font-family: "Roboto Slab";
   font-size: 20px;
   color: #000;
 }
 
 .unitmain-box h3 {
-  font-family: "Roboto Slab";
   font-size: 25px;
   font-weight: 500;
   margin: 15px 0px;
   color: #1c3a27;
 }
 .unitmain-box p {
-  font-family: "DM Sans";
   font-size: 18px;
   font-weight: 400;
   margin-bottom: 20px;
@@ -529,7 +540,6 @@ section.ournewss {
   color: black;
 } */
 .overlay h3 {
-  font-family: "Roboto Slab";
   font-size: 20px;
   font-weight: 500;
 }
@@ -594,9 +604,7 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   font-size: 40px;
 }
 .aboutuspage h1,
-.service-title,
-.headerpage h1 {
-  font-family: "Roboto Slab", serif;
+.service-title {
   font-size: 2.5rem;
   line-height: 3rem;
   letter-spacing: 0.5px;
@@ -606,7 +614,13 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 }
 
 .headerpage h1 {
+  font-size: 3.75rem;
+  line-height: 4rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 700;
   max-width: 850px;
+  color: #fff;
   width: 100%;
   margin: 0 auto;
 }
@@ -620,7 +634,7 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 
 .aboutuspage h1 span {
   color: #1c3a27;
-  font-family: "Roboto Slab", serif;
+
   font-size: 2.5rem;
   line-height: 3rem;
 }
@@ -633,7 +647,7 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 
 .service-title span {
   color: #ebeef2;
-  font-family: "Roboto Slab", serif;
+
   font-size: 2.5rem;
   line-height: 3rem;
 }
@@ -641,7 +655,6 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 .headerpage {
   position: relative;
   padding: 1em;
-  z-index: 9999;
 }
 
 .dark-overlay {
@@ -654,7 +667,6 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 }
 
 .aboutuspage h5 {
-  font-family: "Roboto Slab", serif;
   font-size: 30px;
   line-height: 35px;
   letter-spacing: 0.5px;
@@ -663,7 +675,6 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 }
 
 .service-subtitle {
-  font-family: "Roboto Slab", serif;
   font-size: 30px;
   line-height: 35px;
   letter-spacing: 0.5px;
@@ -674,7 +685,7 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 .aboutuspage h5 span,
 .service-subtitle span {
   color: #b3842a;
-  font-family: "Roboto Slab", serif;
+
   font-size: 30px;
   line-height: 35px;
 }
@@ -701,7 +712,7 @@ button.download {
   border-bottom-right-radius: 50px !important;
   width: 45%;
   color: #fff;
-  font-family: "Roboto Slab", serif;
+
   font-size: 20px;
 }
 
@@ -747,20 +758,19 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 
 .headingwithyear h3 {
   color: #1c3a27;
-  font-family: "Roboto Slab";
+
   font-size: 25px;
   font-weight: 600;
 }
 
 .headingwithyear h5 {
   color: #1c3a27;
-  font-family: "DM Sans";
+
   font-size: 20px;
   font-weight: 600;
 }
 
 .mainoutertabsscontent p {
-  font-family: "DM Sans";
   font-size: 16px;
   color: #000;
   font-weight: 400;
@@ -799,7 +809,6 @@ section.commonbg {
 }
 
 .fourinfo h3 {
-  font-family: "Roboto Slab";
   font-weight: 700;
   font-size: 40px;
   line-height: 60px;
@@ -809,12 +818,9 @@ section.commonbg {
 
 .fourinfo p {
   color: #1c3a27;
-
-  font-family: "DM Sans";
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-
   text-align: center;
 }
 
@@ -826,7 +832,6 @@ section.commonbg {
   padding: 30px;
 }
 .threeinfo h3 {
-  font-family: "Roboto Slab";
   font-weight: 500;
   font-size: 25px;
   line-height: 30px;
@@ -835,7 +840,6 @@ section.commonbg {
 }
 
 .threeinfo p {
-  font-family: "DM Sans";
   font-size: 16px;
   font-weight: 400;
   color: #1c1d1f;
@@ -857,13 +861,13 @@ section.commonbg {
 }
 /* footer css start here */
 section#footerbox {
-  background: #1c3a27;
+  background: rgb(113, 113, 113);
   padding: 50px 0px;
 }
 
 .getintouch h3 {
   color: #fff;
-  font-family: "Roboto Slab";
+
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: 25px;
@@ -871,7 +875,7 @@ section#footerbox {
 
 .recentpost h3 {
   color: #fff;
-  font-family: "Roboto Slab";
+
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: 25px;
@@ -880,7 +884,6 @@ section#footerbox {
 .footer-logo p {
   color: #fff;
   font-size: 16px;
-  font-family: "DM Sans";
 }
 .getintouch ul {
   padding-left: 0px;
@@ -900,12 +903,11 @@ section#footerbox {
 .getintouch ul li a {
   color: #fff !important;
   font-size: 16px;
-  font-family: "DM Sans";
 }
 
 .footerform h6 {
   color: #b3842a;
-  font-family: "DM Sans";
+
   font-weight: 800;
   margin-bottom: 25px;
 }
@@ -932,10 +934,23 @@ button.subscribebtns {
   width: 100%;
   padding: 10px 30px;
   border-radius: 5px;
-  border: 1px solid #b3842a;
+  border: 1px solid transparent;
   color: #fff;
-  font-family: "Roboto Slab";
+
   font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+button.subscribebtns:hover {
+  background: rgba(179, 131, 42, 0.808);
+}
+
+.footerform .subscribebtns {
+  background: #1c3a27;
+}
+
+.footerform .subscribebtns:hover {
+  background: rgba(4, 114, 51, 1);
 }
 
 .bottomlinee {
@@ -982,7 +997,6 @@ section.threeboxxx {
   color: #b3842a;
   font-size: 16px;
   font-weight: 500;
-  font-family: "DM Sans";
   margin-bottom: 0px;
 }
 
@@ -999,7 +1013,6 @@ section.threeboxxx {
   color: #1c3a27;
   text-decoration: none;
   font-size: 14px;
-  font-family: "DM Sans";
 }
 
 .row.inlinebox {
@@ -1008,7 +1021,6 @@ section.threeboxxx {
 }
 
 .borderr-box h3 {
-  font-family: "Roboto Slab";
   font-size: 18px;
 }
 
@@ -1051,7 +1063,7 @@ section.threeboxxx {
   padding: 0.65rem 2rem;
   border: none;
   border-radius: 5px;
-  font-family: "Roboto Slab";
+
   font-size: 1.5rem;
   font-weight: 500;
   margin: 1em auto 0;
@@ -1090,7 +1102,6 @@ section.threeboxxx .fourboxmaingreen {
   margin-top: 16px;
 }
 .fourinfogreen h3 {
-  font-family: "Roboto Slab";
   font-weight: 600;
   font-size: 25px;
   line-height: 30px;
@@ -1100,8 +1111,6 @@ section.threeboxxx .fourboxmaingreen {
 
 .fourinfogreen p {
   color: #1c3a27;
-
-  font-family: "DM Sans";
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
@@ -1294,13 +1303,12 @@ section.spaceupdowngray {
   background-color: #b3842a;
   color: #fff;
   margin-top: 20px;
-  font-family: "Roboto Slab";
+
   font-size: 20px;
   padding: 5px;
 }
 
 .adminbox h5 {
-  font-family: "DM Sans";
   font-size: 18px;
   font-weight: 700;
   color: #1c3a27;
@@ -1308,7 +1316,6 @@ section.spaceupdowngray {
 }
 
 .adminbox p {
-  font-family: "DM Sans";
   font-size: 18px;
   font-weight: 400;
   color: #1c3a27;
@@ -1344,27 +1351,15 @@ section.spaceupdowngray {
 .card:hover {
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.3);
 }
-/* .card:hover .icon-wrapper {
-  background-color: #ffffff;
-  color: #b3842a;
-}
-.card:hover h3 {
-  color: #ffffff;
-}
-.card:hover p {
-  color: #f0f0f0;
-} */
 
 section.spaceupdown .card {
-  /* height: 370px; */
   border: none;
   text-align: center;
-  /* padding: 30px 30px 30px; */
 }
 
 section.spaceupdown .card h3 {
   font-size: 25px;
-  font-family: "Roboto Slab";
+
   font-weight: 600;
   margin: 20px 0px;
   text-transform: capitalize;
@@ -1373,7 +1368,6 @@ section.spaceupdown .card h3 {
 section.spaceupdown .card p {
   font-size: 16px;
   font-weight: 400;
-  font-family: "DM Sans";
 }
 
 .formbox {
@@ -1410,7 +1404,6 @@ section.spaceupdown .card p {
   color: #1c3a27;
   text-decoration: none;
   font-size: 18px;
-  font-family: "Roboto Slab";
 }
 
 .servicebottommenulinks {
@@ -1472,13 +1465,11 @@ section.spaceupdown .card p {
 .ciclre-info h3 {
   font-size: 35px;
   font-weight: 700;
-  font-family: "Roboto Slab";
 }
 
 .ciclre-info p {
   font-size: 20px;
   font-weight: 500;
-  font-family: "DM Sans";
 }
 .threeone:hover i,
 .threetwo:hover i,
@@ -1605,14 +1596,12 @@ section.spaceupdown .card p {
   font-weight: 500;
   text-transform: capitalize;
   font-size: 25px;
-  font-family: "Roboto Slab";
 }
 
 .title-area span {
   font-size: 18px;
   color: #000;
   font-weight: 400;
-  font-family: "DM Sans";
 }
 
 .service-box:hover h3,
@@ -1824,7 +1813,7 @@ section.spaceupdown .card p {
 .vertical__timeline_element-text {
   font-size: 1rem;
   font-weight: 400;
-  font-family: "DM Sans", sans-serif;
+
   color: #000;
 }
 
@@ -1903,6 +1892,6 @@ section.spaceupdown .card p {
 
 .md-message-pre {
   text-wrap: wrap;
-  font-family: "DM Sans", sans-serif;
+
   font-size: 1.25rem;
 }

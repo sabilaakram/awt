@@ -28,7 +28,11 @@ const MegaMenu = () => {
   return (
     <NavDropdown
       className="p-0"
-      title={<Link to="/business-units">Business Units</Link>}
+      title={
+        <Link className="navmenu-link" to="/business-units">
+          Business Units
+        </Link>
+      }
       show={showDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

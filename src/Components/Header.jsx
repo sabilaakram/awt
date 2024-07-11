@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 import { Link } from "react-router-dom";
 import mainlogo from "../assets/logo.png";
-import TopMenu from "./TopMenu";
+
 import MegaMenu from "./MegaMenu";
 
 const Header = () => {
@@ -27,15 +27,31 @@ const Header = () => {
                     className="justify-content-end"
                   >
                     <Nav className="position-relative">
-                      <Link to="/">Home</Link>
-                      <Link to="/aboutus">About Us</Link>
+                      <Link className="navmenu-link" to="/">
+                        Home
+                      </Link>
+                      <Link className="navmenu-link" to="/aboutus">
+                        About Us
+                      </Link>
                       <MegaMenu />
-                      <Link to="/mdmessage">MD’s Message</Link>
-                      <Link to="/boardofdirector">BOD’s</Link>
-                      <Link to="/news">News</Link>
-                      <Link to="/careers">Careers</Link>
-                      <Link to="/media">Media</Link>
-                      <Link to="/contactus">Contact Us</Link>
+                      <Link className="navmenu-link" to="/mdmessage">
+                        MD’s Message
+                      </Link>
+                      <Link className="navmenu-link" to="/boardofdirector">
+                        BOD’s
+                      </Link>
+                      <Link className="navmenu-link" to="/news">
+                        News
+                      </Link>
+                      <Link className="navmenu-link" to="/careers">
+                        Careers
+                      </Link>
+                      <Link className="navmenu-link" to="/media">
+                        Media
+                      </Link>
+                      <Link className="navmenu-link" to="/contactus">
+                        Contact Us
+                      </Link>
                     </Nav>
                     {/* <Button variant="outline-success">
                       <i class="fa fa-search" aria-hidden="true"></i>

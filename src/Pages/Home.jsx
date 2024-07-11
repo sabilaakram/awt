@@ -70,7 +70,7 @@ const Home = () => {
   if (isPending) return <LoadingSpinner />;
 
   return (
-    <div>
+    <>
       <HeaderSlider />
 
       <section className="spaceupdown">
@@ -235,7 +235,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

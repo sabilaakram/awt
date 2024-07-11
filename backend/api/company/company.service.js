@@ -1,39 +1,29 @@
 const pool = require("../../config/database");
-const db=process.env.DB_NAME
+const db = process.env.DB_NAME;
 module.exports = {
   addComapny: (data) => {
-    return new Promise((resolve,reject)=>
-    {
+    return new Promise((resolve, reject) => {
       pool.query(
         `insert into ${db}.company set name=?`,
-          [
-          data.name,
-         
-        ],
+        [data.name],
         (error, results, fields) => {
           if (error) {
-            reject ({err:error})
-            console.log(error)
+            reject({ err: error });
+            console.log(error);
           }
-          resolve ({results:results})
+          resolve({ results: results });
         }
       );
-
-    })
+    });
   },
 
-  
   getAllCompanies: (callBack) => {
-    pool.query(
-      `select * from ${db}.company`,
-      [],
-      (error, results, fields) => {
-        if (error) {
-          return callBack(error,null);
-        }
-        return callBack(null, results);
+    pool.query(`select * from ${db}.company`, [], (error, results, fields) => {
+      if (error) {
+        return callBack(error, null);
       }
-    );
+      return callBack(null, results);
+    });
   },
   getCompanyById: (id, callBack) => {
     pool.query(
@@ -41,13 +31,10 @@ module.exports = {
       [id],
       (error, results, fields) => {
         if (error) {
-          return callBack(error,null);
+          return callBack(error, null);
         }
         return callBack(null, results[0]);
       }
     );
   },
- 
-
-
 };

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BusinessUnitsSlider from "../Components/BusinessUnitsSlider";
 import { useBusinessUnit } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import NotFound from "./NotFound";
 
 const BusinessUnits = () => {
   const [activeTab, setActiveTab] = useState("v-tabs-allunits");
@@ -41,6 +42,7 @@ const BusinessUnits = () => {
   }, [data]);
 
   if (isPending) return <LoadingSpinner />;
+  if (error) return <NotFound />;
   return (
     <div>
       <section className="commonbg">

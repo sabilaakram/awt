@@ -14,6 +14,14 @@ body {
   overflow-x: hidden;
 }
 
+pre {
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
 /***********   common css **************/
 section.spaceupdown {
   margin: 60px 0px;
@@ -31,7 +39,8 @@ section.commonbg {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 50px 0px;
+  padding: 5em 0;
+  height: 100%;
 }
 
 section.feulaskeri {
@@ -90,6 +99,10 @@ section.TopMenu {
   color: #fff;
 }
 
+.navbar-toggler {
+  border-color: #fff !important;
+}
+
 .navmenu-link {
   color: #fff;
   text-decoration: none;
@@ -136,6 +149,7 @@ section#homebanners {
   width: 100%;
   margin-top: 50px;
 }
+
 div#btnGroupAddon {
   background-color: transparent;
   color: #fff;
@@ -166,6 +180,25 @@ button.contactsus {
 
 .bannerbtns .input-group {
   align-items: center;
+}
+
+.text-primary-green {
+  color: rgb(4, 114, 51) !important;
+}
+
+.btn-primary {
+  background: white;
+  border: 1px solid rgb(4, 114, 51);
+  box-shadow: none;
+  color: rgb(4, 114, 51);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: rgb(4, 114, 51);
+  border-color: rgb(4, 114, 51);
+  color: white;
 }
 
 /*********************** home page about us section ***********************/
@@ -224,12 +257,21 @@ section.aboutusbox {
 }
 
 .mainmenu {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 0;
   left: 0;
   z-index: 9999;
   width: 100%;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .mainmenu {
+    background: transparent;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -321,7 +363,6 @@ span.leftlineheading:before {
 section.bggrayy {
   padding: 50px 0px;
   background-color: #f1f1f1;
-  margin-top: 70px;
 }
 section.bggrayy .lefttabsss {
   margin-top: 70px;
@@ -392,7 +433,8 @@ div#v-tabs-tab {
   margin: 0px 10px;
   padding: 20px;
   border-radius: 5px;
-  min-height: 650px;
+  min-height: 620px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -420,15 +462,23 @@ div#v-tabs-tab {
   display: inline-block;
   background-color: #b3842a;
   padding: 10px 30px;
-  text-decoration: none;
   color: #fff;
   font-size: 18px;
   font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.unitbtnss a:hover {
+  background-color: rgba(179, 131, 42, 0.801);
 }
 
 @media screen and (max-width: 768px) {
   .unitmain-box {
     min-height: 100%;
+  }
+
+  .business-slider .slick-arrow {
+    display: none !important;
   }
 }
 
@@ -613,7 +663,8 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   font-weight: 700;
 }
 
-.headerpage h1 {
+.headerpage h1,
+.headerpage h2 {
   font-size: 3.75rem;
   line-height: 4rem;
   letter-spacing: 0.5px;
@@ -647,7 +698,6 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 
 .service-title span {
   color: #ebeef2;
-
   font-size: 2.5rem;
   line-height: 3rem;
 }
@@ -663,7 +713,32 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headerpage h1,
+  .headerpage h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .headerpage h1,
+  .headerpage h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
 }
 
 .aboutuspage h5 {
@@ -776,14 +851,6 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
   font-weight: 400;
 }
 
-section.commonbg {
-  background-image: url("../src/assets/Aboutus/commonbgpage.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 50px 0px;
-}
-
 .fourboxmain {
   background: #00235a14;
   text-align: center;
@@ -892,6 +959,9 @@ section#footerbox {
 .getintouch ul li {
   list-style-type: none;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .getintouch ul li i {
@@ -900,9 +970,15 @@ section#footerbox {
   margin-right: 5px;
 }
 
-.getintouch ul li a {
+.getintouch ul li a,
+.getintouch ul li span {
   color: #fff !important;
   font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.getintouch ul li a:hover {
+  color: #1c3a27 !important;
 }
 
 .footerform h6 {
@@ -1335,6 +1411,32 @@ section.spaceupdowngray {
   transition: 0.5s;
 }
 
+.resource-card {
+  background: none;
+  cursor: initial;
+}
+
+.resource-slider .slick-track {
+  display: flex;
+  gap: 1rem;
+}
+
+.custom-controls .custom-prev-icon,
+.custom-controls .custom-next-icon {
+  color: rgb(255, 255, 255);
+  background: rgb(4, 114, 51);
+  border-radius: 100%;
+  padding: 0.5rem;
+  font-size: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-controls .custom-prev-icon:hover,
+.custom-controls .custom-next-icon:hover {
+  background: rgb(0, 144, 10);
+}
+
 .icon-wrapper {
   background-color: #b3842a;
   position: relative;
@@ -1637,13 +1739,22 @@ section.spaceupdown .card p {
     transform: translateX(-40px);
   }
 }
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 992px) {
+  .navbar-collapse {
+    background: rgb(28, 58, 39);
+    padding: 2em 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .infotopmenulinks ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
   }
+
   .topmenusociallinks ul {
     justify-content: center;
   }
@@ -1894,4 +2005,15 @@ section.spaceupdown .card p {
   text-wrap: wrap;
 
   font-size: 1.25rem;
+}
+
+.max-w-lg {
+  max-width: 650px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1025px) {
+  .max-w-lg {
+    max-width: 100%;
+  }
 }

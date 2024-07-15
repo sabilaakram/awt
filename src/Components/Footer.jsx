@@ -24,17 +24,19 @@ const Footer = () => {
                   <li>
                     {" "}
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <a>ARMY WELFARE TRUST. AWT Plaza The Mall Rawalpindi</a>
+                    <span>
+                      ARMY WELFARE TRUST. AWT Plaza The Mall Rawalpindi
+                    </span>
                   </li>
                   <li>
                     {" "}
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    <a href="mailto:infoawt@awt.com.pk"> infoawt@awt.com.pk</a>
+                    <a href="mailto:infoawt@awt.com.pk">infoawt@awt.com.pk</a>
                   </li>
                   <li>
                     <i class="fa fa-phone" aria-hidden="true"></i>
 
-                    <a href="tel:92-51-9272400-4"> 92-51-9272400-4</a>
+                    <a href="tel:92-51-9272400-4">92-51-9272400-4</a>
                   </li>
                 </ul>
               </div>

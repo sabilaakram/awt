@@ -4,6 +4,7 @@ import { FaCaretRight } from "react-icons/fa";
 import { useState } from "react";
 import { useBusinessUnit } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
+import { FaChevronDown } from "react-icons/fa6";
 
 const MegaMenu = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -11,27 +12,28 @@ const MegaMenu = () => {
   const handleMouseEnter = () => {
     setShowDropdown(true);
   };
-
   const handleMouseLeave = () => {
     setShowDropdown(false);
   };
 
+  const publicListedCompanies = data?.filter((item) => item.company_id === 1);
+  const publicUnlistedCompanies = data?.filter((item) => item.company_id === 2);
+  const privateLimitedCompanies = data?.filter((item) => item.company_id === 3);
+  const otherTrustUnits = data?.filter((item) => item.company_id === 4);
+
   if (error) return "An error occured";
-
   if (isPending) return <LoadingSpinner />;
-
-  const publicListedCompanies = data.filter((item) => item.company_id === 1);
-  const publicUnlistedCompanies = data.filter((item) => item.company_id === 2);
-  const privateLimitedCompanies = data.filter((item) => item.company_id === 3);
-  const otherTrustUnits = data.filter((item) => item.company_id === 4);
 
   return (
     <NavDropdown
-      className="p-0"
+      className="p-0 d-none d-lg-block"
       title={
-        <Link className="navmenu-link" to="/business-units">
-          Business Units
-        </Link>
+        <span className="d-flex align-items-center">
+          <Link className="navmenu-link" to="/business-units">
+            Business Units
+          </Link>
+          <FaChevronDown className="text-white" />
+        </span>
       }
       show={showDropdown}
       onMouseEnter={handleMouseEnter}

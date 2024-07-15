@@ -1,10 +1,10 @@
 import CounterBox from "../Components/CounterBox.js";
 import HeaderSlider from "../Components/HeaderSlider.jsx";
-import NewsSlider from "../Components/NewsSlider.jsx";
 import BusinessUnitsSlider from "../Components/BusinessUnitsSlider.jsx";
 import { useEffect, useState } from "react";
 import { useBusinessUnit } from "../data/GetData.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
+import ResourceSlider from "../Components/ResourceSlider.jsx";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("v-tabs-allunits");
@@ -73,30 +73,27 @@ const Home = () => {
     <>
       <HeaderSlider />
 
-      <section className="spaceupdown">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="aboutus">
-                <span className="linesheading">Introduction</span>
-                <h2>A Promise of Resolute and Exceptional Cooperation</h2>
-                <p>
-                  We are excelling and achieving our objective with 53 years of
-                  dedicated investments in different business units, aimed at
-                  the betterment of Army Personnel and strengthening the
-                  national economy of Pakistan. At the heart of our corporation,
-                  lies a core value that emphasizes being a trusting, valuable,
-                  and effective partner. We aspire to sustain productive
-                  relationships with governments, companies, communities, and
-                  customers.
-                </p>
-              </div>
+      <section className="container py-4">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="aboutus">
+              <span className="linesheading">Introduction</span>
+              <h2 className="text-primary-green">
+                A Promise of Resolute and Exceptional Cooperation
+              </h2>
+              <p>
+                We are excelling and achieving our objective with 53 years of
+                dedicated investments in different business units, aimed at the
+                betterment of Army Personnel and strengthening the national
+                economy of Pakistan. At the heart of our corporation, lies a
+                core value that emphasizes being a trusting, valuable, and
+                effective partner. We aspire to sustain productive relationships
+                with governments, companies, communities, and customers.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      <NewsSlider />
 
       {data && (
         <section className="bggrayy">
@@ -203,12 +200,14 @@ const Home = () => {
         </section>
       )}
       <section className="spaceupdown">
-        <div className="container">
+        <div className="container-md">
           <div className="row">
             <div className="col-lg-12">
               <div className="ourmission">
                 <span className="leftlineheading"> Our Contributions</span>
-                <h2>Committed Services to Pakistan’s Success</h2>
+                <h2 className="text-primary-green">
+                  Committed Services to Pakistan’s Success
+                </h2>
                 <p>
                   Army Welfare Trust has been operating tirelessly and devotedly
                   to leave a positive imprint in the lives of its Army officers
@@ -221,10 +220,10 @@ const Home = () => {
       </section>
 
       <section className="mb-5">
-        <div className="container">
+        <div className="container-md">
           <div className="row">
             <div className="col-lg-12">
-              <div className="container">
+              <div className="container-md">
                 <div className="row">
                   {counters.map((counter, index) => (
                     <CounterBox key={index} {...counter} />
@@ -233,6 +232,24 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="container-lg p-4 d-flex align-items-center flex-xl-row flex-column gap-3 justify-content-between">
+        <div className="ourmission relative">
+          <span className="leftlineheading">Latest News And Events</span>
+          <h2 className="text-primary-green">
+            Committed Services to Pakistan&apos;s Success
+          </h2>
+          <p>
+            Army Welfare Trust has been operating tirelessly and devotedly to
+            leave a positive imprint in the lives of its Army officers and the
+            public of Pakistan as a whole.
+          </p>
+        </div>
+
+        <div className="max-w-lg">
+          <ResourceSlider />
         </div>
       </section>
     </>

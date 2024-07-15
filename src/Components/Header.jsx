@@ -4,8 +4,11 @@ import Navbar from "react-bootstrap/Navbar";
 
 import { Link } from "react-router-dom";
 import mainlogo from "../assets/logo.png";
-
 import MegaMenu from "./MegaMenu";
+import { FaBars } from "react-icons/fa6";
+import { useBusinessUnit } from "../data/GetData";
+import LoadingSpinner from "./LoadingSpinner";
+import { Dropdown } from "react-bootstrap";
 
 const Header = () => {
   return (
@@ -18,15 +21,16 @@ const Header = () => {
               <Navbar expand="lg" className="justify-content-center">
                 <Container className="px-0 mx-0">
                   <Navbar.Brand to="/">
-                    {" "}
                     <img src={mainlogo} alt="AWT" />{" "}
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Toggle aria-controls="basic-navbar-nav border-white">
+                    <FaBars className="text-white" />
+                  </Navbar.Toggle>
                   <Navbar.Collapse
                     id="basic-navbar-nav"
                     className="justify-content-end"
                   >
-                    <Nav className="position-relative">
+                    <Nav className="position-relative gap-3 gap-lg-0">
                       <Link className="navmenu-link" to="/">
                         Home
                       </Link>
@@ -34,6 +38,7 @@ const Header = () => {
                         About Us
                       </Link>
                       <MegaMenu />
+                      <MobileMenu />
                       <Link className="navmenu-link" to="/mdmessage">
                         MD’s Message
                       </Link>
@@ -64,6 +69,33 @@ const Header = () => {
         </div>
       </section>
     </div>
+  );
+};
+
+const MobileMenu = () => {
+  const { data, error, isPending } = useBusinessUnit();
+  if (error) return "An error occured";
+  if (isPending) return <LoadingSpinner />;
+
+  return (
+    <Dropdown className="d-block d-lg-none">
+      <Dropdown.Toggle className="border-0 bg-transparent text-white m-0">
+        Business Units
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu className="bg-transparent border-0 p-0 my-0">
+        {data.map((item, index) => (
+          <div className="my-2" key={index}>
+            <Dropdown.Item
+              href={`/business-units/${item.id}`}
+              className="text-white"
+            >
+              {item.title}
+            </Dropdown.Item>
+          </div>
+        ))}
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 

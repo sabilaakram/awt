@@ -68,14 +68,14 @@ const Header = () => {
                       >
                         <NavDropdown.Item
                           href="/boardofdirector"
-                          className="my-2"
+                          className="nav-link"
                         >
                           Board of Director
                         </NavDropdown.Item>
 
                         <NavDropdown.Item
                           href="/committeeofadministration"
-                          className="my-2"
+                          className="nav-link"
                         >
                           Committee of Administration
                         </NavDropdown.Item>

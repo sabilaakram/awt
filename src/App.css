@@ -134,9 +134,14 @@ section.TopMenu {
   text-decoration-color: #b3842a;
 }
 
-/* .bod-menu .dropdown-menu {
-  width: fit-content !important;
-} */
+.bod-menu.dropdown .dropdown-menu {
+  margin: 0 !important;
+  padding: 0 1em;
+}
+.bod-menu .dropdown-item {
+  margin: 1em 0 !important;
+  padding: 0 !important;
+}
 
 /************* home page css start  ************/
 section#homebanners {

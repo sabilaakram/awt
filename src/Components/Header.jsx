@@ -5,12 +5,21 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import mainlogo from "../assets/logo.png";
 import MegaMenu from "./MegaMenu";
-import { FaBars } from "react-icons/fa6";
+import { FaBars, FaChevronDown } from "react-icons/fa6";
 import { useBusinessUnit } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
-import { Dropdown } from "react-bootstrap";
+import { Dropdown, NavDropdown } from "react-bootstrap";
+import { useState } from "react";
 
 const Header = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+  };
   return (
     <div>
       {/* <TopMenu /> */}
@@ -44,9 +53,38 @@ const Header = () => {
                       <Link className="navmenu-link" to="/mdmessage">
                         MD’s Message
                       </Link>
-                      <Link className="navmenu-link" to="/boardofdirector">
+
+                      <NavDropdown
+                        show={showDropdown}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="bod-menu"
+                        title={
+                          <span className="d-flex align-items-center">
+                            <Link className="navmenu-link" to="/business-units">
+                              BODs{" "}
+                            </Link>
+                            <FaChevronDown className="text-white" />
+                          </span>
+                        }
+                      >
+                        <NavDropdown.Item
+                          href="/boardofdirector"
+                          className="my-2"
+                        >
+                          Board of Director
+                        </NavDropdown.Item>
+
+                        <NavDropdown.Item
+                          href="/committeeofadministration"
+                          className="my-2"
+                        >
+                          Committee of Administration
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                      {/* <Link className="navmenu-link" to="/boardofdirector">
                         BODs
-                      </Link>
+                      </Link> */}
                       <Link className="navmenu-link" to="/news">
                         News
                       </Link>
@@ -60,9 +98,6 @@ const Header = () => {
                         Contact Us
                       </Link>
                     </Nav>
-                    {/* <Button variant="outline-success">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                    </Button> */}
                   </Navbar.Collapse>
                 </Container>
               </Navbar>
@@ -81,8 +116,8 @@ const MobileMenu = () => {
 
   return (
     <Dropdown className="d-block d-lg-none">
-      <Dropdown.Toggle className="border-0 bg-transparent text-white m-0">
-        Business Units
+      <Dropdown.Toggle className="border-0 bg-transparent text-white m-0 d-flex align-items-center gap-3">
+        Business Units <FaChevronDown className="text-white" />
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="bg-transparent border-0 p-0 my-0">

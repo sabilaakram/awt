@@ -13,6 +13,7 @@ import News from "./Pages/News";
 import Media from "./Pages/Media";
 import Careers from "./Pages/Careers";
 import BusinessUnit from "./Pages/BusinessUnit";
+import CommitteeOfAdministration from "./Pages/CommitteeOfAdministration";
 
 import "./App.css";
 import { Suspense } from "react";
@@ -30,6 +31,10 @@ function App() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/mdmessage" element={<MDmessage />} />
             <Route path="/boardofdirector" element={<BOD />} />
+            <Route
+              path="/committeeofadministration"
+              element={<CommitteeOfAdministration />}
+            />
             <Route path="/business-units" element={<BusinessUnits />} />
             <Route path="/business-units/:id" element={<BusinessUnit />} />
             <Route path="/news" element={<News />} />

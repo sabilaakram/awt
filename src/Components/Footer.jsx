@@ -56,13 +56,13 @@ const Footer = () => {
             </div>
 
             <div className="col-lg-4 col-xl-3">
-              <div className="getintouch">
+              <div className="getintouch text-center">
                 <h3>Our Links</h3>
                 <ul>
                   {FooterItems.map((item, index) => (
-                    <li key={index}>
+                    <li className="w-100" key={index}>
                       <Link
-                        className="navmenu-link mx-0 text-capitalize"
+                        className="navmenu-link mx-0 text-capitalize mx-auto"
                         to={item.href}
                       >
                         {item.label}

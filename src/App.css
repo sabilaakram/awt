@@ -119,6 +119,25 @@ section.TopMenu {
   text-decoration-color: #b3842a;
 }
 
+.bod-menu {
+  position: relative !important;
+}
+
+.bod-menu .dropdown-toggle {
+  color: #fff !important;
+}
+
+.bod-menu .dropdown-toggle:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-thickness: 0.25rem;
+  text-decoration-color: #b3842a;
+}
+
+/* .bod-menu .dropdown-menu {
+  width: fit-content !important;
+} */
+
 /************* home page css start  ************/
 section#homebanners {
   background-color: #1c3a27;

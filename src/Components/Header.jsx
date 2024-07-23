@@ -60,10 +60,8 @@ const Header = () => {
                         onMouseLeave={handleMouseLeave}
                         className="bod-menu"
                         title={
-                          <span className="d-flex align-items-center">
-                            <Link className="navmenu-link" to="/business-units">
-                              BODs{" "}
-                            </Link>
+                          <span className="d-flex align-items-center gap-3">
+                            BODs
                             <FaChevronDown className="text-white" />
                           </span>
                         }

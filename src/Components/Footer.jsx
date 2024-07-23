@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <div>
       <section id="footerbox">
-        <div className="container px-0">
+        <div className="container">
           <div className="row justify-content-between align-items-center">
             <div className="col-lg-4 col-xl-3">
               <div className="footer-logo">

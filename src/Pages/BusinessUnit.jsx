@@ -45,15 +45,9 @@ const BusinessUnit = () => {
             >
               <div className="container">
                 <div class="row text-center">
-                  {/* <div class=""> */}
                   <h1 className="service-title">
                     {data.title} | <span>Pakistan </span>
                   </h1>
-
-                  {/* <h5 className="service-subtitle">
-                    Home | <span> {data.title} </span>
-                  </h5> */}
-                  {/* </div> */}
                 </div>
               </div>
             </section>

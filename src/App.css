@@ -934,7 +934,6 @@ section#footerbox {
 
 .getintouch h3 {
   color: #fff;
-
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: 25px;
@@ -998,12 +997,12 @@ section#footerbox {
   color: #fff;
   margin-bottom: 5px;
 }
-
+/* 
 @media screen and (max-width: 1024px) {
   .getintouch {
     margin: 2em 0 4em;
   }
-}
+} */
 
 button.subscribebtns {
   background: #b3842a;
@@ -1522,110 +1521,71 @@ section.spaceupdown .card p {
 .threeholder {
   position: relative;
   margin: 0 auto;
-
   height: 380px;
+  width: 100%;
 }
+
 .threeone {
-  padding: 30px;
   height: 100%;
-  background: #1c3a2726;
-  border-bottom: 15px solid #b3842a;
+  background: rgba(235, 238, 242, 1);
   text-align: center;
   transition: all 0.8s ease;
-  border-top-right-radius: 12px;
-  border-top-left-radius: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
 }
 
-.threeone:hover {
-  background: #b3842a;
-  transform: scale(1.04);
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+.counter-box {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2em;
 }
-.threeone:hover .circlepic {
-  background: #fff;
+
+@media screen and (max-width: 1200px) {
+  .counter-box {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-.threeone:hover .circleborder {
-  background: #1c3a27;
+
+@media screen and (max-width: 600px) {
+  .counter-box {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
-.threeone:hover i {
-  fill: #b3842a;
-}
-.threeone:hover .ciclre-info h3,
-.threeone:hover .ciclre-info p {
-  color: #fff;
-}
+
 .ciclre-info {
-  position: absolute;
   margin: 0 auto;
-  left: 0;
-  right: 0;
-  bottom: 50px;
   padding: 10px;
 }
 
 .ciclre-info h3 {
-  font-size: 35px;
+  font-size: 2.75rem;
   font-weight: 700;
 }
 
 .ciclre-info p {
-  font-size: 20px;
-  font-weight: 500;
-}
-.threeone:hover i,
-.threetwo:hover i,
-.threethree:hover i {
-  transition: all 0.65s;
-  transform: rotateY(360deg);
+  font-size: 16px;
 }
 
-.threetwo:hover .circleborder {
-  background: #333333;
-}
-.threetwo:hover i {
-  fill: #b3842a;
-}
-.threethree:hover {
-  background: #b3842a;
-}
-.threethree:hover .circleborder {
-  background: #333333;
-}
-.threethree:hover i {
-  fill: #f5cb22;
-}
 .circleborder {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  right: 0;
   margin: 0 auto;
   width: 90px;
   height: 90px;
-  background: #b3842a;
-
+  background: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: 10px solid #b3842a;
 }
 
 .circleborder i {
-  color: #fff;
+  color: #b3842a;
   font-size: 40px;
-}
-.circlepic {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 30px auto;
-  top: 20px;
-  width: 110px;
-  height: 110px;
-  background: #1c3a27;
-
-  border-radius: 50%;
 }
 
 .service-box {
@@ -1633,12 +1593,10 @@ section.spaceupdown .card p {
   transition: all 0.3s;
   padding: 10px 5px;
   background: #fff;
-
   border-radius: 5px;
   display: flex;
   cursor: pointer;
   box-shadow: 10px 10px 15px rgba(60, 40, 40, 0.15);
-
   position: relative;
 }
 

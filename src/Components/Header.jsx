@@ -20,8 +20,10 @@ const Header = () => {
             <div className="col-lg-12 col-md-12 col-ms-12">
               <Navbar expand="lg" className="justify-content-center">
                 <Container className="px-0 mx-0">
-                  <Navbar.Brand to="/">
-                    <img src={mainlogo} alt="AWT" />{" "}
+                  <Navbar.Brand>
+                    <Link to="/">
+                      <img src={mainlogo} alt="AWT" />
+                    </Link>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav border-white">
                     <FaBars className="text-white" />
@@ -43,7 +45,7 @@ const Header = () => {
                         MD’s Message
                       </Link>
                       <Link className="navmenu-link" to="/boardofdirector">
-                        BOD’s
+                        BODs
                       </Link>
                       <Link className="navmenu-link" to="/news">
                         News

@@ -1,4 +1,4 @@
-import CounterBox from "../Components/CounterBox.js";
+import CounterBox from "../Components/CounterBox.jsx";
 import HeaderSlider from "../Components/HeaderSlider.jsx";
 import BusinessUnitsSlider from "../Components/BusinessUnitsSlider.jsx";
 import { useEffect, useState } from "react";
@@ -224,7 +224,7 @@ const Home = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="container-md">
-                <div className="row">
+                <div className="counter-box">
                   {counters.map((counter, index) => (
                     <CounterBox key={index} {...counter} />
                   ))}

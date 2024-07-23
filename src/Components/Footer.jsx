@@ -1,14 +1,27 @@
+import { Link } from "react-router-dom";
 import footerlogo from "../assets/footerlogonew.png";
+
+const FooterItems = [
+  { label: "About Us", href: "/aboutus" },
+  { label: "MD's message", href: "/mdmessage" },
+  { label: "BODs", href: "/boardofdirector" },
+  { label: "News", href: "/news" },
+  { label: "Careers", href: "/Careers" },
+  { label: "Media", href: "/media" },
+  { label: "Contact Us", href: "/contactus" },
+];
 
 const Footer = () => {
   return (
     <div>
       <section id="footerbox">
-        <div className="container">
+        <div className="container px-0">
           <div className="row justify-content-between align-items-center">
-            <div className="col-lg-3">
+            <div className="col-lg-4 col-xl-3">
               <div className="footer-logo">
-                <img src={footerlogo} className="img-fluid" alt="" />
+                <Link to="/">
+                  <img src={footerlogo} className="img-fluid" alt="" />
+                </Link>
                 <p>
                   With 53 years of dedicated investments in the industries, the
                   Army Welfare Trust generates maximum funds for soldiers’
@@ -17,9 +30,9 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-4 col-xl-3">
               <div className="getintouch">
-                <h3> Get in Touch</h3>
+                <h3>Get in Touch</h3>
                 <ul>
                   <li>
                     {" "}
@@ -42,7 +55,25 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-4 col-xl-3">
+              <div className="getintouch">
+                <h3>Our Links</h3>
+                <ul>
+                  {FooterItems.map((item, index) => (
+                    <li key={index}>
+                      <Link
+                        className="navmenu-link mx-0 text-capitalize"
+                        to={item.href}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-xl-3">
               <div className="footerform">
                 <h3 className="text-white">Join Our Newsletter</h3>
                 <form onClick={(e) => e.preventDefault()}>

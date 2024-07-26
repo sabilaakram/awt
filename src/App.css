@@ -652,6 +652,35 @@ section.ournewss {
   font-weight: 200;
 }
 
+.homeslider-logo {
+  z-index: 999;
+  position: relative;
+  width: 80%;
+  margin: -6% auto 0;
+}
+
+.homeslider-logo .slick-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.logo-card {
+  background: #fff;
+  border: 1px solid #b3832a;
+  border-radius: 1rem;
+  padding: 1rem;
+  min-height: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .homeslider-logo {
+    width: 85%;
+    margin: -15% auto 0;
+  }
+}
+
 /* about us page css start here */
 
 section#AboutUsBox {
@@ -1216,6 +1245,12 @@ section.spaceupdowngray {
 }
 .trsutimages img.img-fluid {
   margin: 0 auto !important;
+}
+
+.logo-slider .slick-track {
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 
 .block {

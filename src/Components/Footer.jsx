@@ -55,14 +55,14 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-lg-4 col-xl-3">
-              <div className="getintouch text-center">
+            <div className="col-lg-4 col-xl-3 align-self-end">
+              <div className="getintouch">
                 <h3>Our Links</h3>
                 <ul>
                   {FooterItems.map((item, index) => (
                     <li className="w-100" key={index}>
                       <Link
-                        className="navmenu-link mx-0 text-capitalize mx-auto"
+                        className="navmenu-link mx-0 text-capitalize"
                         to={item.href}
                       >
                         {item.label}

@@ -1,4 +1,4 @@
-import Slider from "react-slick";
+import React from "react";
 
 import logo1 from "../assets/Logos/Transparent/Png/Asset 22.png";
 import logo2 from "../assets/Logos/Transparent/Png/Asset 23.png";
@@ -20,7 +20,9 @@ import logo17 from "../assets/Logos/Transparent/Png/Asset 38.png";
 import logo18 from "../assets/Logos/Transparent/Png/Asset 39.png";
 import logo19 from "../assets/Logos/Transparent/Png/Asset 40.png";
 
-const trustImages = [
+import Slider from "react-slick";
+
+const logos = [
   logo1,
   logo2,
   logo3,
@@ -42,52 +44,54 @@ const trustImages = [
   logo19,
 ];
 
-const ImagesSlider = () => {
+const HomeLogoSlider = () => {
   const settings = {
+    arrows: false,
     infinite: true,
+    speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 100,
-    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          infinite: true,
+          slidesToShow: 5,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
         },
       },
     ],
   };
+
   return (
-    <Slider {...settings} className="logo-slider">
-      {trustImages.map((image, index) => (
-        <div key={index}>
-          <div className="trsutimages">
-            <img src={image} className="img-fluid" alt="" />
+    <div className="homeslider-logo">
+      <Slider {...settings}>
+        {logos.map((logo, idx) => (
+          <div
+            key={idx}
+            className="logo-card d-flex align-items-center justify-content-center"
+          >
+            <img
+              src={logo}
+              alt={`Logo ${idx}`}
+              className="img-fluid homelogo-card mx-auto"
+            />
           </div>
-        </div>
-      ))}
-    </Slider>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
-export default ImagesSlider;
+export default HomeLogoSlider;

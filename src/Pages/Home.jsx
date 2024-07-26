@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useBusinessUnit } from "../data/GetData.jsx";
 import LoadingSpinner from "../Components/LoadingSpinner.jsx";
 import ResourceSlider from "../Components/ResourceSlider.jsx";
+import HomeLogoSlider from "../Components/HomeLogoSlider.jsx";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("v-tabs-allunits");
@@ -72,6 +73,7 @@ const Home = () => {
   return (
     <>
       <HeaderSlider />
+      <HomeLogoSlider />
 
       <section className="container py-4">
         <div className="row">

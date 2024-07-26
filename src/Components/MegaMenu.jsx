@@ -1,31 +1,26 @@
-import { Container, Dropdown, NavDropdown, Col, Row } from "react-bootstrap";
+import { Container, NavDropdown, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaCaretRight } from "react-icons/fa";
-import { useState } from "react";
 import { useBusinessUnit } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
 import { FaChevronDown } from "react-icons/fa6";
 
-const MegaMenu = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+const MegaMenu = ({ show, onMouseEnter, onMouseLeave }) => {
   const { data, error, isPending } = useBusinessUnit();
-  const handleMouseEnter = () => {
-    setShowDropdown(true);
-  };
-  const handleMouseLeave = () => {
-    setShowDropdown(false);
-  };
+
+  if (error) return "An error occurred";
+  if (isPending) return <LoadingSpinner />;
 
   const publicListedCompanies = data?.filter((item) => item.company_id === 1);
   const publicUnlistedCompanies = data?.filter((item) => item.company_id === 2);
   const privateLimitedCompanies = data?.filter((item) => item.company_id === 3);
   const otherTrustUnits = data?.filter((item) => item.company_id === 4);
 
-  if (error) return "An error occured";
-  if (isPending) return <LoadingSpinner />;
-
   return (
     <NavDropdown
+      show={show}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className="p-0 d-none d-lg-block"
       title={
         <span className="d-flex align-items-center">
@@ -35,70 +30,66 @@ const MegaMenu = () => {
           <FaChevronDown className="text-white" />
         </span>
       }
-      show={showDropdown}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <Container className="mega-menu">
         <Row className="justify-content-center">
           <Col className="text-left">
-            <Dropdown.Header>Public Listed Companies</Dropdown.Header>
+            <NavDropdown.Header>Public Listed Companies</NavDropdown.Header>
             {publicListedCompanies.map((item) => (
-              <Dropdown.Item key={item.id}>
+              <NavDropdown.Item key={item.id}>
                 <FaCaretRight color="gray" />
                 <Link
-                  onClick={() => setShowDropdown(false)}
+                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
                   className="nav-link"
                   to={`/business-units/${item.id}`}
                 >
                   {item.title}
                 </Link>
-              </Dropdown.Item>
-            ))}{" "}
-            <Dropdown.Divider />
-            <Dropdown.Header>Other Trust Units</Dropdown.Header>
+              </NavDropdown.Item>
+            ))}
+            <NavDropdown.Divider />
+            <NavDropdown.Header>Other Trust Units</NavDropdown.Header>
             {otherTrustUnits.map((item) => (
-              <Dropdown.Item key={item.id}>
+              <NavDropdown.Item key={item.id}>
                 <FaCaretRight color="gray" />
                 <Link
-                  onClick={() => setShowDropdown(false)}
+                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
                   className="nav-link"
                   to={`/business-units/${item.id}`}
                 >
                   {item.title}
                 </Link>
-              </Dropdown.Item>
+              </NavDropdown.Item>
             ))}
           </Col>
           <Col className="text-left">
-            {" "}
-            <Dropdown.Header>Public Unlisted Companies</Dropdown.Header>
+            <NavDropdown.Header>Public Unlisted Companies</NavDropdown.Header>
             {publicUnlistedCompanies.map((item) => (
-              <Dropdown.Item key={item.id}>
+              <NavDropdown.Item key={item.id}>
                 <FaCaretRight color="gray" />
                 <Link
-                  onClick={() => setShowDropdown(false)}
+                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
                   className="nav-link"
                   to={`/business-units/${item.id}`}
                 >
                   {item.title}
                 </Link>
-              </Dropdown.Item>
-            ))}{" "}
-            <Dropdown.Divider />
-            <Dropdown.Header>Private Limited Companies</Dropdown.Header>
+              </NavDropdown.Item>
+            ))}
+            <NavDropdown.Divider />
+            <NavDropdown.Header>Private Limited Companies</NavDropdown.Header>
             {privateLimitedCompanies.map((item) => (
-              <Dropdown.Item key={item.id}>
+              <NavDropdown.Item key={item.id}>
                 <FaCaretRight color="gray" />
                 <Link
-                  onClick={() => setShowDropdown(false)}
+                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
                   className="nav-link"
                   to={`/business-units/${item.id}`}
                 >
                   {item.title}
                 </Link>
-              </Dropdown.Item>
-            ))}{" "}
+              </NavDropdown.Item>
+            ))}
           </Col>
         </Row>
       </Container>

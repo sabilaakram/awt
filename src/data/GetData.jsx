@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { getStrapiURL, fetchStrapiData } from "../lib/utils";
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -9,6 +10,21 @@ const fetchData = async (endpoint) => {
   return response.data.data;
 };
 
+const fetchStrapi = async (endpoint, params = {}) => {
+  const url = getStrapiURL(endpoint);
+
+  return await fetchStrapiData(url, params);
+};
+
+const useStrapiQueryHandler = (queryKey, endpoint, params = {}) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: [queryKey],
+    queryFn: () => fetchStrapi(endpoint, params),
+  });
+
+  return { data, isLoading, error };
+};
+
 const useQueryHandler = (queryKey, endpoint) => {
   const { data, isPending, error } = useQuery({
     queryKey: [queryKey],
@@ -16,6 +32,70 @@ const useQueryHandler = (queryKey, endpoint) => {
   });
 
   return { data, isPending, error };
+};
+
+export const GetHeaderData = () => {
+  const params = {
+    populate: {
+      Image: {
+        fields: ["url", "alternativeText", "name"],
+      },
+    },
+  };
+
+  return useStrapiQueryHandler("header", "/api/homepages", params);
+};
+
+export const BusinessUnitDataBySlug = (slug) => {
+  const params = {
+    populate: {
+      Partners: {
+        populate: {
+          Partner: {
+            populate: {
+              Title: true,
+              Description: true,
+              Image: {
+                fields: ["name", "url", "alternativeText"],
+              },
+            },
+          },
+        },
+      },
+      Services: {
+        populate: {
+          Service: {
+            populate: {
+              Title: true,
+              Description: true,
+              Image: {
+                fields: ["name", "url", "alternativeText"],
+              },
+            },
+          },
+        },
+      },
+      CardImage: { fields: ["name", "url", "alternativeText"] },
+      BannerImage: { fields: ["name", "url", "alternativeText"] },
+      Image1: { fields: ["name", "url", "alternativeText"] },
+      Image2: { fields: ["name", "url", "alternativeText"] },
+    },
+  };
+
+  return useStrapiQueryHandler(
+    "services",
+    `/api/business-units/${slug}`,
+    params
+  );
+};
+
+export const BusinessUnitsData = () => {
+  const params = {
+    populate: {
+      CardImage: { fields: ["name", "url", "alternativeText"] },
+    },
+  };
+  return useStrapiQueryHandler("services", "/api/business-units", params);
 };
 
 export function useHeadersData() {

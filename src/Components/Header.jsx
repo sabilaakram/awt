@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 import { Link } from "react-router-dom";
-import mainlogo from "../assets/logo.png";
+import mainlogo from "../assets/footerlogonew.png";
 import MegaMenu from "./MegaMenu";
 import { FaBars, FaChevronDown } from "react-icons/fa6";
 import { useBusinessUnit } from "../data/GetData";
@@ -12,13 +12,23 @@ import { Dropdown, NavDropdown } from "react-bootstrap";
 import { useState } from "react";
 
 const Header = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [showBodsMenu, setShowBodsMenu] = useState(false);
 
-  const handleMouseEnter = () => {
-    setShowDropdown(true);
+  const handleMegaMenuMouseEnter = () => {
+    setShowMegaMenu(true);
   };
-  const handleMouseLeave = () => {
-    setShowDropdown(false);
+
+  const handleMegaMenuMouseLeave = () => {
+    setShowMegaMenu(false);
+  };
+
+  const handleBodsMenuMouseEnter = () => {
+    setShowBodsMenu(true);
+  };
+
+  const handleBodsMenuMouseLeave = () => {
+    setShowBodsMenu(false);
   };
   return (
     <div>
@@ -31,7 +41,13 @@ const Header = () => {
                 <Container className="px-0 mx-0">
                   <Navbar.Brand>
                     <Link to="/">
-                      <img src={mainlogo} alt="AWT" />
+                      <img
+                        src={mainlogo}
+                        alt="AWT"
+                        style={{
+                          maxWidth: "80px",
+                        }}
+                      />
                     </Link>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav border-white">
@@ -48,16 +64,20 @@ const Header = () => {
                       <Link className="navmenu-link" to="/aboutus">
                         About Us
                       </Link>
-                      <MegaMenu />
+                      <MegaMenu
+                        show={showMegaMenu}
+                        onMouseEnter={handleMegaMenuMouseEnter}
+                        onMouseLeave={handleMegaMenuMouseLeave}
+                      />
                       <MobileMenu />
                       <Link className="navmenu-link" to="/mdmessage">
                         MD’s Message
                       </Link>
 
                       <NavDropdown
-                        show={showDropdown}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                        show={showBodsMenu}
+                        onMouseEnter={handleBodsMenuMouseEnter}
+                        onMouseLeave={handleBodsMenuMouseLeave}
                         className="bod-menu"
                         title={
                           <span className="d-flex align-items-center gap-3">
@@ -80,9 +100,6 @@ const Header = () => {
                           Committee of Administration
                         </NavDropdown.Item>
                       </NavDropdown>
-                      {/* <Link className="navmenu-link" to="/boardofdirector">
-                        BODs
-                      </Link> */}
                       <Link className="navmenu-link" to="/news">
                         News
                       </Link>

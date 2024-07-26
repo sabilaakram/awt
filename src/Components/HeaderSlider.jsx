@@ -11,7 +11,7 @@ const HeaderSlider = () => {
 
   return (
     <section className="">
-      <Carousel className="vh-100" controls={false} fade>
+      <Carousel className="vh-100" controls={false} fade indicators={false}>
         {data.map((slide, index) => (
           <Carousel.Item key={slide.id}>
             <div

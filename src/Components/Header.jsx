@@ -13,7 +13,6 @@ import { useState } from "react";
 
 const Header = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
-  const [showBodsMenu, setShowBodsMenu] = useState(false);
 
   const handleMegaMenuMouseEnter = () => {
     setShowMegaMenu(true);
@@ -23,13 +22,6 @@ const Header = () => {
     setShowMegaMenu(false);
   };
 
-  const handleBodsMenuMouseEnter = () => {
-    setShowBodsMenu(true);
-  };
-
-  const handleBodsMenuMouseLeave = () => {
-    setShowBodsMenu(false);
-  };
   return (
     <div>
       {/* <TopMenu /> */}
@@ -74,32 +66,8 @@ const Header = () => {
                         MD’s Message
                       </Link>
 
-                      <NavDropdown
-                        show={showBodsMenu}
-                        onMouseEnter={handleBodsMenuMouseEnter}
-                        onMouseLeave={handleBodsMenuMouseLeave}
-                        className="bod-menu"
-                        title={
-                          <span className="d-flex align-items-center gap-3">
-                            BODs
-                            <FaChevronDown className="text-white" />
-                          </span>
-                        }
-                      >
-                        <NavDropdown.Item
-                          href="/boardofdirector"
-                          className="nav-link"
-                        >
-                          Board of Director
-                        </NavDropdown.Item>
+                      <BodDropdownMenu />
 
-                        <NavDropdown.Item
-                          href="/committeeofadministration"
-                          className="nav-link"
-                        >
-                          Committee of Administration
-                        </NavDropdown.Item>
-                      </NavDropdown>
                       <Link className="navmenu-link" to="/news">
                         News
                       </Link>
@@ -148,6 +116,41 @@ const MobileMenu = () => {
         ))}
       </Dropdown.Menu>
     </Dropdown>
+  );
+};
+
+const BodDropdownMenu = () => {
+  const [showBodsMenu, setShowBodsMenu] = useState(false);
+
+  const handleBodsMenuMouseEnter = () => {
+    setShowBodsMenu(true);
+  };
+
+  const handleBodsMenuMouseLeave = () => {
+    setShowBodsMenu(false);
+  };
+  return (
+    <NavDropdown
+      id="bod-dropdown"
+      show={showBodsMenu}
+      onMouseEnter={handleBodsMenuMouseEnter}
+      onMouseLeave={handleBodsMenuMouseLeave}
+      className="bod-menu"
+      title={
+        <span className="d-flex align-items-center gap-3">
+          BODs
+          <FaChevronDown className="text-white" />
+        </span>
+      }
+    >
+      <NavDropdown.Item href="/boardofdirector" className="nav-link">
+        Board of Director
+      </NavDropdown.Item>
+
+      <NavDropdown.Item href="/committeeofadministration" className="nav-link">
+        Committee of Administration
+      </NavDropdown.Item>
+    </NavDropdown>
   );
 };
 

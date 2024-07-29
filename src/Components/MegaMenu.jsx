@@ -18,9 +18,10 @@ const MegaMenu = ({ show, onMouseEnter, onMouseLeave }) => {
 
   return (
     <NavDropdown
-      show={show}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      id="megamenu"
+      // show={show}
+      // onMouseEnter={onMouseEnter}
+      // onMouseLeave={onMouseLeave}
       className="p-0 d-none d-lg-block"
       title={
         <span className="d-flex align-items-center">

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a3b78490.css",
-    "main.js": "/static/js/main.19b3d2df.js",
+    "main.css": "/static/css/main.a4078cd7.css",
+    "main.js": "/static/js/main.bb4d30d5.js",
     "static/media/visionarmyhelp.png": "/static/media/visionarmyhelp.eb917fa7fad2fa60b3f9.png",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/mdmessageperson.png": "/static/media/mdmessageperson.773c352a2e37c49935f7.png",
@@ -28,11 +28,11 @@
     "static/media/Asset 28.png": "/static/media/Asset 28.1292ba315fd33522c2b3.png",
     "static/media/Asset 38.png": "/static/media/Asset 38.d1cf585a2c0401d02116.png",
     "index.html": "/index.html",
-    "main.a3b78490.css.map": "/static/css/main.a3b78490.css.map",
-    "main.19b3d2df.js.map": "/static/js/main.19b3d2df.js.map"
+    "main.a4078cd7.css.map": "/static/css/main.a4078cd7.css.map",
+    "main.bb4d30d5.js.map": "/static/js/main.bb4d30d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3b78490.css",
-    "static/js/main.19b3d2df.js"
+    "static/css/main.a4078cd7.css",
+    "static/js/main.bb4d30d5.js"
   ]
 }

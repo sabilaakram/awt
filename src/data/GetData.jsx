@@ -12,7 +12,6 @@ const fetchData = async (endpoint) => {
 
 const fetchStrapi = async (endpoint, params = {}) => {
   const url = getStrapiURL(endpoint);
-
   return await fetchStrapiData(url, params);
 };
 

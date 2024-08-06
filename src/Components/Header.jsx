@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import mainlogo from "../assets/footerlogonew.png";
 import MegaMenu from "./MegaMenu";
 import { FaBars, FaChevronDown } from "react-icons/fa6";
-import { useBusinessUnit } from "../data/GetData";
+import { BusinessUnitsData, useBusinessUnit } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
 import { Dropdown, NavDropdown } from "react-bootstrap";
 import { useState } from "react";
@@ -93,24 +93,24 @@ const Header = () => {
 };
 
 const MobileMenu = () => {
-  const { data, error, isPending } = useBusinessUnit();
+  const { data, error, isPending } = BusinessUnitsData();
   if (error) return "An error occured";
   if (isPending) return <LoadingSpinner />;
 
   return (
-    <Dropdown className="d-block d-lg-none">
-      <Dropdown.Toggle className="border-0 bg-transparent text-white m-0 d-flex align-items-center gap-3">
+    <Dropdown className="d-block d-lg-none p-0">
+      <Dropdown.Toggle className="border-0 bg-transparent text-white m-0 mx-auto d-flex align-items-center gap-3">
         Business Units <FaChevronDown className="text-white" />
       </Dropdown.Toggle>
 
-      <Dropdown.Menu className="bg-transparent border-0 p-0 my-0">
-        {data.map((item, index) => (
-          <div className="my-2" key={index}>
+      <Dropdown.Menu className="bg-transparent border-0 p-2 my-0">
+        {data.map((item) => (
+          <div className="my-2" key={item.id}>
             <Dropdown.Item
-              href={`/business-units/${item.id}`}
-              className="text-white"
+              href={`/business-units/${item.slug}`}
+              className="text-white justify-content-center"
             >
-              {item.title}
+              {item.Title}
             </Dropdown.Item>
           </div>
         ))}
@@ -130,27 +130,57 @@ const BodDropdownMenu = () => {
     setShowBodsMenu(false);
   };
   return (
-    <NavDropdown
-      id="bod-dropdown"
-      show={showBodsMenu}
-      onMouseEnter={handleBodsMenuMouseEnter}
-      onMouseLeave={handleBodsMenuMouseLeave}
-      className="bod-menu"
-      title={
-        <span className="d-flex align-items-center gap-3">
-          BODs
-          <FaChevronDown className="text-white" />
-        </span>
-      }
-    >
-      <NavDropdown.Item href="/boardofdirector" className="nav-link">
-        Board of Director
-      </NavDropdown.Item>
+    <>
+      <NavDropdown
+        id="bod-dropdown"
+        show={showBodsMenu}
+        onMouseEnter={handleBodsMenuMouseEnter}
+        onMouseLeave={handleBodsMenuMouseLeave}
+        className="bod-menu d-none d-lg-block"
+        title={
+          <span className="d-flex align-items-center gap-3">
+            BODs
+            <FaChevronDown className="text-white" />
+          </span>
+        }
+      >
+        <NavDropdown.Item href="/boardofdirector" className="nav-link">
+          Board of Director
+        </NavDropdown.Item>
 
-      <NavDropdown.Item href="/committeeofadministration" className="nav-link">
-        Committee of Administration
-      </NavDropdown.Item>
-    </NavDropdown>
+        <NavDropdown.Item
+          href="/committeeofadministration"
+          className="nav-link"
+        >
+          Committee of Administration
+        </NavDropdown.Item>
+      </NavDropdown>
+
+      <Dropdown className="d-block d-lg-none p-0">
+        <Dropdown.Toggle className="border-0 bg-transparent text-white m-0 mx-auto d-flex align-items-center gap-3">
+          BODs <FaChevronDown className="text-white" />
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className="bg-transparent border-0 p-2 my-0">
+          <div className="my-2">
+            <Dropdown.Item
+              href="/committeeofadministration"
+              className="text-white justify-content-center"
+            >
+              Committee of Administration
+            </Dropdown.Item>
+          </div>
+          <div className="my-2">
+            <Dropdown.Item
+              href="/boardofdirector"
+              className="text-white justify-content-center"
+            >
+              Board of Director
+            </Dropdown.Item>
+          </div>
+        </Dropdown.Menu>
+      </Dropdown>
+    </>
   );
 };
 

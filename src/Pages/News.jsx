@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { useNews } from "../data/GetData";
 
@@ -21,10 +21,13 @@ const News = () => {
                 <h1>
                   AWT <span>News</span>
                 </h1>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/" className="">
+                    Home
+                  </Breadcrumb.Item>
 
-                <h5>
-                  Home | <span>News</span>
-                </h5>
+                  <Breadcrumb.Item active>News</Breadcrumb.Item>
+                </Breadcrumb>{" "}
               </div>
             </div>
           </Row>

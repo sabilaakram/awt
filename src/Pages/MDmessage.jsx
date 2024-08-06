@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import mdmessage from "../assets/MDmessage/mdmessageperson.png";
 import stars from "../assets/MDmessage/mdstars.png";
 import ImagesSlider from "../Components/ImagesSlider";
@@ -20,12 +20,16 @@ const MDmessage = () => {
               <div className="aboutuspage">
                 <h1>
                   {" "}
-                  MD <span>MESSAGE </span>{" "}
+                  MD's <span>MESSAGE </span>{" "}
                 </h1>
 
-                <h5>
-                  Home | <span>MD's Message </span>{" "}
-                </h5>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/" className="">
+                    Home
+                  </Breadcrumb.Item>
+
+                  <Breadcrumb.Item active>MD's Message</Breadcrumb.Item>
+                </Breadcrumb>
               </div>
             </div>
           </div>

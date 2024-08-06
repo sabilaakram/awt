@@ -17,12 +17,12 @@ const fetchStrapi = async (endpoint, params = {}) => {
 };
 
 const useStrapiQueryHandler = (queryKey, endpoint, params = {}) => {
-  const { data, error, isLoading } = useQuery({
+  const { data, error, isPending } = useQuery({
     queryKey: [queryKey],
     queryFn: () => fetchStrapi(endpoint, params),
   });
 
-  return { data, isLoading, error };
+  return { data, isPending, error };
 };
 
 const useQueryHandler = (queryKey, endpoint) => {
@@ -34,6 +34,7 @@ const useQueryHandler = (queryKey, endpoint) => {
   return { data, isPending, error };
 };
 
+//Strapi api
 export const GetHeaderData = () => {
   const params = {
     populate: {
@@ -79,11 +80,12 @@ export const BusinessUnitDataBySlug = (slug) => {
       BannerImage: { fields: ["name", "url", "alternativeText"] },
       Image1: { fields: ["name", "url", "alternativeText"] },
       Image2: { fields: ["name", "url", "alternativeText"] },
+      contact: { populate: true },
     },
   };
 
   return useStrapiQueryHandler(
-    "services",
+    `${slug}`,
     `/api/business-units/${slug}`,
     params
   );
@@ -95,9 +97,10 @@ export const BusinessUnitsData = () => {
       CardImage: { fields: ["name", "url", "alternativeText"] },
     },
   };
-  return useStrapiQueryHandler("services", "/api/business-units", params);
+  return useStrapiQueryHandler("business-units", "/api/business-units", params);
 };
 
+//Dashboard apis
 export function useHeadersData() {
   return useQueryHandler("headersData", "/home");
 }

@@ -1,6 +1,7 @@
 import AboutTimeline from "../Components/AboutTimeline.jsx";
 import visionarmyhelp from "../assets/Aboutus/visionarmyhelp.png";
 import ImagesSlider from "../Components/ImagesSlider.jsx";
+import { Breadcrumb } from "react-bootstrap";
 
 const AboutUs = () => {
   return (
@@ -14,9 +15,13 @@ const AboutUs = () => {
                   About <span>Us </span>
                 </h1>
 
-                <h5>
-                  Home | <span>About Us </span>
-                </h5>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/" className="">
+                    Home
+                  </Breadcrumb.Item>
+
+                  <Breadcrumb.Item active>About Us</Breadcrumb.Item>
+                </Breadcrumb>
               </div>
             </div>
           </div>
@@ -45,7 +50,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section>
+      {/* <section>
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -53,7 +58,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="aboutusbox">
         <div className="container">
@@ -90,15 +95,15 @@ const AboutUs = () => {
                   for the Army Welfare Trust.
                 </p>
 
-                <p>
+                {/* <p>
                   {" "}
                   Get a complete picture of the events from our Corporate
                   Profile 2022. Enter your email address to download it now!
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
-
+          {/* 
           <div className="row">
             <div className="col-lg-8 m-auto">
               <div className="Corporate">
@@ -118,7 +123,7 @@ const AboutUs = () => {
                 </form>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

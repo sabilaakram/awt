@@ -45,7 +45,7 @@ const ResourceSlider = () => {
           <NewsCard key={index} cardData={slide} />
         ))}
       </Slider>
-      <div className="d-flex justify-content-center align-items-center gap-3 pt-3 w-100 custom-controls">
+      <div className="resource-slider-controls d-flex justify-content-center align-items-center gap-3 pt-3 custom-controls">
         <span className="custom-prev-icon" onClick={handlePrev}>
           <FaChevronLeft size={20} />
         </span>

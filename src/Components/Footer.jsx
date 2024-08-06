@@ -37,18 +37,16 @@ const Footer = () => {
                   <li>
                     {" "}
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <span>
+                    <button className="link-button footer-link-button">
                       ARMY WELFARE TRUST. AWT Plaza The Mall Rawalpindi
-                    </span>
+                    </button>
                   </li>
                   <li>
-                    {" "}
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                     <a href="mailto:infoawt@awt.com.pk">infoawt@awt.com.pk</a>
                   </li>
                   <li>
                     <i class="fa fa-phone" aria-hidden="true"></i>
-
                     <a href="tel:92-51-9272400-4">92-51-9272400-4</a>
                   </li>
                 </ul>
@@ -61,10 +59,7 @@ const Footer = () => {
                 <ul>
                   {FooterItems.map((item, index) => (
                     <li className="w-100" key={index}>
-                      <Link
-                        className="navmenu-link mx-0 text-capitalize"
-                        to={item.href}
-                      >
+                      <Link className="mx-0 text-capitalize" to={item.href}>
                         {item.label}
                       </Link>
                     </li>

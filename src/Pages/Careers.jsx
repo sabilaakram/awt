@@ -1,3 +1,5 @@
+import { Breadcrumb } from "react-bootstrap";
+
 const Careers = () => {
   return (
     <>
@@ -8,9 +10,13 @@ const Careers = () => {
               <div className="aboutuspage">
                 <h1>Careers</h1>
 
-                <h5>
-                  Home | <span>Careers</span>
-                </h5>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/" className="">
+                    Home
+                  </Breadcrumb.Item>
+
+                  <Breadcrumb.Item active>Careers</Breadcrumb.Item>
+                </Breadcrumb>
               </div>
             </div>
           </div>

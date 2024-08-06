@@ -82,11 +82,7 @@ const HomeLogoSlider = () => {
             key={idx}
             className="logo-card d-flex align-items-center justify-content-center"
           >
-            <img
-              src={logo}
-              alt={`Logo ${idx}`}
-              className="img-fluid homelogo-card mx-auto"
-            />
+            <img src={logo} alt={`Logo ${idx}`} className="img-fluid mx-auto" />
           </div>
         ))}
       </Slider>

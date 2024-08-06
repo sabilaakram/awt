@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import ImagesSlider from "../Components/ImagesSlider";
 import { useBod } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
@@ -8,10 +8,6 @@ const BOD = () => {
   if (isPending) return <LoadingSpinner />;
 
   if (error) return "An error occured!!!";
-
-  const committeOfAdministration = data.filter(
-    (item) => item.category === "Committee of Administration"
-  );
 
   const boardOfDirectors = data.filter(
     (item) => item.category === "Board of Directors"
@@ -25,13 +21,16 @@ const BOD = () => {
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>
-                  {" "}
                   Board of <span>Directors </span>{" "}
                 </h1>
 
-                <h5>
-                  Home | <span> BOD’s </span>{" "}
-                </h5>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/" className="">
+                    Home
+                  </Breadcrumb.Item>
+
+                  <Breadcrumb.Item active>BODs</Breadcrumb.Item>
+                </Breadcrumb>
               </div>
             </div>
           </div>
@@ -61,7 +60,7 @@ const BOD = () => {
             <Col key={index} md={4} className="card-col">
               <div className="fourimgsbox">
                 <div class="block">
-                  <div class="hovicon effect-4 sub-b">
+                  <div class="hovicon effect-4">
                     <img
                       src={`https://api.zalimburgers.com/${item.image}`}
                       className="img-fluid"

@@ -4,6 +4,8 @@ import quries from "../assets/contactus/question.png";
 import contact from "../assets/contactus.png";
 
 import ImagesSlider from "../Components/ImagesSlider";
+import { Breadcrumb, Container, Row } from "react-bootstrap";
+import ContactInfoCard from "../Components/ContactInfoCard";
 const ContactUs = () => {
   return (
     <div>
@@ -16,9 +18,13 @@ const ContactUs = () => {
                   Contact <span>Us </span>
                 </h1>
 
-                <h5>
-                  Home | <span>Contact Us </span>
-                </h5>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/" className="">
+                    Home
+                  </Breadcrumb.Item>
+
+                  <Breadcrumb.Item active>Contact Us</Breadcrumb.Item>
+                </Breadcrumb>
               </div>
             </div>
           </div>
@@ -101,10 +107,9 @@ const ContactUs = () => {
                           <h5> Address to</h5>
                           <ul>
                             <li>
-                              <a href="tel:92-51-9272400-4">
-                                {" "}
-                                +92-51-9272400-4{" "}
-                              </a>
+                              <button className="link-button">
+                                AWT Plaza The Mall Rawalpindi
+                              </button>
                             </li>
                           </ul>
                         </div>
@@ -187,7 +192,7 @@ const ContactUs = () => {
                   </div>
 
                   <button type="submit" class="sendmessage mb-3">
-                    Sent Message
+                    Send Message
                   </button>
                 </div>
               </div>
@@ -196,7 +201,17 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <section className="threeboxxx">
+      <section className="team-contact">
+        <Container>
+          <h2 className="text-center m-0 ">AWT Team Members</h2>
+
+          <div className="team-contact-grid">
+            <ContactInfoCard />
+          </div>
+        </Container>
+      </section>
+
+      <section className="threeboxxx p-3 p-sm-0">
         <div className="container bggg">
           <div className="row">
             <div className="col-lg-4">
@@ -205,8 +220,8 @@ const ContactUs = () => {
                   <img src={handss} className="img-fluid" alt="" />
                 </div>
                 <div className="fourinfogreen">
-                  <h3> Collaboration</h3>
-                  <p> Looking for a Strategic Partnership?</p>
+                  <h3>Collaboration</h3>
+                  <p>Looking for a Strategic Partnership?</p>
                 </div>
               </div>
             </div>
@@ -238,24 +253,18 @@ const ContactUs = () => {
       </section>
 
       <section className="mappb0x">
-        <div className="container-fluid overflow-hidden no-gutters p-0 ">
+        <div className="container-fluid overflow-hidden no-gutters p-0">
           <div className="row">
             <div className="col-lg-12">
-              <div class="mapouter">
-                <div class="gmap_canvas">
-                  <iframe
-                    title="AWT Location"
-                    width="100%"
-                    height="510"
-                    id="gmap_canvas"
-                    src="https://maps.google.com/maps?q=ARMY WELFARE TRUST. AWT Plaza The Mall Rawalpindi&t=&z=10&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                  ></iframe>
-                </div>
-              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.335508796949!2d73.04483477440903!3d33.596598241654355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df948409da2c3b%3A0xbdeea01d5f91f54a!2sAWT%20(Army%20Welfare%20Trust)%20Plaza!5e0!3m2!1sen!2s!4v1722922177880!5m2!1sen!2s"
+                width="100%"
+                height="550"
+                allowFullScreen
+                title="map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>

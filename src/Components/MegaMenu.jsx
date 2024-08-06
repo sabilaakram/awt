@@ -1,96 +1,87 @@
 import { Container, NavDropdown, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaCaretRight } from "react-icons/fa";
-import { useBusinessUnit } from "../data/GetData";
+import { BusinessUnitsData } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
 import { FaChevronDown } from "react-icons/fa6";
+import React from "react";
 
 const MegaMenu = ({ show, onMouseEnter, onMouseLeave }) => {
-  const { data, error, isPending } = useBusinessUnit();
+  const { data, error, isPending } = BusinessUnitsData();
 
   if (error) return "An error occurred";
   if (isPending) return <LoadingSpinner />;
 
-  const publicListedCompanies = data?.filter((item) => item.company_id === 1);
-  const publicUnlistedCompanies = data?.filter((item) => item.company_id === 2);
-  const privateLimitedCompanies = data?.filter((item) => item.company_id === 3);
-  const otherTrustUnits = data?.filter((item) => item.company_id === 4);
+  const categorizeByWelfareUnit = (items) => {
+    return items.reduce((acc, item) => {
+      const category = item.WelfareUnit;
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(item);
+      return acc;
+    }, {});
+  };
+
+  const categorizedData = categorizeByWelfareUnit(data);
+
+  const renderCategory = (categoryName, items) => (
+    <>
+      <NavDropdown.Header>{categoryName}</NavDropdown.Header>
+      {items.map((item) => (
+        <NavDropdown.Item key={item.id}>
+          <FaCaretRight color="gray" />
+          <Link
+            onClick={() => onMouseLeave()}
+            className="nav-link"
+            to={`/business-units/${item.slug}`}
+          >
+            {item.Title}
+          </Link>
+        </NavDropdown.Item>
+      ))}
+    </>
+  );
 
   return (
     <NavDropdown
       id="megamenu"
-      // show={show}
-      // onMouseEnter={onMouseEnter}
-      // onMouseLeave={onMouseLeave}
       className="p-0 d-none d-lg-block"
       title={
-        <span className="d-flex align-items-center">
-          <Link className="navmenu-link" to="/business-units">
-            Business Units
-          </Link>
-          <FaChevronDown className="text-white" />
+        <span className="d-flex gap-2 align-items-center navmenu-link">
+          Business Units {"  "} <FaChevronDown className="text-white" />
         </span>
       }
     >
       <Container className="mega-menu">
         <Row className="justify-content-center">
           <Col className="text-left">
-            <NavDropdown.Header>Public Listed Companies</NavDropdown.Header>
-            {publicListedCompanies.map((item) => (
-              <NavDropdown.Item key={item.id}>
-                <FaCaretRight color="gray" />
-                <Link
-                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
-                  className="nav-link"
-                  to={`/business-units/${item.id}`}
-                >
-                  {item.title}
-                </Link>
-              </NavDropdown.Item>
-            ))}
+            {renderCategory(
+              "Public Listed Companies",
+              categorizedData["Public Listed Company"] || []
+            )}
             <NavDropdown.Divider />
-            <NavDropdown.Header>Other Trust Units</NavDropdown.Header>
-            {otherTrustUnits.map((item) => (
-              <NavDropdown.Item key={item.id}>
-                <FaCaretRight color="gray" />
-                <Link
-                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
-                  className="nav-link"
-                  to={`/business-units/${item.id}`}
-                >
-                  {item.title}
-                </Link>
-              </NavDropdown.Item>
-            ))}
           </Col>
           <Col className="text-left">
-            <NavDropdown.Header>Public Unlisted Companies</NavDropdown.Header>
-            {publicUnlistedCompanies.map((item) => (
-              <NavDropdown.Item key={item.id}>
-                <FaCaretRight color="gray" />
-                <Link
-                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
-                  className="nav-link"
-                  to={`/business-units/${item.id}`}
-                >
-                  {item.title}
-                </Link>
-              </NavDropdown.Item>
-            ))}
+            {renderCategory(
+              "Public Unlisted Companies",
+              categorizedData["Public Unlisted Company"] || []
+            )}
             <NavDropdown.Divider />
-            <NavDropdown.Header>Private Limited Companies</NavDropdown.Header>
-            {privateLimitedCompanies.map((item) => (
-              <NavDropdown.Item key={item.id}>
-                <FaCaretRight color="gray" />
-                <Link
-                  onClick={() => onMouseLeave()} // Close the menu when an item is clicked
-                  className="nav-link"
-                  to={`/business-units/${item.id}`}
-                >
-                  {item.title}
-                </Link>
-              </NavDropdown.Item>
-            ))}
+          </Col>
+        </Row>
+        <Row className="justify-content-center mt-3">
+          <Col className="text-left">
+            {renderCategory(
+              "Private Limited Companies",
+              categorizedData["Private Limited Company"] || []
+            )}
+          </Col>
+          <Col className="text-left">
+            {renderCategory(
+              "Other Trust Units",
+              categorizedData["Other Trust Unit"] || []
+            )}
           </Col>
         </Row>
       </Container>

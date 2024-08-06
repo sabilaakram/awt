@@ -10,21 +10,21 @@ const HeaderSlider = () => {
   if (error) return "Cannot fetch data";
 
   return (
-    <section className="">
-      <Carousel className="vh-100" controls={false} fade indicators={false}>
+    <>
+      <Carousel controls={false} fade indicators={false} interval={2500}>
         {data.map((slide, index) => (
           <Carousel.Item key={slide.id}>
             <div
               style={{
                 background: `url(https://api.zalimburgers.com/${slide?.image}) no-repeat`,
-                height: "100vh",
+                height: "80vh",
                 width: "100vw",
                 backgroundSize: "cover",
-                animation: "zoomIn 20s ease-in-out infinite alternate",
+                animation: "zoomIn 10s ease-in-out infinite alternate",
               }}
               className="header d-flex flex-column justify-content-center align-items-center text-white"
             >
-              <div className="dark-overlay"></div>
+              <div className="dark-overlay" />
               <div className="headerpage">
                 {index > 0 ? (
                   <h2 className="text-center">{slide.title}</h2>
@@ -37,7 +37,7 @@ const HeaderSlider = () => {
           </Carousel.Item>
         ))}
       </Carousel>
-    </section>
+    </>
   );
 };
 

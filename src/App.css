@@ -14,6 +14,10 @@ body {
   overflow-x: hidden;
 }
 
+li {
+  list-style: none;
+}
+
 pre {
   font-family: "Montserrat", sans-serif;
 }
@@ -23,7 +27,7 @@ a {
 }
 
 /***********   common css **************/
-section.spaceupdown {
+.spaceupdown {
   margin: 60px 0px;
 }
 
@@ -34,7 +38,7 @@ section.spaceupdown {
   padding-bottom: 40px;
 }
 
-section.commonbg {
+.commonbg {
   background-image: url("../src/assets/Aboutus/commonbgpage.png");
   background-position: center;
   background-size: cover;
@@ -45,7 +49,7 @@ section.commonbg {
   place-content: center;
 }
 
-section.feulaskeri {
+.feulaskeri {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,7 +76,6 @@ section.TopMenu {
 
 .infotopmenulinks ul li,
 .topmenusociallinks ul li {
-  list-style-type: none;
   margin-right: 30px;
 }
 
@@ -83,7 +86,6 @@ section.TopMenu {
 .infotopmenulinks ul li a {
   font-size: 18px;
   font-weight: 400;
-  text-decoration: none;
   color: #fff;
 }
 .topmenusociallinks ul {
@@ -107,7 +109,6 @@ section.TopMenu {
 
 .navmenu-link {
   color: #fff;
-  text-decoration: none;
   margin: 0px 13px;
   position: relative;
 }
@@ -141,6 +142,38 @@ section.TopMenu {
 .bod-menu .dropdown-item {
   margin: 1em 0 !important;
   padding: 0 !important;
+}
+
+.link-button {
+  border: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  box-shadow: none;
+  margin: 1em 0 0;
+  justify-content: center;
+}
+
+.breadcrumb-item > a {
+  font-size: 2.15rem;
+  line-height: 2.5rem;
+  color: #000;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb-item > a:hover {
+  color: #b3832a;
+}
+
+.breadcrumb-item.active {
+  font-size: 2.15rem;
+  line-height: 2.5rem;
+  color: #b3832a;
+  font-weight: 500;
 }
 
 /************* home page css start  ************/
@@ -229,8 +262,8 @@ button.contactsus {
 
 /*********************** home page about us section ***********************/
 
-section.aboutusbox {
-  margin: 50px 0px;
+.aboutusbox {
+  margin: 2em 0;
 }
 .aboutus {
   text-align: center;
@@ -396,7 +429,7 @@ section.bggrayy .lefttabsss {
 
 section.bggrayy .nav-link {
   border-bottom: 0px !important;
-  padding: 12px 10px;
+  padding: 1rem;
   margin: 5px;
   margin-left: auto;
   display: flex;
@@ -406,19 +439,16 @@ section.bggrayy .nav-link {
 
 section.bggrayy .nav-link.active {
   border: 2px solid #b3842a;
-
   border-bottom: 2px solid #b3842a !important;
   border-radius: 50px;
 }
 
 section.bggrayy .nav.nav-tabs .nav-link.active span {
-  margin-right: 80px;
   color: #1c3a27;
   font-weight: 600;
 }
 
 section.bggrayy .nav.nav-tabs .nav-link.active i {
-  transform: translateX(-80px);
   color: #b3842a;
   font-size: 18px;
 }
@@ -498,13 +528,13 @@ div#v-tabs-tab {
   background-color: rgba(179, 131, 42, 0.801);
 }
 
-@media screen and (max-width: 768px) {
-  .unitmain-box {
-    min-height: 100%;
-  }
-
+@media screen and (max-width: 800px) {
   .business-slider .slick-arrow {
     display: none !important;
+  }
+
+  section.bggrayy .lefttabsss {
+    margin-top: 0px;
   }
 }
 
@@ -655,8 +685,8 @@ section.ournewss {
 .homeslider-logo {
   z-index: 999;
   position: relative;
-  width: 80%;
-  margin: -6% auto 0;
+  width: 60%;
+  margin: -4.25% auto 0;
 }
 
 .homeslider-logo .slick-track {
@@ -671,7 +701,8 @@ section.ournewss {
   border: 1px solid #b3832a;
   border-radius: 1rem;
   padding: 1rem;
-  min-height: 150px;
+  height: 100px;
+  width: 100px !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -983,7 +1014,7 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 }
 /* footer css start here */
 section#footerbox {
-  background: rgb(113, 113, 113);
+  background: rgb(0, 0, 0);
   padding: 50px 0px;
 }
 
@@ -1011,7 +1042,6 @@ section#footerbox {
 }
 
 .getintouch ul li {
-  list-style-type: none;
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -1025,14 +1055,15 @@ section#footerbox {
 }
 
 .getintouch ul li a,
-.getintouch ul li span {
+.getintouch ul li span,
+.footer-link-button {
   color: #fff !important;
-  font-size: 16px;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
 .getintouch ul li a:hover {
-  color: #1c3a27 !important;
+  color: #b3832a !important;
 }
 
 .footerform h6 {
@@ -1040,6 +1071,10 @@ section#footerbox {
 
   font-weight: 800;
   margin-bottom: 25px;
+}
+
+.footer-link-button {
+  text-align: left;
 }
 
 .footerform input#exampleInputEmail1 {
@@ -1089,19 +1124,97 @@ button.subscribebtns:hover {
 }
 
 /* contact us page css */
-section.connectingalways {
+.connectingalways {
   padding-top: 60px;
 }
 
-section.connectingalways .container .row {
+.connectingalways .container .row {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-section.threeboxxx {
-  position: relative;
-  top: 70px;
+
+.team-contact {
+  margin: 3em 0;
 }
+
+.team-contact h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1c3a27;
+}
+
+.team-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.contact-info-card.shadowww-box {
+  padding: 2em;
+}
+
+.contact-info-card h3 {
+  color: #1c3a27;
+  font-size: 1.5rem;
+}
+
+.info-card-list-item a {
+  font-size: 1.25rem;
+  color: #1c3a27;
+  transition: all 0.3s ease;
+}
+
+.info-card-list-item a:hover {
+  color: #b3842a;
+}
+
+.info-card-list-item strong {
+  font-size: 1.5rem;
+  color: #b3832a;
+}
+
+.info-card-list-item svg {
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.info-card-list-item span {
+  background: #1c3a27;
+  padding: 1em;
+  border-radius: 100%;
+}
+
+.info-card-list-item .link-button {
+  transition: all 0.3s ease;
+}
+
+.info-card-list-item .link-button:hover {
+  color: #b3832a;
+}
+
+.threeboxxx {
+  position: relative;
+  margin-bottom: -100px;
+}
+
+@media screen and (max-width: 800px) {
+  .team-contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .threeboxxx {
+    margin: 1em 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .team-contact-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
 .icon-box {
   width: 40px;
   height: 40px;
@@ -1129,14 +1242,14 @@ section.threeboxxx {
   margin-bottom: 0px;
 }
 
-.icon-info ul li {
-  list-style-type: none;
-}
-
 .icon-info ul li a {
   color: #1c3a27;
-  text-decoration: none;
-  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.icon-info ul li a:hover,
+.icon-info .link-button:hover {
+  color: #b3842a;
 }
 
 .row.inlinebox {
@@ -1187,7 +1300,6 @@ section.threeboxxx {
   padding: 0.65rem 2rem;
   border: none;
   border-radius: 5px;
-
   font-size: 1.5rem;
   font-weight: 500;
   margin: 1em auto 0;
@@ -1218,7 +1330,7 @@ section.threeboxxx {
   padding: 30px;
   border-radius: 12px;
 }
-section.threeboxxx .fourboxmaingreen {
+.threeboxxx .fourboxmaingreen {
   height: 270px;
 }
 .fourinfogreen {
@@ -1239,18 +1351,20 @@ section.threeboxxx .fourboxmaingreen {
   font-weight: 400;
   line-height: 24px;
 }
-section.spaceupdowngray {
+.spaceupdowngray {
   padding: 40px 0px 20px 0px;
   background-color: #eeeeee;
 }
-.trsutimages img.img-fluid {
+
+.trsutimages .img-fluid {
   margin: 0 auto !important;
+  max-width: 150px;
 }
 
 .logo-slider .slick-track {
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 2em;
 }
 
 .block {
@@ -1258,6 +1372,7 @@ section.spaceupdowngray {
   height: 150px;
   margin: 0 auto;
 }
+
 .hovicon {
   display: inline-block;
   font-size: 45px;
@@ -1269,7 +1384,6 @@ section.spaceupdowngray {
   border-radius: 50%;
   text-align: center;
   position: relative;
-  text-decoration: none;
   z-index: 1;
   color: #fff;
 }
@@ -1312,52 +1426,9 @@ section.spaceupdowngray {
   z-index: 10;
   border: 4px dashed #1c3a27;
 }
-.hovicon.effect-4:hover {
-  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  color: #b3842a;
-}
-.hovicon.effect-4:hover:after {
-  border: 4px dashed #b3842a !important;
-}
 
-.hovicon.effect-4:hover i {
-  color: #b3842a;
-}
-/* Effect 4b */
-.hovicon.effect-4.sub-b:hover {
-  -webkit-transition: box-shadow 0.2s;
-  -moz-transition: box-shadow 0.2s;
-  transition: box-shadow 0.2s;
-}
-.hovicon.effect-4.sub-b:hover:after {
-  -webkit-animation: spinAround 9s linear infinite;
-  -moz-animation: spinAround 9s linear infinite;
-  animation: spinAround 9s linear infinite;
-}
-
-@-webkit-keyframes spinAround {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@-moz-keyframes spinAround {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-@keyframes spinAround {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sub-b {
+  cursor: default;
 }
 
 /* Effect 1 */
@@ -1473,6 +1544,18 @@ section.spaceupdowngray {
   gap: 1rem;
 }
 
+.resource-slider-controls {
+  position: absolute;
+  bottom: 15%;
+  left: calc(2% - 5px);
+}
+
+@media screen and (max-width: 1200px) {
+  .resource-slider-controls {
+    position: static;
+  }
+}
+
 .custom-controls .custom-prev-icon,
 .custom-controls .custom-next-icon {
   color: rgb(255, 255, 255);
@@ -1548,7 +1631,6 @@ section.spaceupdown .card p {
 }
 
 .servicebottommenulinks ul li {
-  list-style-type: none;
   margin: 20px 0px;
   display: flex;
   align-items: center;
@@ -1556,7 +1638,6 @@ section.spaceupdown .card p {
 
 .servicebottommenulinks ul li a {
   color: #1c3a27;
-  text-decoration: none;
   font-size: 18px;
 }
 
@@ -1729,12 +1810,6 @@ section.spaceupdown .card p {
   section.bggrayy .nav-link span {
     font-size: 16px;
   }
-  section.bggrayy .nav.nav-tabs .nav-link.active span {
-    margin-right: -33px;
-  }
-  section.bggrayy .nav.nav-tabs .nav-link.active i {
-    transform: translateX(-40px);
-  }
 }
 @media screen and (max-width: 1280px) {
   /* section.bggrayy .nav-link {
@@ -1742,12 +1817,6 @@ section.spaceupdown .card p {
   } */
   section.bggrayy .nav-link span {
     font-size: 14px;
-  }
-  section.bggrayy .nav.nav-tabs .nav-link.active span {
-    margin-right: 50px;
-  }
-  section.bggrayy .nav.nav-tabs .nav-link.active i {
-    transform: translateX(-40px);
   }
 }
 
@@ -1803,12 +1872,7 @@ section.spaceupdown .card p {
   section.bggrayy .nav-link span {
     font-size: 16px;
   }
-  section.bggrayy .nav.nav-tabs .nav-link.active span {
-    margin-right: 70px;
-  }
-  section.bggrayy .nav.nav-tabs .nav-link.active i {
-    transform: translateX(-70px);
-  }
+
   .fourboxmain {
     margin-bottom: 15px;
   }
@@ -2014,7 +2078,6 @@ section.spaceupdown .card p {
 
 .md-message-pre {
   text-wrap: wrap;
-
   font-size: 1.25rem;
 }
 

@@ -35,12 +35,19 @@ export function flattenAttributes(data) {
 }
 
 export function getStrapiURL(path = "") {
-  return `http://localhost:1337${path}`;
+  return `http://34.207.150.154:1339${path}`;
 }
 
 export function strapiUrl() {
-  return "http://localhost:1337";
+  return "http://34.207.150.154:1339";
 }
+// export function getStrapiURL(path = "") {
+//   return `http://localhost:1337${path}`;
+// }
+
+// export function strapiUrl() {
+//   return "http://localhost:1337";
+// }
 
 export async function fetchStrapiData(url, params = {}) {
   try {

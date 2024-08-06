@@ -1,29 +1,14 @@
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { strapiUrl } from "../lib/utils";
 
 const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
   const filteredData =
-    activeTabId === "v-tabs-allunits"
+    activeTabId === "All"
       ? businessUnitsSliderData
       : businessUnitsSliderData.filter(
-          (item) =>
-            item.company_id === parseInt(activeTabId.replace("v-tabs-", ""))
+          (item) => item.WelfareUnit === activeTabId
         );
-
-  const getCompanyIdLabel = (companyId) => {
-    switch (companyId) {
-      case 1:
-        return "Public Listed Companies";
-      case 2:
-        return "Public Unlisted Companies";
-      case 3:
-        return "Private Limited Companies";
-      case 4:
-        return "Other Trust Units";
-      default:
-        return "Unknown";
-    }
-  };
 
   const settings = {
     infinite: false,
@@ -64,27 +49,30 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
       },
     ],
   };
+
+  const baseurl = strapiUrl();
+
   return (
     <div className="business-slider">
       <Slider {...settings}>
-        {filteredData.map((item, index) => (
-          <div key={index}>
+        {filteredData.map((item) => (
+          <div key={item.id}>
             <div className="unitmain-box slider__card">
-              <div className="">
-                <h5>{getCompanyIdLabel(item.company_id)}</h5>
+              <div>
                 <img
-                  src={item?.images[0].image}
+                  src={`${baseurl}${item.CardImage.url}`}
                   className="img-fluid"
-                  alt={item.title}
+                  loading="lazy"
+                  alt={item.CardImage.alternativeText || ""}
                 />
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <h3>{item.Title}</h3>
+                <p>{item.SliderCardDescription}</p>
               </div>
 
               <div className="unitbtnss">
                 <Link
                   className="text-center d-block w-100"
-                  to={`/business-units/${item.id}`}
+                  to={`/business-units/${item.slug}`}
                 >
                   Explore More
                 </Link>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import ImagesSlider from "../Components/ImagesSlider";
+import { Breadcrumb } from "react-bootstrap";
 
 const Media = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -30,9 +31,13 @@ const Media = () => {
                   Our <span>Gallery</span>
                 </h1>
 
-                <h5>
-                  Home | <span>Gallery</span>
-                </h5>
+                <Breadcrumb>
+                  <Breadcrumb.Item href="/" className="">
+                    Home
+                  </Breadcrumb.Item>
+
+                  <Breadcrumb.Item active>Gallery</Breadcrumb.Item>
+                </Breadcrumb>
               </div>
             </div>
           </div>

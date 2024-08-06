@@ -8,7 +8,7 @@ const ContactInfoCard = () => {
     <>
       {ContactInfo.map((item, index) => (
         <div
-          className="contact-info-card shadowww-box d-flex flex-column gap-3 justify-content-between"
+          className="contact-info-card shadowww-box d-flex flex-column gap-2 justify-content-between"
           key={index}
         >
           <h3 className="text-center mb-3">{item.name}</h3>

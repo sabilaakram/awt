@@ -2,10 +2,12 @@ import jobseeker from "../assets/contactus/partnership.png";
 import handss from "../assets/contactus/user.png";
 import quries from "../assets/contactus/question.png";
 import contact from "../assets/contactus.png";
-
+import { MdMailOutline } from "react-icons/md";
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import ImagesSlider from "../Components/ImagesSlider";
-import { Breadcrumb, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Container } from "react-bootstrap";
 import ContactInfoCard from "../Components/ContactInfoCard";
+
 const ContactUs = () => {
   return (
     <div>
@@ -51,7 +53,7 @@ const ContactUs = () => {
                     <div className="row  inlinebox">
                       <div className="col-lg-2">
                         <div className="icon-box">
-                          <i class="fa fa-phone" aria-hidden="true"></i>
+                          <FaPhone color="#fff" size={22} />
                         </div>
                       </div>
                       <div className="col-lg-10">
@@ -75,7 +77,7 @@ const ContactUs = () => {
                     <div className="row  inlinebox">
                       <div className="col-lg-2">
                         <div className="icon-box">
-                          <i class="fa fa-phone" aria-hidden="true"></i>
+                          <MdMailOutline color="#fff" size={22} />{" "}
                         </div>
                       </div>
                       <div className="col-lg-10">
@@ -99,7 +101,7 @@ const ContactUs = () => {
                     <div className="row  inlinebox">
                       <div className="col-lg-2">
                         <div className="icon-box">
-                          <i class="fa fa-phone" aria-hidden="true"></i>
+                          <FaLocationDot color="#fff" size={22} />
                         </div>
                       </div>
                       <div className="col-lg-10">
@@ -203,8 +205,10 @@ const ContactUs = () => {
 
       <section className="team-contact">
         <Container>
-          <h2 className="text-center m-0 ">AWT Team Members</h2>
-
+          <div className="text-center">
+            <span className="leftlineheading">Connect</span>
+            <h2 className="m-0 ">AWT Team Members</h2>
+          </div>
           <div className="team-contact-grid">
             <ContactInfoCard />
           </div>

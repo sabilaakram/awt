@@ -1724,6 +1724,11 @@ section.spaceupdown .card p {
   font-size: 40px;
 }
 
+.service-card img {
+  max-height: 300px;
+  object-fit: cover;
+}
+
 .service-box {
   height: 120px;
   transition: all 0.3s;

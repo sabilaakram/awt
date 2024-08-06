@@ -10,12 +10,13 @@ const baseurl = getStrapiURL();
 const ServiceCard = ({ card }) => {
   return (
     <Col lg={4} md={6} xs={12} className="mb-4">
-      <div className="card p-0 overflow-hidden">
+      <div className="card service-card p-0 overflow-hidden">
         {card.Image !== "" && (
           <img
             src={`${baseurl}${card.Image.url}`}
-            alt=""
-            className="w-100"
+            alt={card.Image.alternativeText || ""}
+            className="w-100 h-100"
+            loading="lazy"
             width={card.Image.width}
             height={card.Image.height}
           />
@@ -32,7 +33,6 @@ const ServiceCard = ({ card }) => {
 
 const BusinessUnit = () => {
   const { id } = useParams();
-  // const { data, isPending, error } = useBusinessUnitById(id);
   const { data, error, isPending } = BusinessUnitDataBySlug(id);
   const navigate = useNavigate();
 
@@ -72,6 +72,7 @@ const BusinessUnit = () => {
             </div>
             <div className="col-lg-6">
               <img
+                loading="lazy"
                 src={`${baseurl}${data.Image1.url}`}
                 alt={data.Image1.alternativeText || ""}
                 className="w-100 rounded-4"
@@ -106,6 +107,7 @@ const BusinessUnit = () => {
                     {partner.image !== "" && (
                       <div className="ms-3">
                         <img
+                          loading="lazy"
                           src={`${baseurl}${partner.Image.url}`}
                           alt={partner.Image.alternativeText || ""}
                           className="w-100"
@@ -129,6 +131,7 @@ const BusinessUnit = () => {
           <div class="row  d-flex justify-content-start align-items-center">
             <div class="col-lg-6">
               <img
+                loading="lazy"
                 src={`${baseurl}${data.Image2.url}`}
                 class="img-fluid rounded-4"
                 alt={data.Image2.alternativeText || ""}

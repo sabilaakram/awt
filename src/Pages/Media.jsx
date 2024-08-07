@@ -2,20 +2,15 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import ImagesSlider from "../Components/ImagesSlider";
-import { Breadcrumb } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { GetGalleryItems } from "../data/GetData";
+import { getStrapiURL } from "../lib/utils";
+import { Link } from "react-router-dom";
 
 const Media = () => {
-  const baseUrl = process.env.REACT_APP_BASE_URL;
+  const baseurl = getStrapiURL();
 
-  const fetchData = async (endpoint) => {
-    const response = await axios.get(`${baseUrl}${endpoint}`);
-    return response.data.images;
-  };
-
-  const { data, isPending, error } = useQuery({
-    queryKey: ["media"],
-    queryFn: () => fetchData("/gallery"),
-  });
+  const { data, error, isPending } = GetGalleryItems();
 
   if (isPending) return <LoadingSpinner />;
   if (error) return "An error occured!!";
@@ -23,8 +18,8 @@ const Media = () => {
   return (
     <>
       <section className="commonbg">
-        <div className="container">
-          <div class="row">
+        <Container>
+          <Row>
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>
@@ -40,16 +35,16 @@ const Media = () => {
                 </Breadcrumb>
               </div>
             </div>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </section>
 
       <section className="aboutusbox">
-        <div className="container">
-          <div className="row">
+        <Container>
+          <Row>
             <div className="col-lg-12">
               <div className="aboutus">
-                <span className="linesheading"> AWT</span>
+                <span className="linesheading">AWT</span>
                 <h2>Inspiring Lives with Dignified Service</h2>
                 <p>
                   Discover the scenic stories of manpowers’ struggle,
@@ -59,25 +54,42 @@ const Media = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </section>
 
-      <section className="container">
-        <div className="container my-5 mx-auto">
-          <div className="row">
-            {data.map((image) => (
-              <div className="col-md-4 mb-4" key={image.id}>
-                <img
-                  src={image.image}
-                  alt={`${image.id + 1}`}
-                  className="img-fluid w-100 rounded-4 h-100"
-                />
-              </div>
+      <Container>
+        <div className="my-5 mx-auto">
+          <Row>
+            {data.map((card) => (
+              <Col
+                key={card.id}
+                lg={4}
+                md={6}
+                xs={12}
+                className="mb-4 service-card"
+              >
+                <Link to={`/media/${card.slug}`}>
+                  <div className="card service-card p-0 overflow-hidden border-0 gallery-card overflow-hidden rounded-3">
+                    <img
+                      src={`${baseurl}${card.cover.url}`}
+                      alt={card.cover.alternativeText || ""}
+                      className="w-100 h-100"
+                      loading="lazy"
+                      width={card.cover.width}
+                      height={card.cover.height}
+                    />
+
+                    <div className="p-3 text-center">
+                      <h3>{card?.title}</h3>
+                    </div>
+                  </div>
+                </Link>
+              </Col>
             ))}
-          </div>
+          </Row>
         </div>
-      </section>
+      </Container>
 
       <section className="spaceupdowngray">
         <ImagesSlider />

@@ -9,9 +9,9 @@ const baseurl = getStrapiURL();
 
 const ServiceCard = ({ card }) => {
   return (
-    <Col lg={4} md={6} xs={12} className="mb-4">
+    <Col lg={4} md={6} xs={12} className="mb-4 service-card">
       <div className="card service-card p-0 overflow-hidden">
-        {card.Image !== "" && (
+        {card.Image && Object.keys(card.Image).length > 0 && (
           <img
             src={`${baseurl}${card.Image.url}`}
             alt={card.Image.alternativeText || ""}
@@ -54,7 +54,7 @@ const BusinessUnit = () => {
         <div className="container">
           <div class="row text-center">
             <h1 className="service-title">
-              {data.Title} | <span>Pakistan </span>
+              {data.Title} <span>| Pakistan</span>
             </h1>
           </div>
         </div>
@@ -81,15 +81,18 @@ const BusinessUnit = () => {
           </div>
         </div>
       </section>
+
       {data.Partners !== null && (
-        <section class="spaceupdown">
+        <section class="spaceupdown my-5">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
                 <div className="aboutus">
-                  <span className="linesheading"> Trusted Partners</span>
+                  <span className="linesheading">Trusted Partners</span>
                   <h2>{data.Partners.PartnerSectionTitle}</h2>
-                  <p>{data.Partners?.PartnerSectionDescription}</p>
+                  {data.Partners.PartnerSectionDescription !== null && (
+                    <p>{data.Partners.PartnerSectionDescription}</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -155,8 +158,10 @@ const BusinessUnit = () => {
               <div className="col-lg-12">
                 <div className="aboutus">
                   <span className="linesheading">Our services</span>
-                  <h2>{data.ServiceSectionTitle}</h2>
-                  <p>{data.ServiceSectionDescription}</p>
+                  <h2>{data.Services.ServiceSectionTitle}</h2>
+                  {data.Services.ServiceSectionDescription !== null && (
+                    <p>{data.ServiceSectionDescription}</p>
+                  )}
                 </div>
               </div>
             </div>

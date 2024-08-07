@@ -57,7 +57,7 @@ const Home = () => {
       <HeaderSlider />
       <HomeLogoSlider />
 
-      <section className="container py-4">
+      <section className="container pb-4 pt-5">
         <div className="row">
           <div className="col-lg-12">
             <div className="aboutus">

@@ -57,7 +57,7 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
       <Slider {...settings}>
         {filteredData.map((item) => (
           <div key={item.id}>
-            <div className="unitmain-box slider__card">
+            <div className="unitmain-box slider__card d-flex flex-column justify-content-between h-100 overflow-hidden rounded-3 bg-white">
               <div>
                 <img
                   src={`${baseurl}${item.CardImage.url}`}
@@ -65,8 +65,10 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
                   loading="lazy"
                   alt={item.CardImage.alternativeText || ""}
                 />
-                <h3>{item.Title}</h3>
-                <p>{item.SliderCardDescription}</p>
+                <div className="p-4">
+                  <h3>{item.Title}</h3>
+                  <p>{item.SliderCardDescription}</p>
+                </div>
               </div>
 
               <div className="unitbtnss">

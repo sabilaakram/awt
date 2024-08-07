@@ -17,10 +17,10 @@ const HeaderSlider = () => {
             <div
               style={{
                 background: `url(https://api.zalimburgers.com/${slide?.image}) no-repeat`,
-                height: "80vh",
+                height: "85vh",
                 width: "100vw",
                 backgroundSize: "cover",
-                animation: "zoomIn 10s ease-in-out infinite alternate",
+                animation: "zoomIn 15s ease-in-out infinite alternate",
               }}
               className="header d-flex flex-column justify-content-center align-items-center text-white"
             >

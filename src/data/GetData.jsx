@@ -99,6 +99,25 @@ export const BusinessUnitsData = () => {
   return useStrapiQueryHandler("business-units", "/api/business-units", params);
 };
 
+export const GetGalleryItems = () => {
+  const params = {
+    populate: {
+      cover: { ields: ["name", "url", "alternativeText"] },
+    },
+  };
+  return useStrapiQueryHandler("gallery-items", "/api/galleries", params);
+};
+
+export const GetGalleryItemsBySlug = (slug) => {
+  const params = {
+    populate: {
+      cover: { fields: ["name", "url", "alternativeText"] },
+      GalleryItems: { fields: ["name", "url", "alternativeText"] },
+    },
+  };
+  return useStrapiQueryHandler("gallery", `/api/galleries/${slug}`, params);
+};
+
 //Dashboard apis
 export function useHeadersData() {
   return useQueryHandler("headersData", "/home");

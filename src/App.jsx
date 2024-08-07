@@ -11,6 +11,7 @@ import BOD from "./Pages/BOD";
 import BusinessUnits from "./Pages/BusinessUnits";
 import News from "./Pages/News";
 import Media from "./Pages/Media";
+import SingleMedia from "./Pages/SingleMedia";
 import Careers from "./Pages/Careers";
 import BusinessUnit from "./Pages/BusinessUnit";
 import CommitteeOfAdministration from "./Pages/CommitteeOfAdministration";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/media" element={<Media />} />
+            <Route path="/media/:slug" element={<SingleMedia />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

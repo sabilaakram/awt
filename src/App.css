@@ -117,7 +117,7 @@ section.TopMenu {
   color: #fff;
   text-decoration: underline;
   text-decoration-thickness: 0.25rem;
-  text-decoration-color: #b3842a;
+  text-decoration-color: #fff;
 }
 
 .bod-menu {
@@ -132,7 +132,7 @@ section.TopMenu {
   color: #fff;
   text-decoration: underline;
   text-decoration-thickness: 0.25rem;
-  text-decoration-color: #b3842a;
+  text-decoration-color: #fff;
 }
 
 .bod-menu.dropdown .dropdown-menu {
@@ -166,14 +166,18 @@ section.TopMenu {
 }
 
 .breadcrumb-item > a:hover {
-  color: #b3832a;
+  color: #023d54;
 }
 
+.breadcrumb-item,
 .breadcrumb-item.active {
   font-size: 2.15rem;
   line-height: 2.5rem;
-  color: #b3832a;
   font-weight: 500;
+}
+
+.breadcrumb-item.active {
+  color: #6b7280;
 }
 
 /************* home page css start  ************/
@@ -225,11 +229,11 @@ button.howitworks {
 }
 
 button.contactsus {
-  background: #b3842a;
+  background: #023d54;
   color: #fff;
   padding: 10px 30px;
   border-radius: 5px;
-  border: 1px solid #b3842a;
+  border: 1px solid #023d54;
   font-size: 18px;
   font-weight: 500;
 
@@ -347,7 +351,7 @@ button.contactsus {
 span.linesheading:before {
   position: absolute;
   content: "";
-  border: 2px solid #b3842a;
+  border: 2px solid #023d54;
   width: 35px;
   top: 10px;
   left: -50px;
@@ -356,7 +360,7 @@ span.linesheading:before {
 span.linesheading:after {
   position: absolute;
   content: "";
-  border: 2px solid #b3842a;
+  border: 2px solid #023d54;
   width: 35px;
   top: 10px;
   right: -50px;
@@ -367,7 +371,7 @@ span.linesheading {
   font-size: 20px;
   font-weight: 600;
 
-  color: #b3842a;
+  color: #023d54;
   text-transform: capitalize;
 }
 
@@ -404,7 +408,7 @@ span.linesheading {
 span.leftlineheading {
   padding-left: 38px;
   position: relative;
-  color: #b3842a;
+  color: #023d54;
   font-size: 20px;
   font-weight: 600;
 
@@ -413,7 +417,7 @@ span.leftlineheading {
 span.leftlineheading:before {
   position: absolute;
   content: "";
-  border: 1px solid #b3842a;
+  border: 1px solid #023d54;
   width: 30px;
   left: 0px;
   top: 12px;
@@ -427,7 +431,7 @@ section.bggrayy .lefttabsss {
   margin-top: 70px;
 }
 
-section.bggrayy .nav-link {
+.bggrayy .nav-link {
   border-bottom: 0px !important;
   padding: 1rem;
   margin: 5px;
@@ -435,12 +439,14 @@ section.bggrayy .nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid transparent;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 1000px;
 }
 
-section.bggrayy .nav-link.active {
-  border: 2px solid #b3842a;
-  border-bottom: 2px solid #b3842a !important;
-  border-radius: 50px;
+.bggrayy .nav-link.active {
+  border: 2px solid #fff;
+  border-bottom: 2px solid #023d54 !important;
 }
 
 section.bggrayy .nav.nav-tabs .nav-link.active span {
@@ -449,7 +455,7 @@ section.bggrayy .nav.nav-tabs .nav-link.active span {
 }
 
 section.bggrayy .nav.nav-tabs .nav-link.active i {
-  color: #b3842a;
+  color: #023d54;
   font-size: 18px;
 }
 section.bggrayy .nav-link i {
@@ -485,15 +491,8 @@ div#v-tabs-tab {
 }
 
 .unitmain-box {
-  background-color: #fff;
   margin: 0px 10px;
-  padding: 20px;
-  border-radius: 5px;
-  min-height: 620px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  min-height: 600px;
 }
 
 .unitmain-box h5 {
@@ -516,7 +515,7 @@ div#v-tabs-tab {
 
 .unitbtnss a {
   display: inline-block;
-  background-color: #b3842a;
+  background-color: #023d54;
   padding: 10px 30px;
   color: #fff;
   font-size: 18px;
@@ -525,7 +524,7 @@ div#v-tabs-tab {
 }
 
 .unitbtnss a:hover {
-  background-color: rgba(179, 131, 42, 0.801);
+  background-color: rgba(2, 61, 84, 0.772);
 }
 
 @media screen and (max-width: 800px) {
@@ -542,7 +541,7 @@ section.bggrayy button.slick-arrow.slick-next::before {
   position: absolute;
   top: 160px;
   left: -45px;
-  color: #b3842a;
+  color: #023d54;
   font-size: 40px;
 }
 section.bggrayy button.slick-arrow.slick-prev::before {
@@ -550,7 +549,7 @@ section.bggrayy button.slick-arrow.slick-prev::before {
   font-size: 40px;
   left: -90px;
   top: 160px;
-  color: #b3842a;
+  color: #023d54;
 }
 
 /* end tabs and slider css */
@@ -617,7 +616,7 @@ section.ournewss {
 
 .image .overlay::before {
   content: "";
-  background: #b3842a;
+  background: #023d54;
   height: 100%;
   width: 100%;
   z-index: 1;
@@ -698,7 +697,7 @@ section.ournewss {
 
 .logo-card {
   background: #fff;
-  border: 1px solid #b3832a;
+  border: 1px solid #023d54;
   border-radius: 1rem;
   padding: 1rem;
   height: 100px;
@@ -732,11 +731,11 @@ section.yeasrbrands button.slick-arrow.slick-next {
 }
 
 section.yeasrbrands button.slick-arrow.slick-prev::before {
-  color: #b3842a;
+  color: #023d54;
   font-size: 40px;
 }
 section.yeasrbrands button.slick-arrow.slick-next::before {
-  color: #b3842a;
+  color: #023d54;
   font-size: 40px;
 }
 .aboutuspage h1,
@@ -744,9 +743,13 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   font-size: 2.5rem;
   line-height: 3rem;
   letter-spacing: 0.5px;
-  color: #b3842a;
+  color: #1c3a27;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+.service-title {
+  color: #fff;
 }
 
 .headerpage h1,
@@ -845,7 +848,7 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 
 .aboutuspage h5 span,
 .service-subtitle span {
-  color: #b3842a;
+  color: #023d54;
 
   font-size: 30px;
   line-height: 35px;
@@ -867,8 +870,8 @@ img.rounded.sizesss {
   box-shadow: none;
 }
 button.download {
-  background-color: #b3842a;
-  border: 1px solid #b3842a;
+  background-color: #023d54;
+  border: 1px solid #023d54;
   border-top-right-radius: 50px !important;
   border-bottom-right-radius: 50px !important;
   width: 45%;
@@ -898,7 +901,7 @@ section.yeasrbrands ul#ex1 li.nav-item a {
 }
 
 section.yeasrbrands ul#ex1 li.nav-item .nav-link.active {
-  background: #b3842a;
+  background: #023d54;
 }
 
 section.yeasrbrands ul#ex1 li.nav-item a i {
@@ -946,7 +949,7 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
   transition: 0.8s ease all;
 }
 .fourboxmain:hover {
-  background-color: #b3842a;
+  background-color: #023d54;
   transform: translateY(-10px);
 }
 
@@ -1063,12 +1066,11 @@ section#footerbox {
 }
 
 .getintouch ul li a:hover {
-  color: #b3832a !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .footerform h6 {
-  color: #b3842a;
-
+  color: #023d54;
   font-weight: 800;
   margin-bottom: 25px;
 }
@@ -1089,7 +1091,7 @@ section#footerbox {
 }
 
 button.subscribebtns {
-  background: #b3842a;
+  background: #023d54;
   width: 100%;
   padding: 10px 30px;
   border-radius: 5px;
@@ -1167,13 +1169,13 @@ button.subscribebtns:hover {
 }
 
 .info-card-list-item a:hover {
-  color: #b3842a;
+  color: #023d54;
 }
 
 .info-card-list-item strong {
   font-size: 1.25rem;
   line-height: 1.5rem;
-  color: #b3832a;
+  color: #023d54;
   font-weight: 600;
 }
 
@@ -1193,7 +1195,7 @@ button.subscribebtns:hover {
 }
 
 .info-card-list-item .link-button:hover {
-  color: #b3832a;
+  color: #023d54;
 }
 
 .threeboxxx {
@@ -1233,7 +1235,7 @@ button.subscribebtns:hover {
 }
 
 .icon-info h5 {
-  color: #b3842a;
+  color: #023d54;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 0px;
@@ -1251,7 +1253,7 @@ button.subscribebtns:hover {
 
 .icon-info ul li a:hover,
 .icon-info .link-button:hover {
-  color: #b3842a;
+  color: #023d54;
 }
 
 .row.inlinebox {
@@ -1297,7 +1299,7 @@ button.subscribebtns:hover {
 }
 
 .sendmessage {
-  background-color: #b3842a;
+  background-color: #023d54;
   color: white;
   padding: 0.65rem 2rem;
   border: none;
@@ -1314,7 +1316,7 @@ button.subscribebtns:hover {
 }
 
 .shadowww-box .input-group.mb-3 span#basic-addon1 i {
-  color: #b3842a;
+  color: #023d54;
   font-size: 20px;
 }
 
@@ -1354,7 +1356,7 @@ button.subscribebtns:hover {
   line-height: 24px;
 }
 .spaceupdowngray {
-  padding: 40px 0px 20px 0px;
+  padding: 0.5em 0;
   background-color: #eeeeee;
 }
 
@@ -1503,7 +1505,7 @@ button.subscribebtns:hover {
 }
 
 .adminbox h3 {
-  background-color: #b3842a;
+  background-color: #023d54;
   color: #fff;
   margin-top: 20px;
 
@@ -1575,7 +1577,7 @@ button.subscribebtns:hover {
 }
 
 .icon-wrapper {
-  background-color: #b3842a;
+  background-color: #023d54;
   position: relative;
   margin: auto;
   font-size: 30px;
@@ -1611,7 +1613,7 @@ section.spaceupdown .card p {
 
 .formbox {
   background-color: green;
-  background: #b3842a;
+  background: #023d54;
   padding: 25px;
   border-radius: 14px;
 }
@@ -1716,17 +1718,20 @@ section.spaceupdown .card p {
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: 10px solid #b3842a;
+  outline: 10px solid #023d54;
 }
 
 .circleborder i {
-  color: #b3842a;
+  color: #023d54;
   font-size: 40px;
 }
 
 .service-card img {
   max-height: 300px;
   object-fit: cover;
+}
+.service-card {
+  height: fit-content;
 }
 
 .service-box {
@@ -1756,7 +1761,7 @@ section.spaceupdown .card p {
   left: 0%;
   width: 5px;
   height: 100%;
-  background: #b3842a;
+  background: #023d54;
   transition: all 0.4s;
 }
 
@@ -1819,9 +1824,6 @@ section.spaceupdown .card p {
   }
 }
 @media screen and (max-width: 1280px) {
-  /* section.bggrayy .nav-link {
-    margin-left: inherit;
-  } */
   section.bggrayy .nav-link span {
     font-size: 14px;
   }
@@ -1909,7 +1911,7 @@ section.spaceupdown .card p {
 
 .custom-arrow.slick-prev::before,
 .custom-arrow.slick-next:before {
-  color: #b3842a;
+  color: #023d54;
   font-size: 2.5rem;
   opacity: 1;
   cursor: pointer;
@@ -2098,3 +2100,24 @@ section.spaceupdown .card p {
     max-width: 100%;
   }
 }
+
+.gallery-card img,
+.gallery-card {
+  transition: all 0.3s ease;
+}
+
+.gallery-card h3 {
+  color: #1c3a27;
+}
+
+.gallery-card:hover {
+  transform: scale(1.01);
+}
+
+.gallery-card:hover img {
+  transform: scaleX(1.01);
+}
+
+/* .custom-backdrop {
+  background-color: rgb(0, 0, 0);
+} */

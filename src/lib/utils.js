@@ -34,12 +34,13 @@ export function flattenAttributes(data) {
   return flattened;
 }
 
+const strapiBaseUrl = process.env.REACT_APP_STRAPI_URL;
 export function getStrapiURL(path = "") {
-  return `http://34.207.150.154:1339${path}`;
+  return `${strapiBaseUrl}${path}`;
 }
 
 export function strapiUrl() {
-  return "http://34.207.150.154:1339";
+  return strapiBaseUrl;
 }
 // export function getStrapiURL(path = "") {
 //   return `http://localhost:1337${path}`;

@@ -97,6 +97,7 @@ const SingleMedia = () => {
         </Row>
       </Container>
       <LighthouseGallery show={show} onHide={handleClose} item={selectedItem} />
+
       <section className="spaceupdowngray">
         <ImagesSlider />
       </section>

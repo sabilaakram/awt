@@ -17,6 +17,7 @@ import ContactUs from "./Pages/ContactUs";
 import MDmessage from "./Pages/MDmessage";
 import SingleMedia from "./Pages/SingleMedia";
 import BusinessUnit from "./Pages/BusinessUnit";
+import CorporateProfile from "./Pages/CorporateProfile";
 import CommitteeOfAdministration from "./Pages/CommitteeOfAdministration";
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/media" element={<Media />} />
             <Route path="/media/:slug" element={<SingleMedia />} />
+            <Route
+              path="/media/corporate-profile"
+              element={<CorporateProfile />}
+            />
             <Route path="/careers" element={<Careers />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

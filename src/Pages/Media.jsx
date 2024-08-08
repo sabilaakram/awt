@@ -1,11 +1,10 @@
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import ImagesSlider from "../Components/ImagesSlider";
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import { GetGalleryItems } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
 import { Link } from "react-router-dom";
+import pdfURL from "../assets/AWT-Corporate-Profile.pdf";
 
 const Media = () => {
   const baseurl = getStrapiURL();
@@ -89,6 +88,37 @@ const Media = () => {
             ))}
           </Row>
         </div>
+      </Container>
+
+      <section className="aboutusbox">
+        <Container>
+          <Row>
+            <div className="col-lg-12">
+              <div className="aboutus">
+                <span className="linesheading">AWT</span>
+                <h2>Corporate Profile 2022</h2>
+              </div>
+            </div>
+          </Row>
+        </Container>
+      </section>
+
+      <Container>
+        <Row>
+          <div className="col-lg-12 text-center">
+            <object
+              data={pdfURL}
+              type="application/pdf"
+              width="100%"
+              height="600px"
+            >
+              <p>
+                Your browser does not support PDFs. You can download the PDF
+                file <a href={pdfURL}>here</a>.
+              </p>
+            </object>
+          </div>
+        </Row>
       </Container>
 
       <section className="spaceupdowngray">

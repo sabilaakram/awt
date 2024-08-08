@@ -2101,7 +2101,7 @@ section.spaceupdown .card p {
   height: 64px;
   border: 8px solid;
   border-color: gray;
-  border-color: rgb(28, 58, 39) transparent rgb(179, 132, 42) transparent;
+  border-color: rgb(28, 58, 39) transparent #41ab6b transparent;
   border-radius: 100%;
   animation: spin 1s linear infinite;
 }

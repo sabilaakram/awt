@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import mainlogo from "../assets/footerlogonew.png";
 import MegaMenu from "./MegaMenu";
 import { FaBars, FaChevronDown } from "react-icons/fa6";
-import { BusinessUnitsData, useBusinessUnit } from "../data/GetData";
+import { BusinessUnitsData } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
 import { Dropdown, NavDropdown } from "react-bootstrap";
 import { useState } from "react";

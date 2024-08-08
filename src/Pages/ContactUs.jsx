@@ -1,15 +1,12 @@
-import jobseeker from "../assets/contactus/partnership.png";
-import handss from "../assets/contactus/user.png";
-import quries from "../assets/contactus/question.png";
+import { MdGroups } from "react-icons/md";
 import contact from "../assets/contactus.png";
 import { MdMailOutline } from "react-icons/md";
-import { FaLocationDot, FaPhone } from "react-icons/fa6";
-import ImagesSlider from "../Components/ImagesSlider";
-import { Breadcrumb, Container } from "react-bootstrap";
-import ContactInfoCard from "../Components/ContactInfoCard";
-import { MdGroups } from "react-icons/md";
 import { LiaHandshake } from "react-icons/lia";
+import ImagesSlider from "../Components/ImagesSlider";
 import { RiCustomerService2Line } from "react-icons/ri";
+import { Breadcrumb, Container } from "react-bootstrap";
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
+import ContactInfoCard from "../Components/ContactInfoCard";
 
 const ContactUs = () => {
   return (

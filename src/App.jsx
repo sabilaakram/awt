@@ -1,25 +1,23 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
-
-import AboutUs from "./Pages/AboutUs";
-import Home from "./Pages/Home";
-import MDmessage from "./Pages/MDmessage";
-import ContactUs from "./Pages/ContactUs";
-import BOD from "./Pages/BOD";
-import BusinessUnits from "./Pages/BusinessUnits";
-import News from "./Pages/News";
-import Media from "./Pages/Media";
-import SingleMedia from "./Pages/SingleMedia";
-import Careers from "./Pages/Careers";
-import BusinessUnit from "./Pages/BusinessUnit";
-import CommitteeOfAdministration from "./Pages/CommitteeOfAdministration";
-
 import "./App.css";
 import { Suspense } from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+//Import Components
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import LoadingSpinner from "./Components/LoadingSpinner";
+//Pages
+import BOD from "./Pages/BOD";
+import News from "./Pages/News";
+import Home from "./Pages/Home";
+import Media from "./Pages/Media";
+import Careers from "./Pages/Careers";
+import AboutUs from "./Pages/AboutUs";
 import NotFound from "./Pages/NotFound";
+import ContactUs from "./Pages/ContactUs";
+import MDmessage from "./Pages/MDmessage";
+import SingleMedia from "./Pages/SingleMedia";
+import BusinessUnit from "./Pages/BusinessUnit";
+import CommitteeOfAdministration from "./Pages/CommitteeOfAdministration";
 
 function App() {
   return (
@@ -36,7 +34,6 @@ function App() {
               path="/committeeofadministration"
               element={<CommitteeOfAdministration />}
             />
-            <Route path="/business-units" element={<BusinessUnits />} />
             <Route path="/business-units/:id" element={<BusinessUnit />} />
             <Route path="/news" element={<News />} />
             <Route path="/contactus" element={<ContactUs />} />

@@ -1,12 +1,12 @@
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
-import mdmessage from "../assets/MDmessage/mdmessageperson.png";
-import stars from "../assets/MDmessage/mdstars.png";
 import ImagesSlider from "../Components/ImagesSlider";
 import LoadingSpinner from "../Components/LoadingSpinner";
-import { useMdMessage } from "../data/GetData";
+import { GetMdMessage } from "../data/GetData";
+import { getStrapiURL } from "../lib/utils";
 
 const MDmessage = () => {
-  const { data, error, isPending } = useMdMessage();
+  const { data, error, isPending } = GetMdMessage();
+  const apiurl = getStrapiURL();
   if (isPending) return <LoadingSpinner />;
 
   if (error) return "An error occured!!!";
@@ -38,25 +38,26 @@ const MDmessage = () => {
 
       <section className="aboutusbox">
         <Container>
-          <Row>
-            <Col lg={8}>
-              <div className="ourmission mdmessage">
-                <div className="starimgebox">
-                  <img src={stars} className="img-fluid" alt="" />
-                </div>
-
-                <span className="leftlineheading text-uppercase">
-                  {data?.ranking}
-                </span>
-                <h2>{data?.post}</h2>
-
-                <pre className="md-message-pre">{data?.message}</pre>
+          <Row className="gap-3 gap-lg-0">
+            <Col lg={4}>
+              <div className="mdmessagepersonimages">
+                <img
+                  src={apiurl + data.Image.url}
+                  className="img-fluid"
+                  alt={data.Image.alternativeText}
+                  width={data.Image.width}
+                  height={data.Image.height}
+                />
               </div>
             </Col>
+            <Col lg={8} className="mt-3 mt-lg-0">
+              <div className="ourmission mdmessage">
+                <span className="leftlineheading text-uppercase">
+                  {data.Rank}
+                </span>
+                <h2>{data.Post}</h2>
 
-            <Col className="col-lg-4">
-              <div className="mdmessagepersonimages">
-                <img src={mdmessage} className="img-fluid" alt="" />
+                <pre className="md-message-pre">{data.Message}</pre>
               </div>
             </Col>
           </Row>

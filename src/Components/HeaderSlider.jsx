@@ -1,13 +1,14 @@
 import LoadingSpinner from "./LoadingSpinner";
-import { useHeadersData } from "../data/GetData";
+import { GetHeaderData } from "../data/GetData";
 import { Carousel } from "react-bootstrap";
+import { getStrapiURL } from "../lib/utils";
 
 const HeaderSlider = () => {
-  const { data, error, isPending } = useHeadersData();
-
+  const { data, error, isPending } = GetHeaderData();
   if (isPending) return <LoadingSpinner />;
-
   if (error) return "Cannot fetch data";
+
+  const baseurl = getStrapiURL();
 
   return (
     <>
@@ -16,7 +17,7 @@ const HeaderSlider = () => {
           <Carousel.Item key={slide.id}>
             <div
               style={{
-                background: `url(https://api.zalimburgers.com/${slide?.image}) no-repeat`,
+                background: `url(${baseurl}${slide.Image.url}) no-repeat`,
                 height: "85vh",
                 width: "100vw",
                 backgroundSize: "cover",
@@ -27,11 +28,11 @@ const HeaderSlider = () => {
               <div className="dark-overlay" />
               <div className="headerpage">
                 {index > 0 ? (
-                  <h2 className="text-center">{slide.title}</h2>
+                  <h2 className="text-center">{slide.Title}</h2>
                 ) : (
-                  <h1 className="text-center">{slide.title}</h1>
+                  <h1 className="text-center">{slide.Title}</h1>
                 )}
-                <p className="text-center">{slide.description}</p>
+                <p className="text-center">{slide.Text}</p>
               </div>
             </div>
           </Carousel.Item>

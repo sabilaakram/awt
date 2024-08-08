@@ -1,18 +1,19 @@
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import ImagesSlider from "../Components/ImagesSlider";
-import { useBod } from "../data/GetData";
+import { GetBods } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { getStrapiURL } from "../lib/utils";
 
 const BOD = () => {
-  const { data, error, isPending } = useBod();
+  const { data, error, isPending } = GetBods();
   if (isPending) return <LoadingSpinner />;
 
   if (error) return "An error occured!!!";
 
   const boardOfDirectors = data.filter(
-    (item) => item.category === "Board of Directors"
+    (item) => item.Category.trim() === "Board of Directors"
   );
-
+  const baseUrl = getStrapiURL();
   return (
     <div>
       <section className="commonbg">
@@ -62,7 +63,7 @@ const BOD = () => {
                 <div class="block">
                   <div class="hovicon effect-4">
                     <img
-                      src={`https://api.zalimburgers.com/${item.image}`}
+                      src={`${baseUrl}${item.Image.url}`}
                       className="img-fluid"
                       alt=""
                     />
@@ -70,9 +71,9 @@ const BOD = () => {
                 </div>
               </div>
               <div className="adminbox">
-                <h3>{item.post}</h3>
-                <h5>{item.name}</h5>
-                <p>{item.role}</p>
+                <h3>{item.Post}</h3>
+                {item.Name !== null && <h5>{item.Name}</h5>}
+                <p>{item.Role}</p>
               </div>
             </Col>
           ))}

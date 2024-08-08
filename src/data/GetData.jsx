@@ -1,14 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { getStrapiURL, fetchStrapiData } from "../lib/utils";
-import axios from "axios";
-
-const baseUrl = process.env.REACT_APP_BASE_URL;
-
-const fetchData = async (endpoint) => {
-  const response = await axios.get(`${baseUrl}${endpoint}`);
-
-  return response.data.data;
-};
 
 const fetchStrapi = async (endpoint, params = {}) => {
   const url = getStrapiURL(endpoint);
@@ -19,15 +10,6 @@ const useStrapiQueryHandler = (queryKey, endpoint, params = {}) => {
   const { data, error, isPending } = useQuery({
     queryKey: [queryKey],
     queryFn: () => fetchStrapi(endpoint, params),
-  });
-
-  return { data, isPending, error };
-};
-
-const useQueryHandler = (queryKey, endpoint) => {
-  const { data, isPending, error } = useQuery({
-    queryKey: [queryKey],
-    queryFn: () => fetchData(endpoint),
   });
 
   return { data, isPending, error };
@@ -118,38 +100,48 @@ export const GetGalleryItemsBySlug = (slug) => {
   return useStrapiQueryHandler("gallery", `/api/galleries/${slug}`, params);
 };
 
-//Dashboard apis
-export function useHeadersData() {
-  return useQueryHandler("headersData", "/home");
-}
+export const GetResources = () => {
+  const params = {
+    populate: {
+      Image: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+    },
+  };
 
-export function useAboutTimelineData() {
-  return useQueryHandler("about-timeline", "/aboutus");
-}
+  return useStrapiQueryHandler("resources", "/api/resources", params);
+};
 
-export function useMdMessage() {
-  return useQueryHandler("md-message", "/md");
-}
+export const GetTimelineData = () => {
+  const params = {};
 
-export function useNews() {
-  return useQueryHandler("news", "/news");
-}
+  return useStrapiQueryHandler(
+    "about-timeline",
+    "/api/about-timelines",
+    params
+  );
+};
 
-export function useGallery() {
-  return useQueryHandler("media", "/gallery");
-}
+export const GetMdMessage = () => {
+  const params = {
+    populate: {
+      Image: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+    },
+  };
 
-export function useBod() {
-  return useQueryHandler("bods", "/bod");
-}
+  return useStrapiQueryHandler("md-message", "/api/md-message", params);
+};
 
-export function useBusinessUnit() {
-  return useQueryHandler("business-unit", "/company_service");
-}
+export const GetBods = () => {
+  const params = {
+    populate: {
+      Image: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+    },
+  };
 
-export function useBusinessUnitById(id) {
-  return useQuery({
-    queryKey: ["unit", id],
-    queryFn: () => fetchData(`/company_service/${id}`),
-  });
-}
+  return useStrapiQueryHandler("bods", "/api/bods", params);
+};

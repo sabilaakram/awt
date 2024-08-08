@@ -9,6 +9,10 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
@@ -390,7 +394,7 @@ span.linesheading {
 
 /* home page our mission section css */
 .ourmission {
-  padding-right: 50px;
+  padding-left: 50px;
 }
 .ourmission h2 {
   font-weight: 700;
@@ -1328,6 +1332,11 @@ button.subscribebtns:hover {
   padding: 30px 50px;
   text-align: center;
 }
+
+.fourimgsbox svg {
+  color: #023d54;
+}
+
 .container.bggg {
   background-color: #1c3a27;
 
@@ -1630,30 +1639,58 @@ section.spaceupdown .card p {
   color: #fff;
 }
 
-.servicebottommenulinks ul {
-  padding-left: 0px;
+.get-in-touch {
+  position: relative;
 }
 
-.servicebottommenulinks ul li {
-  margin: 20px 0px;
-  display: flex;
-  align-items: center;
+.get-in-touch::after {
+  content: "";
+  display: block;
+  width: 250px;
+  height: 2px;
+  background-color: #023d54;
+  border-radius: 1000px;
 }
 
-.servicebottommenulinks ul li a {
+.get-in-touch h2 {
   color: #1c3a27;
-  font-size: 18px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.get-in-touch p {
+  padding: 1em 0;
+  margin: 0;
 }
 
 .servicebottommenulinks {
-  border-top: 1px solid #555;
-  margin-top: 30px;
+  padding: 0px;
+  margin: 1em 0 0;
 }
 
-.servicebottommenulinks ul li i {
-  font-size: 30px;
-  margin-right: 10px;
+.servicebottommenulinks li {
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.servicebottommenulinks li svg,
+.servicebottommenulinks li a,
+.servicebottommenulinks .link-button {
   color: #1c3a27;
+}
+
+.servicebottommenulinks li a,
+.servicebottommenulinks .link-button {
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.servicebottommenulinks li a:hover,
+.servicebottommenulinks .link-button:hover {
+  color: rgba(28, 58, 39, 0.5);
 }
 
 .threeholder {

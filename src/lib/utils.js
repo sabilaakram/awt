@@ -35,6 +35,7 @@ export function flattenAttributes(data) {
 }
 
 const strapiBaseUrl = process.env.REACT_APP_STRAPI_URL;
+
 export function getStrapiURL(path = "") {
   return `${strapiBaseUrl}${path}`;
 }
@@ -42,13 +43,6 @@ export function getStrapiURL(path = "") {
 export function strapiUrl() {
   return strapiBaseUrl;
 }
-// export function getStrapiURL(path = "") {
-//   return `http://localhost:1337${path}`;
-// }
-
-// export function strapiUrl() {
-//   return "http://localhost:1337";
-// }
 
 export async function fetchStrapiData(url, params = {}) {
   try {

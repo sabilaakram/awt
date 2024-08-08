@@ -7,6 +7,9 @@ import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import ImagesSlider from "../Components/ImagesSlider";
 import { Breadcrumb, Container } from "react-bootstrap";
 import ContactInfoCard from "../Components/ContactInfoCard";
+import { MdGroups } from "react-icons/md";
+import { LiaHandshake } from "react-icons/lia";
+import { RiCustomerService2Line } from "react-icons/ri";
 
 const ContactUs = () => {
   return (
@@ -221,7 +224,7 @@ const ContactUs = () => {
             <div className="col-lg-4">
               <div className="fourboxmaingreen">
                 <div className="fourimgsbox ">
-                  <img src={handss} className="img-fluid" alt="" />
+                  <MdGroups size={90} />
                 </div>
                 <div className="fourinfogreen">
                   <h3>Collaboration</h3>
@@ -232,7 +235,7 @@ const ContactUs = () => {
             <div className="col-lg-4">
               <div className="fourboxmaingreen">
                 <div className="fourimgsbox">
-                  <img src={jobseeker} className="img-fluid" alt="" />
+                  <LiaHandshake size={90} />
                 </div>
                 <div className="fourinfogreen">
                   <h3> Job Seekers</h3>
@@ -244,7 +247,7 @@ const ContactUs = () => {
             <div className="col-lg-4">
               <div className="fourboxmaingreen">
                 <div className="fourimgsbox">
-                  <img src={quries} className="img-fluid" alt="" />
+                  <RiCustomerService2Line size={90} />
                 </div>
                 <div className="fourinfogreen">
                   <h3> Queries</h3>

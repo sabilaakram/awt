@@ -1,17 +1,22 @@
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import ImagesSlider from "../Components/ImagesSlider";
-import { useBod } from "../data/GetData";
+import { GetBods } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { getStrapiURL } from "../lib/utils";
 
 const CommitteeOfAdministration = () => {
-  const { data, error, isPending } = useBod();
+  const { data, error, isPending } = GetBods();
   if (isPending) return <LoadingSpinner />;
 
   if (error) return "An error occured!!!";
 
   const committeOfAdministration = data.filter(
-    (item) => item.category === "Committee of Administration"
+    (item) => item.Category.trim() === "Committee of Administration"
   );
+
+  console.log(committeOfAdministration);
+  const baseUrl = getStrapiURL();
+
   return (
     <>
       <section className="commonbg">
@@ -62,7 +67,7 @@ const CommitteeOfAdministration = () => {
                 <div class="block">
                   <div class="hovicon effect-4 sub-b">
                     <img
-                      src={`https://api.zalimburgers.com/${item.image}`}
+                      src={`${baseUrl}${item.Image.url}`}
                       className="img-fluid"
                       alt=""
                     />
@@ -70,8 +75,9 @@ const CommitteeOfAdministration = () => {
                 </div>
               </div>
               <div className="adminbox">
-                <h3>{item.post}</h3>
-                <h5>{item.role}</h5>
+                <h3>{item.Post}</h3>
+                {item.Name !== null && <h5>{item.Name}</h5>}
+                <p>{item.Role}</p>
               </div>
             </Col>
           ))}

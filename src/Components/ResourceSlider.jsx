@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import NewsCard from "./NewsCard";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import Slider from "react-slick";
-import { useNews } from "../data/GetData";
+import { GetResources } from "../data/GetData";
 
 const ResourceSlider = () => {
   const sliderRef = useRef(null);
@@ -33,7 +33,7 @@ const ResourceSlider = () => {
     sliderRef.current.slickNext();
   };
 
-  const { data, error, isPending } = useNews();
+  const { data, error, isPending } = GetResources();
 
   if (isPending) return <div>Loading...</div>;
   if (error) return "An error occured!!";

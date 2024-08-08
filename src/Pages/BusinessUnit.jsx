@@ -4,6 +4,8 @@ import { BusinessUnitDataBySlug } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { Col, Container, Row } from "react-bootstrap";
 import { getStrapiURL } from "../lib/utils";
+import { FaPhone, FaLocationDot } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 const baseurl = getStrapiURL();
 
@@ -52,7 +54,7 @@ const BusinessUnit = () => {
         }}
       >
         <div className="container">
-          <div class="row text-center">
+          <div className="row text-center">
             <h1 className="service-title">
               {data.Title} <span>| Pakistan</span>
             </h1>
@@ -60,7 +62,7 @@ const BusinessUnit = () => {
         </div>
       </section>
 
-      <section class="spaceupdown">
+      <section className="spaceupdown">
         <div className="container">
           <div className="row justify-content-start align-items-center gap-3 flex-lg-nowrap flex-wrap">
             <div className="col-lg-6">
@@ -83,7 +85,7 @@ const BusinessUnit = () => {
       </section>
 
       {data.Partners !== null && (
-        <section class="spaceupdown my-5">
+        <section className="spaceupdown my-5">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -129,20 +131,20 @@ const BusinessUnit = () => {
         </Container>
       )}
 
-      <section class="spaceupdown">
+      <section className="spaceupdown">
         <Container>
-          <div class="row  d-flex justify-content-start align-items-center">
-            <div class="col-lg-6">
+          <div className="row  d-flex justify-content-start align-items-center">
+            <div className="col-lg-6">
               <img
                 loading="lazy"
                 src={`${baseurl}${data.Image2.url}`}
-                class="img-fluid rounded-4"
+                className="img-fluid rounded-4"
                 alt={data.Image2.alternativeText || ""}
               />
             </div>
-            <div class="col-lg-6">
-              <div class="ourmission">
-                <span class="leftlineheading">Support</span>
+            <div className="col-lg-6">
+              <div className="ourmission">
+                <span className="leftlineheading">Support</span>
                 <h2>{data.SupportTitle}</h2>
                 <p>{data.SupportDescription}</p>
               </div>
@@ -152,7 +154,7 @@ const BusinessUnit = () => {
       </section>
 
       {data.Services !== null && data.Services.Service.length > 0 && (
-        <section class="spaceupdown">
+        <section className="spaceupdown">
           <Container>
             <div className="row spacebottom">
               <div className="col-lg-12">
@@ -167,7 +169,7 @@ const BusinessUnit = () => {
             </div>
 
             {data.Services.Service.length > 0 && (
-              <div class="row">
+              <div className="row">
                 {data.Services.Service.map((card, index) => (
                   <ServiceCard key={index} card={card} />
                 ))}
@@ -177,9 +179,9 @@ const BusinessUnit = () => {
         </section>
       )}
 
-      <section class="spaceupdown">
+      <section className="spaceupdown">
         <Container>
-          <div class="ourmission">
+          <div className="get-in-touch">
             <h2>Get in Touch</h2>
             <p>
               Explore AWT&apos;s services and projects. Connect with us through
@@ -187,30 +189,20 @@ const BusinessUnit = () => {
             </p>
           </div>
 
-          <div className="servicebottommenulinks">
-            <ul>
-              <li>
-                {" "}
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <a href={`tel:${data.contact.number}`}>
-                  {" "}
-                  {data.contact.number}{" "}
-                </a>
-              </li>
-              <li>
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                <a href={`mailto:${data.contact.email}`}>
-                  {" "}
-                  {data.contact.email}{" "}
-                </a>
-              </li>
-              <li>
-                {" "}
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <a>{data.contact.address}</a>
-              </li>
-            </ul>
-          </div>
+          <ul className="servicebottommenulinks">
+            <li>
+              <FaPhone size={26} />
+              <a href={`tel:${data.contact.number}`}> {data.contact.number} </a>
+            </li>
+            <li>
+              <MdEmail size={26} />
+              <a href={`mailto:${data.contact.email}`}>{data.contact.email}</a>
+            </li>
+            <li>
+              <FaLocationDot size={26} />
+              <button className="link-button">{data.contact.address}</button>
+            </li>
+          </ul>
         </Container>
       </section>
 

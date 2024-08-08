@@ -9,8 +9,8 @@ const ResourceSlider = () => {
   const settings = {
     infinite: true,
     autoplay: true,
-    speed: 1500,
-    autoplaySpeed: 5000,
+    speed: 500,
+    autoplaySpeed: 2000,
     slidesToShow: 2,
     slidesToScroll: 1,
     arrows: false,

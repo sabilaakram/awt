@@ -191,7 +191,7 @@ const Home = () => {
       </section>
 
       <section className="container-lg p-4 d-flex align-items-center flex-xl-row flex-column gap-3 justify-content-between position-relative">
-        <div className="ourmission relative">
+        <div className="ourmission relative p-0">
           <span className="leftlineheading">Latest News And Events</span>
           <h2 className="text-primary-green">
             Committed Services to Pakistan&apos;s Success

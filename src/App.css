@@ -1763,12 +1763,13 @@ section.spaceupdown .card p {
   font-size: 40px;
 }
 
+.service-card {
+  height: fit-content;
+}
+
 .service-card img {
   max-height: 300px;
   object-fit: cover;
-}
-.service-card {
-  height: fit-content;
 }
 
 .service-box {
@@ -2155,6 +2156,35 @@ section.spaceupdown .card p {
   transform: scaleX(1.01);
 }
 
-/* .custom-backdrop {
-  background-color: rgb(0, 0, 0);
-} */
+.react-pdf__Page,
+.stf__parent canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.demoPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.demoPage > canvas,
+.demoPage > svg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.stf__parent {
+  margin: 0 auto;
+}
+
+.stf__item {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+}

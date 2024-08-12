@@ -6,6 +6,8 @@ import { getStrapiURL } from "../lib/utils";
 import { Link } from "react-router-dom";
 import pdfURL from "../assets/AWT-Corporate-Profile.pdf";
 
+import PDFFlipbook from "../Components/Flipbook";
+
 const Media = () => {
   const baseurl = getStrapiURL();
 
@@ -63,10 +65,10 @@ const Media = () => {
             {data.map((card) => (
               <Col
                 key={card.id}
-                lg={4}
+                lg={3}
                 md={6}
                 xs={12}
-                className="mb-4 service-card"
+                className="m-0 service-card"
               >
                 <Link to={`/media/${card.slug}`}>
                   <div className="card service-card p-0 overflow-hidden border-0 gallery-card overflow-hidden rounded-3">
@@ -75,8 +77,6 @@ const Media = () => {
                       alt={card.cover.alternativeText || ""}
                       className="w-100 h-100"
                       loading="lazy"
-                      width={card.cover.width}
-                      height={card.cover.height}
                     />
 
                     <div className="p-3 text-center">
@@ -106,17 +106,7 @@ const Media = () => {
       <Container>
         <Row>
           <div className="col-lg-12 text-center">
-            <object
-              data={pdfURL}
-              type="application/pdf"
-              width="100%"
-              height="600px"
-            >
-              <p>
-                Your browser does not support PDFs. You can download the PDF
-                file <a href={pdfURL}>here</a>.
-              </p>
-            </object>
+            <PDFFlipbook />
           </div>
         </Row>
       </Container>

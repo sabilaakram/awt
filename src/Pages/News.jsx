@@ -1,4 +1,4 @@
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row, Card } from "react-bootstrap";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { GetResources } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
@@ -9,9 +9,6 @@ const News = () => {
 
   if (isPending) return <LoadingSpinner />;
   if (error) return "An error occured!!";
-
-  // Sort the news data based on IDs in descending order
-  // const sortedData = [...data].sort((a, b) => b.id - a.id);
 
   return (
     <div>
@@ -29,7 +26,7 @@ const News = () => {
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>News</Breadcrumb.Item>
-                </Breadcrumb>{" "}
+                </Breadcrumb>
               </div>
             </div>
           </Row>
@@ -37,27 +34,28 @@ const News = () => {
       </section>
 
       <section>
-        <Container className="p-4 p-md-0">
-          {data.map((news, index) => (
-            <Row
-              key={news.id}
-              className={index % 2 === 0 ? "" : "flex-row-reverse"}
-            >
-              <Col md={6} lg={6} className="order-lg-1 px-0">
-                <img
-                  src={`${apiurl}${news.Image.url}`}
-                  className="img-fluid w-100"
-                  alt={news.Image.alternativeText}
-                />
+        <Container className="py-4">
+          <Row>
+            {data.map((news) => (
+              <Col key={news.id} md={6} lg={4} className="mb-4">
+                <Card className="h-100 p-0 border-0 news-card">
+                  <Card.Img
+                    variant="top"
+                    src={`${apiurl}${news.Image.url}`}
+                    alt={news.Image.alternativeText}
+                  />
+                  <Card.Body className="d-flex flex-column p-3">
+                    <Card.Title className="text-center">
+                      {news.Title}
+                    </Card.Title>
+                    <Card.Text className="text-center">
+                      {news.Description}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
               </Col>
-              <Col md={6} lg={6} className="order-lg-2 my-3 my-lg-0 px-0">
-                <div className="h-100 d-flex flex-column gap-3 justify-content-center align-items-center">
-                  <h3 className="text-center m-0">{news.Title}</h3>
-                  <p className="text-center m-0">{news.Description}</p>
-                </div>
-              </Col>
-            </Row>
-          ))}
+            ))}
+          </Row>{" "}
         </Container>
       </section>
     </div>

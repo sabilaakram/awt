@@ -4,8 +4,6 @@ import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import { GetGalleryItems } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
 import { Link } from "react-router-dom";
-import pdfURL from "../assets/AWT-Corporate-Profile.pdf";
-
 import PDFFlipbook from "../Components/Flipbook";
 
 const Media = () => {

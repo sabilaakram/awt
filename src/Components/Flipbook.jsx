@@ -9,15 +9,14 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 const PDFFlipbook = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageWidth, setPageWidth] = useState(0);
-  const [pageHeight, setPageHeight] = useState(0);
+
   const bookRef = useRef(null);
 
   useEffect(() => {
     const updateDimensions = () => {
       const width = window.innerWidth;
-      const height = window.innerHeight;
+
       setPageWidth(Math.min(width * 0.9, 1000)); // Max width of 1000px
-      setPageHeight(height * 0.7); // 70% of viewport height
     };
 
     window.addEventListener("resize", updateDimensions);

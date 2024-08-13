@@ -68,7 +68,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-lg-4 col-xl-3">
+            {/* <div className="col-lg-4 col-xl-3">
               <div className="footerform">
                 <h3 className="text-white">Join Our Newsletter</h3>
                 <form onClick={(e) => e.preventDefault()}>
@@ -86,7 +86,7 @@ const Footer = () => {
                   <button className="subscribebtns">Subscribe</button>
                 </form>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="row">
             <div className="col-lg-12 text-center ">

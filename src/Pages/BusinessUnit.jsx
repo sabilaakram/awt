@@ -107,7 +107,7 @@ const BusinessUnit = () => {
           <Row>
             {data.Partners.Partner.map((partner) => (
               <Col lg={4} md={6} xs={12} className="p-3" key={partner.id}>
-                <div className="card">
+                <div className="card partner-card">
                   <div className="position-relative d-flex flex-column text-center align-items-center gap-3 w-100">
                     {partner.image !== "" && (
                       <div className="ms-3">
@@ -162,7 +162,7 @@ const BusinessUnit = () => {
                   <span className="linesheading">Our services</span>
                   <h2>{data.Services.ServiceSectionTitle}</h2>
                   {data.Services.ServiceSectionDescription !== null && (
-                    <p>{data.ServiceSectionDescription}</p>
+                    <p>{data.Services.ServiceSectionDescription}</p>
                   )}
                 </div>
               </div>

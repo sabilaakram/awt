@@ -58,17 +58,15 @@ const BOD = () => {
       <Container>
         <Row className="pb-5 justify-content-center">
           {boardOfDirectors.map((item, index) => (
-            <Col key={index} md={4} className="card-col">
-              <div className="fourimgsbox">
-                <div class="block">
-                  <div class="hovicon effect-4">
-                    <img
-                      src={`${baseUrl}${item.Image.url}`}
-                      className="img-fluid"
-                      alt=""
-                    />
-                  </div>
-                </div>
+            <Col key={index} md={index < 2 ? 5 : 4} className="card-col p-2">
+              <div className="fourimgsbox bordered-image mx-auto position-relative">
+                <img
+                  src={`${baseUrl}${item.Image.url}`}
+                  className="img-fluid bod-img"
+                  width={110}
+                  height={110}
+                  alt={item.Image.alternativeText || ""}
+                />
               </div>
               <div className="adminbox">
                 <h3>{item.Post}</h3>

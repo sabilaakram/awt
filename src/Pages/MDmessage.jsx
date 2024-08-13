@@ -38,20 +38,18 @@ const MDmessage = () => {
 
       <section className="aboutusbox">
         <Container>
-          <Row className="gap-3 gap-lg-0">
-            <Col lg={4}>
-              <div className="mdmessagepersonimages">
-                <img
-                  src={apiurl + data.Image.url}
-                  className="img-fluid"
-                  alt={data.Image.alternativeText}
-                  width={data.Image.width}
-                  height={data.Image.height}
-                />
-              </div>
+          <Row className="gap-4 gap-lg-5 justify-content-between flex-lg-nowrap">
+            <Col lg={4} className="p-0">
+              <img
+                src={apiurl + data.Image.url}
+                className="img-fluid mx-auto mx-lg-0 w-100"
+                alt={data.Image.alternativeText}
+                width={data.Image.width}
+                height={data.Image.height}
+              />
             </Col>
-            <Col lg={8} className="mt-3 mt-lg-0">
-              <div className="ourmission mdmessage">
+            <Col lg={8} className="p-0 px-8 md:px-32">
+              <div className="ourmission mdmessage p-0">
                 <span className="leftlineheading text-uppercase">
                   {data.Rank}
                 </span>

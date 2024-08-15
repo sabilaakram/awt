@@ -25,8 +25,8 @@ const ServiceCard = ({ card }) => {
         )}
 
         <div className="p-3">
-          <h3>{card?.Title}</h3>
-          <p>{card?.Description}</p>
+          <h3 className={card.Description === null && "my-0"}>{card?.Title}</h3>
+          <p className="m-0">{card?.Description}</p>
         </div>
       </div>
     </Col>
@@ -107,21 +107,19 @@ const BusinessUnit = () => {
           <Row>
             {data.Partners.Partner.map((partner) => (
               <Col lg={4} md={6} xs={12} className="p-3" key={partner.id}>
-                <div className="card partner-card">
+                <div className="card partner-card h-100">
                   <div className="position-relative d-flex flex-column text-center align-items-center gap-3 w-100">
                     {partner.image !== "" && (
-                      <div className="ms-3">
-                        <img
-                          loading="lazy"
-                          src={`${baseurl}${partner.Image.url}`}
-                          alt={partner.Image.alternativeText || ""}
-                          className="w-100"
-                        />
-                      </div>
+                      <img
+                        loading="lazy"
+                        src={`${baseurl}${partner.Image.url}`}
+                        alt={partner.Image.alternativeText || ""}
+                        className="partners-icon"
+                      />
                     )}
-                    <div className="title-area">
+                    <div>
                       <h3>{partner.Title}</h3>
-                      <p className="fs-5">{partner.Description}</p>
+                      <p className="fs-5 my-2">{partner.Description}</p>
                     </div>
                   </div>
                 </div>

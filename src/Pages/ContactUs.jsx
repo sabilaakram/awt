@@ -35,11 +35,11 @@ const ContactUs = () => {
 
       <section className="connectingalways">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-4 col-md-4 ">
-              <div className="alwaybox">
-                <div className="ourmission">
-                  <span className="leftlineheading"> Connecting Always</span>
+          <div className="row justify-content-lg-between">
+            <div className="col-lg-5">
+              <div className="alwaybox h-100">
+                <div className="">
+                  <span className="leftlineheading">Connecting Always</span>
                   <h2>Hear by Our Heart</h2>
                   <p>
                     Our team is available to help with your enquiries on email &
@@ -122,13 +122,13 @@ const ContactUs = () => {
               </div>
             </div>
 
-            <div className="col-lg-4 col-md-4">
-              <img src={contact} className="img-fluid" alt="" />
-            </div>
+            {/* <div className="col-lg-4 contact-img">
+              <img src={contact} className="img-fluid mx-auto mx-md-0" alt="" />
+            </div> */}
 
-            <div className="col-lg-4 col-md-4">
-              <div className="alwaybox">
-                <div className="ourmission">
+            <div className="col-lg-5">
+              <div className="alwaybox h-100">
+                <div className="">
                   <span className="leftlineheading"> Drop a Line </span>
                   <h2>Leave us Message</h2>
                   <p>
@@ -187,7 +187,7 @@ const ContactUs = () => {
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="message"
+                      placeholder="Message"
                       aria-label="message"
                       aria-describedby="basic-addon1"
                     />

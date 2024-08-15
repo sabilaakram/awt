@@ -35,8 +35,8 @@ const ContactUs = () => {
 
       <section className="connectingalways">
         <div className="container">
-          <div className="row justify-content-lg-between">
-            <div className="col-lg-5">
+          <div className="row">
+            <div className="col-lg-4">
               <div className="alwaybox h-100">
                 <div className="">
                   <span className="leftlineheading">Connecting Always</span>
@@ -122,11 +122,11 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* <div className="col-lg-4 contact-img">
+            <div className="col-lg-4 contact-img">
               <img src={contact} className="img-fluid mx-auto mx-md-0" alt="" />
-            </div> */}
+            </div>
 
-            <div className="col-lg-5">
+            <div className="col-lg-4">
               <div className="alwaybox h-100">
                 <div className="">
                   <span className="leftlineheading"> Drop a Line </span>

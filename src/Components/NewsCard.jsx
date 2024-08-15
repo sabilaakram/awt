@@ -5,7 +5,7 @@ import { getStrapiURL } from "../lib/utils";
 const NewsCard = ({ cardData }) => {
   const strapiURL = getStrapiURL();
   return (
-    <Card className="resource-card shadow-none p-0 border-0 overflow-hidden rounded-2 h-100">
+    <Card className="resource-card shadow-none p-0 border-0 overflow-hidden rounded-2">
       <img
         src={`${strapiURL}${cardData.Image.url}`}
         alt={cardData.Image.alternativeText}

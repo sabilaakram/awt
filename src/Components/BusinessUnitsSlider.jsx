@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { useEffect, useRef } from "react";
 import { strapiUrl } from "../lib/utils";
 
 const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
+  const sliderRef = useRef(null);
+
   const filteredData =
     activeTabId === "All"
       ? businessUnitsSliderData
       : businessUnitsSliderData.filter(
           (item) => item.WelfareUnit === activeTabId
         );
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(0); // Reset slider to the first slide
+    }
+  }, [activeTabId]);
 
   const settings = {
     infinite: false,
@@ -54,7 +63,7 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
 
   return (
     <div className="business-slider">
-      <Slider {...settings}>
+      <Slider ref={sliderRef} {...settings}>
         {filteredData.map((item) => (
           <div key={item.id}>
             <div className="unitmain-box slider__card d-flex flex-column justify-content-between h-100 overflow-hidden rounded-3 bg-white">

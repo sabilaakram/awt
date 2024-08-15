@@ -12,7 +12,7 @@ const HeaderSlider = () => {
 
   return (
     <>
-      <Carousel controls={false} fade indicators={false} interval={2500}>
+      <Carousel controls={false} indicators={false} interval={2500}>
         {data.map((slide, index) => (
           <Carousel.Item key={slide.id}>
             <div

@@ -294,13 +294,6 @@ button.contactsus {
   color: white;
 }
 
-.line-clamp-6 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-}
-
 /*********************** home page about us section ***********************/
 
 .aboutusbox {
@@ -523,11 +516,13 @@ section.bggrayy button.slick-arrow.slick-prev {
   justify-content: flex-end;
   margin-right: 20px;
 }
-div#v-tabs-tab {
+
+#v-tabs-tab {
   border-bottom: 0px;
 }
 
 .unitmain-box {
+  min-height: 520px;
   margin: 0px 10px;
 }
 
@@ -743,7 +738,17 @@ section.ournewss {
 @media screen and (max-width: 768px) {
   .homeslider-logo {
     width: 85%;
-    margin: -15% auto 0;
+    margin: calc(-5% - 10px) auto 0;
+  }
+
+  .logo-card {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .homeslider-logo {
+    margin: calc(-10% - 10px) auto 0;
   }
 }
 

@@ -92,7 +92,7 @@ const Home = () => {
                   </div>
 
                   <div
-                    class="nav flex-column nav-tabs text-center"
+                    class="nav flex-column nav-tabs text-center slider-tabs"
                     id="v-tabs-tab"
                     role="tablist"
                     aria-orientation="vertical"

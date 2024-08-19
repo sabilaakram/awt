@@ -6,6 +6,7 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import { getStrapiURL } from "../lib/utils";
 import ImagesSlider from "../Components/ImagesSlider";
 import LighthouseGallery from "../Components/LighthouseGallery";
+import header from "../assets/headers/media.png";
 
 const SingleMedia = () => {
   const [show, setShow] = useState(false);
@@ -30,7 +31,12 @@ const SingleMedia = () => {
   if (isPending) return <LoadingSpinner />;
   return (
     <>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <div className="container">
           <div class="row">
             <div class="col-lg-12 text-center">

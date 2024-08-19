@@ -3,6 +3,7 @@ import ImagesSlider from "../Components/ImagesSlider";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { GetMdMessage } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
+import header from "../assets/headers/MD-messsage.png";
 
 const MDmessage = () => {
   const { data, error, isPending } = GetMdMessage();
@@ -13,9 +14,14 @@ const MDmessage = () => {
 
   return (
     <div>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <div className="container">
-          <div class="row dark-overlay">
+          <div class="row">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>
@@ -23,13 +29,13 @@ const MDmessage = () => {
                   MD's <span>MESSAGE </span>{" "}
                 </h1>
 
-                {/* <Breadcrumb>
+                <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>MD's Message</Breadcrumb.Item>
-                </Breadcrumb> */}
+                </Breadcrumb>
               </div>
             </div>
           </div>
@@ -39,7 +45,7 @@ const MDmessage = () => {
       <section className="aboutusbox">
         <Container>
           <Row className="gap-4 gap-lg-5 justify-content-between flex-lg-nowrap">
-            <Col lg={4} className="p-0">
+            <Col lg={4} className="px-3 p-sm-0">
               <img
                 src={apiurl + data.Image.url}
                 className="img-fluid mx-auto mx-lg-0 w-100"
@@ -48,7 +54,7 @@ const MDmessage = () => {
                 height={data.Image.height}
               />
             </Col>
-            <Col lg={8} className="p-0 px-8 md:px-32">
+            <Col lg={8} className="px-3 p-sm-0">
               <div className="ourmission mdmessage p-0">
                 <span className="leftlineheading text-uppercase">
                   {data.Rank}
@@ -60,16 +66,6 @@ const MDmessage = () => {
             </Col>
           </Row>
         </Container>
-      </section>
-
-      <section>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="ourmission"></div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section className="spaceupdowngray">

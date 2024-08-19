@@ -1,13 +1,18 @@
 import AboutTimeline from "../Components/AboutTimeline.jsx";
 import ImagesSlider from "../Components/ImagesSlider.jsx";
 import { Breadcrumb } from "react-bootstrap";
-
+import header from "../assets/headers/about-us.png";
 const AboutUs = () => {
   return (
     <div>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <div className="container">
-          <div class="row dark-overlay">
+          <div class="row">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>

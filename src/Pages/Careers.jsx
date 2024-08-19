@@ -1,4 +1,4 @@
-import { Breadcrumb } from "react-bootstrap";
+import { Breadcrumb, Container, Row } from "react-bootstrap";
 import header from "../assets/headers/Careers.png";
 
 const Careers = () => {
@@ -10,8 +10,8 @@ const Careers = () => {
           backgroundImage: `url(${header})`,
         }}
       >
-        <div className="container">
-          <div class="row dark-overlay">
+        <Container>
+          <Row>
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>Careers</h1>
@@ -25,8 +25,8 @@ const Careers = () => {
                 </Breadcrumb>
               </div>
             </div>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </section>
 
       <section className="aboutusbox">

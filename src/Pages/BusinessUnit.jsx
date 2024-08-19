@@ -17,7 +17,7 @@ const ServiceCard = ({ card }) => {
           <img
             src={`${baseurl}${card.Image.url}`}
             alt={card.Image.alternativeText || ""}
-            className="w-100 h-100"
+            className="w-100"
             loading="lazy"
             width={card.Image.width}
             height={card.Image.height}
@@ -25,7 +25,9 @@ const ServiceCard = ({ card }) => {
         )}
 
         <div className="p-3">
-          <h3 className={card.Description === null && "my-0"}>{card?.Title}</h3>
+          <h3 className={card.Description === null ? "my-0" : "my-2"}>
+            {card?.Title}
+          </h3>
           <p className="m-0">{card?.Description}</p>
         </div>
       </div>

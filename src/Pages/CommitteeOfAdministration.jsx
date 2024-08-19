@@ -27,7 +27,7 @@ const CommitteeOfAdministration = () => {
         }}
       >
         <div className="container">
-          <div class="row dark-overlay">
+          <div class="row">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>

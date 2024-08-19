@@ -63,11 +63,11 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
 
   return (
     <div className="business-slider">
-      <Slider ref={sliderRef} {...settings}>
+      <Slider ref={sliderRef} {...settings} className="business-slide">
         {filteredData.map((item) => (
           <div key={item.id}>
-            <div className="unitmain-box slider__card d-flex flex-column justify-content-between h-100 overflow-hidden rounded-3 bg-white">
-              <div>
+            <div className="unitmain-box slider__card d-flex flex-column justify-content-between overflow-hidden rounded-3 bg-white">
+              <div className="h-100">
                 <img
                   src={`${baseurl}${item.CardImage.url}`}
                   className="img-fluid"

@@ -20,7 +20,7 @@ const News = () => {
         }}
       >
         <Container>
-          <Row className="dark-overlay">
+          <Row>
             <div className="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>

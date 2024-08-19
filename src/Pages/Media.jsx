@@ -24,7 +24,7 @@ const Media = () => {
         }}
       >
         <Container>
-          <Row className="dark-overlay">
+          <Row>
             <div class="col-lg-12 text-center p-0">
               <div className="aboutuspage">
                 <h1>

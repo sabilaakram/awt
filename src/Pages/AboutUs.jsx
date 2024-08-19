@@ -7,7 +7,7 @@ const AboutUs = () => {
     <div>
       <section className="commonbg">
         <div className="container">
-          <div class="row">
+          <div class="row dark-overlay">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>

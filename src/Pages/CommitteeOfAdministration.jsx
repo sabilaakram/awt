@@ -3,6 +3,7 @@ import ImagesSlider from "../Components/ImagesSlider";
 import { GetBods } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { getStrapiURL } from "../lib/utils";
+import header from "../assets/headers/committee-of-administration.png";
 
 const CommitteeOfAdministration = () => {
   const { data, error, isPending } = GetBods();
@@ -19,9 +20,14 @@ const CommitteeOfAdministration = () => {
 
   return (
     <>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <div className="container">
-          <div class="row">
+          <div class="row dark-overlay">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>

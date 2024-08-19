@@ -15,7 +15,7 @@ const MDmessage = () => {
     <div>
       <section className="commonbg">
         <div className="container">
-          <div class="row">
+          <div class="row dark-overlay">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>
@@ -23,13 +23,13 @@ const MDmessage = () => {
                   MD's <span>MESSAGE </span>{" "}
                 </h1>
 
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>MD's Message</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </div>

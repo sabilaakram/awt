@@ -1,5 +1,5 @@
 import { MdGroups } from "react-icons/md";
-import contact from "../assets/contactus.png";
+import contact from "../assets/contactus/contact-img.png";
 import { MdMailOutline } from "react-icons/md";
 import { LiaHandshake } from "react-icons/lia";
 import ImagesSlider from "../Components/ImagesSlider";
@@ -7,13 +7,19 @@ import { RiCustomerService2Line } from "react-icons/ri";
 import { Breadcrumb, Container } from "react-bootstrap";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import ContactInfoCard from "../Components/ContactInfoCard";
+import header from "../assets/headers/contact-us.png";
 
 const ContactUs = () => {
   return (
     <div>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <div className="container">
-          <div class="row">
+          <div class="row dark-overlay">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>

@@ -76,7 +76,7 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
                 />
                 <div className="p-4">
                   <h3>{item.Title}</h3>
-                  <p>{item.SliderCardDescription}</p>
+                  <p className="m-0">{item.SliderCardDescription}</p>
                 </div>
               </div>
 

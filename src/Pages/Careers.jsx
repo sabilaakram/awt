@@ -1,11 +1,17 @@
 import { Breadcrumb } from "react-bootstrap";
+import header from "../assets/headers/Careers.png";
 
 const Careers = () => {
   return (
     <>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <div className="container">
-          <div class="row">
+          <div class="row dark-overlay">
             <div class="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>Careers</h1>

@@ -52,6 +52,15 @@ a {
   height: 100%;
   min-height: 350px;
   place-content: center;
+  position: relative;
+}
+
+.commonbg .dark-overlay {
+  display: flex;
+  width: 100vw;
+  align-content: center;
+  background-color: rgba(0, 0, 0, 0.35);
+  height: 100%;
 }
 
 .feulaskeri {
@@ -177,6 +186,15 @@ section.TopMenu {
   transition: all 0.3s ease;
 }
 
+.aboutuspage .breadcrumb-item > a,
+.aboutuspage .breadcrumb-item + .breadcrumb-item::before {
+  color: #fff;
+}
+
+.aboutuspage .breadcrumb-item > a:hover {
+  color: rgb(186, 186, 186);
+}
+
 .breadcrumb-item > a:hover {
   color: #023d54;
 }
@@ -274,6 +292,13 @@ button.contactsus {
   background-color: rgb(4, 114, 51);
   border-color: rgb(4, 114, 51);
   color: white;
+}
+
+.line-clamp-6 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
 }
 
 /*********************** home page about us section ***********************/
@@ -504,7 +529,7 @@ div#v-tabs-tab {
 
 .unitmain-box {
   margin: 0px 10px;
-  min-height: 600px;
+  min-height: 500px;
 }
 
 .unitmain-box h5 {
@@ -551,16 +576,16 @@ div#v-tabs-tab {
 
 section.bggrayy button.slick-arrow.slick-next::before {
   position: absolute;
-  top: 160px;
-  left: -45px;
+  top: 200px;
+  left: -50px;
   color: #023d54;
   font-size: 40px;
 }
 section.bggrayy button.slick-arrow.slick-prev::before {
   position: absolute;
   font-size: 40px;
-  left: -90px;
-  top: 160px;
+  left: -100px;
+  top: 200px;
   color: #023d54;
 }
 
@@ -755,13 +780,9 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   font-size: 2.5rem;
   line-height: 3rem;
   letter-spacing: 0.5px;
-  color: #1c3a27;
+  color: #fff;
   text-transform: uppercase;
   font-weight: 700;
-}
-
-.service-title {
-  color: #fff;
 }
 
 .headerpage h1,
@@ -785,8 +806,7 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
 }
 
 .aboutuspage h1 span {
-  color: #1c3a27;
-
+  color: #fff;
   font-size: 2.5rem;
   line-height: 3rem;
 }
@@ -1797,6 +1817,10 @@ section.spaceupdown .card p {
   cursor: default;
 }
 
+.gallery-card {
+  cursor: pointer;
+}
+
 .partners-icon {
   width: 100px;
   height: 100px;
@@ -1886,6 +1910,11 @@ section.spaceupdown .card p {
 .service-box:hover h3,
 .service-box:hover p {
   color: #fff;
+}
+
+.contact-img img {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
 }
 
 @media screen and (max-width: 1300px) {

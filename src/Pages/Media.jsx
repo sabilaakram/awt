@@ -5,6 +5,7 @@ import { GetGalleryItems } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
 import { Link } from "react-router-dom";
 import PDFFlipbook from "../Components/Flipbook";
+import header from "../assets/headers/media.png";
 
 const Media = () => {
   const baseurl = getStrapiURL();
@@ -16,10 +17,15 @@ const Media = () => {
 
   return (
     <>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <Container>
-          <Row>
-            <div class="col-lg-12 text-center">
+          <Row className="dark-overlay">
+            <div class="col-lg-12 text-center p-0">
               <div className="aboutuspage">
                 <h1>
                   Our <span>Gallery</span>
@@ -66,7 +72,7 @@ const Media = () => {
                 lg={3}
                 md={6}
                 xs={12}
-                className="m-0 service-card"
+                className="m-0 service-card gallery-card"
               >
                 <Link to={`/media/${card.slug}`}>
                   <div className="card service-card p-0 overflow-hidden border-0 gallery-card overflow-hidden rounded-3">

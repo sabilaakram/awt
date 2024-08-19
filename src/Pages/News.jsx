@@ -2,6 +2,7 @@ import { Breadcrumb, Col, Container, Row, Card } from "react-bootstrap";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { GetResources } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
+import header from "../assets/headers/news.png";
 
 const News = () => {
   const { data, error, isPending } = GetResources();
@@ -12,9 +13,14 @@ const News = () => {
 
   return (
     <div>
-      <section className="commonbg">
+      <section
+        className="commonbg"
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
         <Container>
-          <Row>
+          <Row className="dark-overlay">
             <div className="col-lg-12 text-center">
               <div className="aboutuspage">
                 <h1>

@@ -82,10 +82,10 @@ const Home = () => {
       {data && (
         <section className="bggrayy">
           <div className="container-fluid">
-            <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-12">
-                <div className="lefttabsss">
-                  <div className="tabsheadingsmove">
+            <div class="row flex-column flex-lg-row">
+              <div class="col-lg-3 col-12">
+                <div className="mb-5 mb-lg-0">
+                  <div className="tabsheadingsmove d-flex justify-content-start justify-content-lg-end">
                     <span className="leftlineheading rightsss">
                       Welfare Units
                     </span>
@@ -102,7 +102,7 @@ const Home = () => {
                         key={category}
                         className={`nav-link ${
                           activeTab === category ? "active" : ""
-                        }`}
+                        } mx-0 justify-content-start justify-content-lg-end`}
                         id={`v-tabs-${category}`}
                         data-bs-toggle="tab"
                         href={`#v-tabs-${category}`}

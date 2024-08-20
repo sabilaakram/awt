@@ -450,12 +450,9 @@ button.contactsus {
   top: 50%;
 }
 /* home page tabs and slider css start here */
-section.bggrayy {
+.bggrayy {
   padding: 50px 0px;
   background-color: #f1f1f1;
-}
-section.bggrayy .lefttabsss {
-  margin-top: 70px;
 }
 
 .bggrayy .nav-link {
@@ -509,8 +506,6 @@ section.bggrayy button.slick-arrow.slick-prev {
   left: 0;
 }
 .tabsheadingsmove {
-  display: flex;
-  justify-content: flex-end;
   margin-right: 20px;
 }
 

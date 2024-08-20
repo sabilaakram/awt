@@ -550,6 +550,12 @@ section.bggrayy button.slick-arrow.slick-prev {
   background-color: rgba(2, 61, 84, 0.772);
 }
 
+@media screen and (max-width: 991px) {
+  .bggrayy .nav.nav-tabs .nav-link i {
+    transform: rotate(180deg);
+  }
+}
+
 @media screen and (max-width: 800px) {
   .business-slider .slick-arrow {
     display: none !important;

@@ -115,7 +115,7 @@ const Home = () => {
                           {category === "All" ? "All Companies" : category}
                         </span>
                         <i
-                          className="fa fa-chevron-left"
+                          className="fa fa-chevron-left tab-icon"
                           aria-hidden="true"
                         ></i>
                       </a>

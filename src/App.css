@@ -378,29 +378,23 @@ button.contactsus {
   }
 }
 
-span.linesheading:before {
-  position: absolute;
+.linesheading:before,
+.linesheading:after {
+  display: block;
+  height: 3.5px;
   content: "";
-  border: 2px solid #023d54;
+  background-color: #023d54;
   width: 35px;
-  top: 10px;
-  left: -50px;
 }
 
-span.linesheading:after {
-  position: absolute;
-  content: "";
-  border: 2px solid #023d54;
-  width: 35px;
-  top: 10px;
-  right: -50px;
-}
-
-span.linesheading {
+.linesheading {
   position: relative;
   font-size: 20px;
   font-weight: 600;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   color: #023d54;
   text-transform: capitalize;
 }
@@ -435,22 +429,25 @@ span.linesheading {
   color: #000;
 }
 
-span.leftlineheading {
-  padding-left: 38px;
+.leftlineheading {
   position: relative;
   color: #023d54;
   font-size: 20px;
   font-weight: 600;
-
   text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-span.leftlineheading:before {
-  position: absolute;
+
+.leftlineheading:before {
+  display: block;
   content: "";
-  border: 1px solid #023d54;
+  height: 3.5px;
+  background-color: #023d54;
   width: 30px;
   left: 0px;
-  top: 12px;
+  top: 50%;
 }
 /* home page tabs and slider css start here */
 section.bggrayy {
@@ -1785,12 +1782,13 @@ section.spaceupdown .card p {
 }
 
 .ciclre-info {
-  margin: 0 auto;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .ciclre-info h3 {
-  font-size: 2.75rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 

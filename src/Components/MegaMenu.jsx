@@ -29,11 +29,11 @@ const MegaMenu = ({ show, onMouseEnter, onMouseLeave }) => {
     <>
       <NavDropdown.Header>{categoryName}</NavDropdown.Header>
       {items.map((item) => (
-        <NavDropdown.Item key={item.id}>
+        <NavDropdown.Item key={item.id} as="div">
           <FaCaretRight color="gray" />
           <Link
             onClick={() => onMouseLeave()}
-            className="nav-link"
+            className="nav-link w-100"
             to={`/business-units/${item.slug}`}
           >
             {item.Title}

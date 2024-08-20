@@ -22,6 +22,7 @@ const BusinessUnitsSlider = ({ businessUnitsSliderData, activeTabId }) => {
   const settings = {
     infinite: false,
     speed: 500,
+    autoplay: true,
     slidesToShow: 3,
     slidesToScroll: 3,
     responsive: [

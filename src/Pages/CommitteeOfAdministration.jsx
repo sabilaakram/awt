@@ -15,7 +15,6 @@ const CommitteeOfAdministration = () => {
     (item) => item.Category.trim() === "Committee of Administration"
   );
 
-  console.log(committeOfAdministration);
   const baseUrl = getStrapiURL();
 
   return (

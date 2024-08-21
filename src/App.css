@@ -2091,15 +2091,15 @@ section.spaceupdown .card p {
 
 /* About Timeline */
 .vertical-timeline-element-content {
-  background-color: #ebeef2;
+  background-color: #ebeef2 !important;
 }
 
 .vertical-timeline::before {
-  background: #ebeef2;
+  background: #ebeef2 !important;
 }
 
 .vertical-timeline-element-content-arrow {
-  border-right: 7px solid #ebeef2;
+  border-right: 7px solid #ebeef2 !important;
 }
 
 .vertical__timeline_element-title {
@@ -2117,7 +2117,6 @@ section.spaceupdown .card p {
 .vertical__timeline_element-text {
   font-size: 1rem;
   font-weight: 400;
-
   color: #000;
 }
 

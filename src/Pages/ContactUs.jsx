@@ -212,7 +212,9 @@ const ContactUs = () => {
       <section className="team-contact">
         <Container>
           <div className="text-center">
-            <span className="leftlineheading">Connect</span>
+            <span className="leftlineheading justify-content-center">
+              Connect
+            </span>
             <h2 className="m-0 ">AWT Team Members</h2>
           </div>
           <div className="team-contact-grid">

@@ -15,8 +15,7 @@ const PDFFlipbook = () => {
   useEffect(() => {
     const updateDimensions = () => {
       const width = window.innerWidth;
-
-      setPageWidth(Math.min(width * 0.9, 1000)); // Max width of 1000px
+      setPageWidth(Math.min(width * 0.9, 1000));
     };
 
     window.addEventListener("resize", updateDimensions);

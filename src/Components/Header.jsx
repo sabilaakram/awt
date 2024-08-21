@@ -13,7 +13,7 @@ import { useState } from "react";
 
 const Header = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
-
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const handleMegaMenuMouseEnter = () => {
     setShowMegaMenu(true);
   };
@@ -22,9 +22,15 @@ const Header = () => {
     setShowMegaMenu(false);
   };
 
+  //Close nav when link is clicked
+  const handleNavCollapse = () => setIsNavCollapsed((prevState) => !prevState);
+  const closeNav = () => {
+    setIsNavCollapsed(true);
+    setShowMegaMenu(false);
+    // setShowBodsMenu(false);
+  };
   return (
     <div>
-      {/* <TopMenu /> */}
       <section className="mainmenu">
         <div className="container-fluid">
           <div className="row">
@@ -42,18 +48,26 @@ const Header = () => {
                       />
                     </Link>
                   </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav border-white">
+                  <Navbar.Toggle
+                    aria-controls="basic-navbar-nav border-white"
+                    onClick={handleNavCollapse}
+                  >
                     <FaBars className="text-white" />
                   </Navbar.Toggle>
                   <Navbar.Collapse
                     id="basic-navbar-nav"
                     className="justify-content-end"
+                    in={!isNavCollapsed}
                   >
                     <Nav className="position-relative gap-3 gap-lg-0">
-                      <Link className="navmenu-link" to="/">
+                      <Link className="navmenu-link" to="/" onClick={closeNav}>
                         Home
                       </Link>
-                      <Link className="navmenu-link" to="/aboutus">
+                      <Link
+                        className="navmenu-link"
+                        to="/aboutus"
+                        onClick={closeNav}
+                      >
                         About Us
                       </Link>
                       <MegaMenu
@@ -61,23 +75,43 @@ const Header = () => {
                         onMouseEnter={handleMegaMenuMouseEnter}
                         onMouseLeave={handleMegaMenuMouseLeave}
                       />
-                      <MobileMenu />
-                      <Link className="navmenu-link" to="/mdmessage">
+                      <MobileMenu closeNav={closeNav} />
+                      <Link
+                        className="navmenu-link"
+                        to="/mdmessage"
+                        onClick={closeNav}
+                      >
                         MD’s Message
                       </Link>
 
-                      <BodDropdownMenu />
+                      <BodDropdownMenu closeNav={closeNav} />
 
-                      <Link className="navmenu-link" to="/news">
+                      <Link
+                        className="navmenu-link"
+                        to="/news"
+                        onClick={closeNav}
+                      >
                         News
                       </Link>
-                      <Link className="navmenu-link" to="/careers">
+                      <Link
+                        className="navmenu-link"
+                        to="/careers"
+                        onClick={closeNav}
+                      >
                         Careers
                       </Link>
-                      <Link className="navmenu-link" to="/media">
+                      <Link
+                        className="navmenu-link"
+                        to="/media"
+                        onClick={closeNav}
+                      >
                         Media
                       </Link>
-                      <Link className="navmenu-link" to="/contactus">
+                      <Link
+                        className="navmenu-link"
+                        to="/contactus"
+                        onClick={closeNav}
+                      >
                         Contact Us
                       </Link>
                     </Nav>
@@ -92,9 +126,9 @@ const Header = () => {
   );
 };
 
-const MobileMenu = () => {
+const MobileMenu = ({ closeNav }) => {
   const { data, error, isPending } = BusinessUnitsData();
-  if (error) return "An error occured";
+  if (error) return "An error occurred";
   if (isPending) return <LoadingSpinner />;
 
   return (
@@ -109,6 +143,7 @@ const MobileMenu = () => {
             <Dropdown.Item
               href={`/business-units/${item.slug}`}
               className="text-white justify-content-center"
+              onClick={closeNav}
             >
               {item.Title}
             </Dropdown.Item>
@@ -119,7 +154,7 @@ const MobileMenu = () => {
   );
 };
 
-const BodDropdownMenu = () => {
+const BodDropdownMenu = ({ closeNav }) => {
   const [showBodsMenu, setShowBodsMenu] = useState(false);
 
   const handleBodsMenuMouseEnter = () => {
@@ -129,6 +164,12 @@ const BodDropdownMenu = () => {
   const handleBodsMenuMouseLeave = () => {
     setShowBodsMenu(false);
   };
+
+  const handleItemClick = (e) => {
+    closeNav();
+    setShowBodsMenu(false);
+  };
+
   return (
     <>
       <NavDropdown
@@ -144,13 +185,18 @@ const BodDropdownMenu = () => {
           </span>
         }
       >
-        <NavDropdown.Item href="/boardofdirector" className="nav-link">
+        <NavDropdown.Item
+          href="/boardofdirector"
+          className="nav-link"
+          onClick={handleItemClick}
+        >
           Board of Director
         </NavDropdown.Item>
 
         <NavDropdown.Item
           href="/committeeofadministration"
           className="nav-link"
+          onClick={handleItemClick}
         >
           Committee of Administration
         </NavDropdown.Item>
@@ -166,6 +212,7 @@ const BodDropdownMenu = () => {
             <Dropdown.Item
               href="/committeeofadministration"
               className="text-white justify-content-center"
+              onClick={handleItemClick}
             >
               Committee of Administration
             </Dropdown.Item>
@@ -174,6 +221,7 @@ const BodDropdownMenu = () => {
             <Dropdown.Item
               href="/boardofdirector"
               className="text-white justify-content-center"
+              onClick={handleItemClick}
             >
               Board of Director
             </Dropdown.Item>

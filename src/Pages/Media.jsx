@@ -70,9 +70,8 @@ const Media = () => {
               <Col
                 key={card.id}
                 lg={3}
-                md={6}
-                xs={12}
-                className="m-0 service-card gallery-card"
+                sm={6}
+                className="m-0 service-card gallery-card p-2"
               >
                 <Link to={`/media/${card.slug}`}>
                   <div className="card service-card p-0 overflow-hidden border-0 gallery-card overflow-hidden rounded-3">
@@ -107,7 +106,7 @@ const Media = () => {
         </Container>
       </section>
 
-      <Container>
+      <Container className="awt-book">
         <Row>
           <div className="col-lg-12 text-center">
             <PDFFlipbook />

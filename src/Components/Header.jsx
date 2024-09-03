@@ -8,7 +8,7 @@ import MegaMenu from "./MegaMenu";
 import { FaBars, FaChevronDown } from "react-icons/fa6";
 import { BusinessUnitsData } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
-import { Dropdown, NavDropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import { useState } from "react";
 import BodsDropdownMenu from "./BodDropdownMenu";
 
@@ -19,7 +19,6 @@ const Header = () => {
   const handleNavCollapse = () => setIsNavCollapsed((prevState) => !prevState);
   const closeNav = () => {
     setIsNavCollapsed(true);
-    // setShowBodsMenu(false);
   };
   return (
     <>
@@ -146,14 +145,6 @@ const MobileMenu = ({ closeNav }) => {
 const BodDropdownMenu = ({ closeNav }) => {
   const [showBodsMenu, setShowBodsMenu] = useState(false);
 
-  // const handleBodsMenuMouseEnter = () => {
-  //   setShowBodsMenu(true);
-  // };
-
-  // const handleBodsMenuMouseLeave = () => {
-  //   setShowBodsMenu(false);
-  // };
-
   const handleItemClick = () => {
     closeNav();
     setShowBodsMenu(false);
@@ -161,35 +152,6 @@ const BodDropdownMenu = ({ closeNav }) => {
 
   return (
     <>
-      {/* <NavDropdown
-        id="bod-dropdown"
-        show={showBodsMenu}
-        onMouseEnter={handleBodsMenuMouseEnter}
-        onMouseLeave={handleBodsMenuMouseLeave}
-        className="bod-menu d-none d-lg-block"
-        title={
-          <span className="d-flex align-items-center gap-3">
-            BODs
-            <FaChevronDown className="text-white" />
-          </span>
-        }
-      >
-        <NavDropdown.Item
-          href="/boardofdirector"
-          className="nav-link"
-          onClick={handleItemClick}
-        >
-          Board of Director
-        </NavDropdown.Item>
-
-        <NavDropdown.Item
-          href="/committeeofadministration"
-          className="nav-link"
-          onClick={handleItemClick}
-        >
-          Committee of Administration
-        </NavDropdown.Item>
-      </NavDropdown> */}
       <BodsDropdownMenu />
 
       {/* Mobile BODs dropdown */}

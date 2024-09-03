@@ -1,10 +1,10 @@
 import Slider from "react-slick";
 
 import logo1 from "../assets/Logos/Transparent/Png/Asset 22.png";
-import logo2 from "../assets/Logos/Transparent/Png/Asset 23.png";
+import logo2 from "../assets/Logos/Transparent/Png/Asset 26.png";
 import logo3 from "../assets/Logos/Transparent/Png/Asset 24.png";
 import logo4 from "../assets/Logos/Transparent/Png/Asset 25.png";
-import logo5 from "../assets/Logos/Transparent/Png/Asset 26.png";
+import logo5 from "../assets/Logos/Transparent/Png/Asset 23.png";
 import logo6 from "../assets/Logos/Transparent/Png/Asset 27.png";
 import logo7 from "../assets/Logos/Transparent/Png/Asset 28.png";
 import logo8 from "../assets/Logos/Transparent/Png/Asset 29.png";

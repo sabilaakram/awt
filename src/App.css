@@ -171,6 +171,36 @@ section.TopMenu {
   transition: all 0.3s ease;
 }
 
+.bods_dropdown {
+  position: relative;
+}
+
+.bods_dropdown-menu {
+  display: block;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+  width: 100%;
+  border-radius: 0.5rem;
+  z-index: 1;
+  padding: 1em 0;
+}
+
+.bods_dropdown-menu a {
+  color: #424242;
+  padding: 0.35em 1em;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.bods_dropdown-menu a:hover {
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Breadcrumb */
 .breadcrumb {
   box-shadow: none;
@@ -350,7 +380,7 @@ button.contactsus {
 }
 
 .mainmenu {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 0;
   left: 0;

@@ -10,6 +10,7 @@ import { BusinessUnitsData } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
 import { Dropdown, NavDropdown } from "react-bootstrap";
 import { useState } from "react";
+import BodsDropdownMenu from "./BodDropdownMenu";
 
 const Header = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -21,7 +22,7 @@ const Header = () => {
     // setShowBodsMenu(false);
   };
   return (
-    <div>
+    <>
       <section className="mainmenu">
         <div className="container-fluid">
           <div className="row">
@@ -109,7 +110,7 @@ const Header = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
@@ -145,13 +146,13 @@ const MobileMenu = ({ closeNav }) => {
 const BodDropdownMenu = ({ closeNav }) => {
   const [showBodsMenu, setShowBodsMenu] = useState(false);
 
-  const handleBodsMenuMouseEnter = () => {
-    setShowBodsMenu(true);
-  };
+  // const handleBodsMenuMouseEnter = () => {
+  //   setShowBodsMenu(true);
+  // };
 
-  const handleBodsMenuMouseLeave = () => {
-    setShowBodsMenu(false);
-  };
+  // const handleBodsMenuMouseLeave = () => {
+  //   setShowBodsMenu(false);
+  // };
 
   const handleItemClick = () => {
     closeNav();
@@ -160,7 +161,7 @@ const BodDropdownMenu = ({ closeNav }) => {
 
   return (
     <>
-      <NavDropdown
+      {/* <NavDropdown
         id="bod-dropdown"
         show={showBodsMenu}
         onMouseEnter={handleBodsMenuMouseEnter}
@@ -188,7 +189,8 @@ const BodDropdownMenu = ({ closeNav }) => {
         >
           Committee of Administration
         </NavDropdown.Item>
-      </NavDropdown>
+      </NavDropdown> */}
+      <BodsDropdownMenu />
 
       {/* Mobile BODs dropdown */}
       <Dropdown className="d-block d-lg-none p-0">

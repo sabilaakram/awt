@@ -4,10 +4,18 @@ import { FaCaretRight } from "react-icons/fa";
 import { BusinessUnitsData } from "../data/GetData";
 import LoadingSpinner from "./LoadingSpinner";
 import { FaChevronDown } from "react-icons/fa6";
-import React from "react";
-
-const MegaMenu = ({ show, onMouseEnter, onMouseLeave }) => {
+import React, { useState } from "react";
+const MegaMenu = () => {
   const { data, error, isPending } = BusinessUnitsData();
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
+
+  const handleMegaMenuMouseEnter = () => {
+    setShowMegaMenu(true);
+  };
+
+  const handleMegaMenuMouseLeave = () => {
+    setShowMegaMenu(false);
+  };
 
   if (error) return "An error occurred";
   if (isPending) return <LoadingSpinner />;
@@ -32,7 +40,7 @@ const MegaMenu = ({ show, onMouseEnter, onMouseLeave }) => {
         <NavDropdown.Item key={item.id} as="div">
           <FaCaretRight color="gray" />
           <Link
-            onClick={() => onMouseLeave()}
+            onClick={() => setShowMegaMenu(false)}
             className="nav-link w-100"
             to={`/business-units/${item.slug}`}
           >
@@ -46,6 +54,9 @@ const MegaMenu = ({ show, onMouseEnter, onMouseLeave }) => {
   return (
     <NavDropdown
       id="megamenu"
+      onMouseEnter={handleMegaMenuMouseEnter}
+      onMouseLeave={handleMegaMenuMouseLeave}
+      show={showMegaMenu}
       className="p-0 d-none d-lg-block"
       title={
         <span className="d-flex gap-2 align-items-center navmenu-link">

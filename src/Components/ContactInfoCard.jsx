@@ -2,14 +2,25 @@ import React from "react";
 import { ContactInfo } from "../data/contact-info";
 import { MdMailOutline } from "react-icons/md";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
+import { motion } from "framer-motion";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 100, damping: 15 },
+  },
+};
 
 const ContactInfoCard = () => {
   return (
     <>
       {ContactInfo.map((item, index) => (
-        <div
+        <motion.div
           className="contact-info-card shadowww-box d-flex flex-column gap-2 justify-content-between"
           key={index}
+          variants={cardVariants}
         >
           <h3 className="text-center mb-3">{item.name}</h3>
 
@@ -44,7 +55,7 @@ const ContactInfoCard = () => {
               </div>
             </li>
           </ul>
-        </div>
+        </motion.div>
       ))}
     </>
   );

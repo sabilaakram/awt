@@ -1051,7 +1051,7 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 }
 /* footer css start here */
 section#footerbox {
-  background: rgb(0, 0, 0);
+  background: #023d54;
   padding: 50px 0px;
 }
 
@@ -1189,6 +1189,19 @@ button.subscribebtns:hover {
 
 .contact-info-card.shadowww-box {
   padding: 2em;
+  transition: all 0.3s ease;
+}
+
+.contact-info-card.shadowww-box button {
+  cursor: text;
+}
+
+.contact-info-card.shadowww-box a:hover {
+  text-decoration: underline;
+}
+
+.contact-info-card.shadowww-box:hover {
+  box-shadow: 0 5px 12px 0px rgba(0, 0, 0, 0.5);
 }
 
 .contact-info-card h3 {
@@ -1288,6 +1301,7 @@ button.subscribebtns:hover {
 .icon-info ul li a:hover,
 .icon-info .link-button:hover {
   color: #023d54;
+  text-decoration: underline;
 }
 
 .row.inlinebox {
@@ -1297,6 +1311,7 @@ button.subscribebtns:hover {
 
 .borderr-box h3 {
   font-size: 18px;
+  margin-bottom: 0.5rem;
 }
 
 .borderr-box {
@@ -1312,6 +1327,11 @@ button.subscribebtns:hover {
   padding: 30px;
   border: 2px solid #1c3a27;
   border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.shadowww-box:hover {
+  box-shadow: 0 5px 12px 0px rgba(0, 0, 0, 0.5);
 }
 
 .borderr-box {

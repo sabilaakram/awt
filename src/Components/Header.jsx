@@ -12,21 +12,12 @@ import { Dropdown, NavDropdown } from "react-bootstrap";
 import { useState } from "react";
 
 const Header = () => {
-  const [showMegaMenu, setShowMegaMenu] = useState(false);
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-  const handleMegaMenuMouseEnter = () => {
-    setShowMegaMenu(true);
-  };
-
-  const handleMegaMenuMouseLeave = () => {
-    setShowMegaMenu(false);
-  };
 
   //Close nav when link is clicked
   const handleNavCollapse = () => setIsNavCollapsed((prevState) => !prevState);
   const closeNav = () => {
     setIsNavCollapsed(true);
-    setShowMegaMenu(false);
     // setShowBodsMenu(false);
   };
   return (
@@ -70,11 +61,7 @@ const Header = () => {
                       >
                         About Us
                       </Link>
-                      <MegaMenu
-                        show={showMegaMenu}
-                        onMouseEnter={handleMegaMenuMouseEnter}
-                        onMouseLeave={handleMegaMenuMouseLeave}
-                      />
+                      <MegaMenu />
                       <MobileMenu closeNav={closeNav} />
                       <Link
                         className="navmenu-link"
@@ -126,6 +113,7 @@ const Header = () => {
   );
 };
 
+//Business units mobile dropdown
 const MobileMenu = ({ closeNav }) => {
   const { data, error, isPending } = BusinessUnitsData();
   if (error) return "An error occurred";
@@ -165,7 +153,7 @@ const BodDropdownMenu = ({ closeNav }) => {
     setShowBodsMenu(false);
   };
 
-  const handleItemClick = (e) => {
+  const handleItemClick = () => {
     closeNav();
     setShowBodsMenu(false);
   };
@@ -202,6 +190,7 @@ const BodDropdownMenu = ({ closeNav }) => {
         </NavDropdown.Item>
       </NavDropdown>
 
+      {/* Mobile BODs dropdown */}
       <Dropdown className="d-block d-lg-none p-0">
         <Dropdown.Toggle className="border-0 bg-transparent text-white m-0 mx-auto d-flex align-items-center gap-3">
           BODs <FaChevronDown className="text-white" />

@@ -8,8 +8,21 @@ import { Breadcrumb, Container } from "react-bootstrap";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import ContactInfoCard from "../Components/ContactInfoCard";
 import header from "../assets/headers/contact-us.png";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const ContactUs = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
     <div>
       <section
@@ -64,7 +77,7 @@ const ContactUs = () => {
                       </div>
                       <div className="col-lg-10">
                         <div className="icon-info">
-                          <h5> Main Office</h5>
+                          <h5>Main Office</h5>
                           <ul>
                             <li>
                               <a href="tel:92-51-9272400-4">
@@ -112,7 +125,7 @@ const ContactUs = () => {
                       </div>
                       <div className="col-lg-10">
                         <div className="icon-info">
-                          <h5> Address to</h5>
+                          <h5>Address to</h5>
                           <ul>
                             <li>
                               <button className="link-button">
@@ -217,9 +230,15 @@ const ContactUs = () => {
             </span>
             <h2 className="m-0 ">AWT Team Members</h2>
           </div>
-          <div className="team-contact-grid">
+          <motion.div
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={containerVariants}
+            className="team-contact-grid"
+            ref={ref}
+          >
             <ContactInfoCard />
-          </div>
+          </motion.div>
         </Container>
       </section>
 

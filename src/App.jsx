@@ -18,11 +18,14 @@ import MDmessage from "./Pages/MDmessage";
 import SingleMedia from "./Pages/SingleMedia";
 import BusinessUnit from "./Pages/BusinessUnit";
 import CommitteeOfAdministration from "./Pages/CommitteeOfAdministration";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        {/* Ensures the page scrolls to top on route change */}
+        <ScrollToTop />
         <Header />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>

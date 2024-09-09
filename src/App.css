@@ -1272,12 +1272,13 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 .contact-info-card h3 {
   color: #1c3a27;
   font-size: 1.5rem;
+  transition: all 0.5s ease-in;
 }
 
 .info-card-list-item a {
   font-size: 1.25rem;
   color: #1c3a27;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease-in;
 }
 
 .info-card-list-item a:hover {
@@ -1289,6 +1290,7 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
   line-height: 1.5rem;
   color: #023d54;
   font-weight: 600;
+  transition: all 0.5s ease-in;
 }
 
 .info-card-list-item svg {

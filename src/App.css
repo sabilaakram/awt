@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -17,6 +23,11 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
 }
 
 li {
@@ -755,10 +766,10 @@ section.ournewss {
 }
 
 .logo-card {
-  background: #fff;
-  border: 1px solid #023d54;
-  border-radius: 1rem;
-  padding: 1rem;
+  /* background: #fff; */
+  /* border: 1px solid #023d54; */
+  /* border-radius: 1rem; */
+  /* padding: 1rem; */
   height: 100px;
   width: 100px !important;
 }
@@ -1080,9 +1091,34 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
   color: #fff;
 }
 /* footer css start here */
-section#footerbox {
+.footer__logo_container {
+  min-height: 100%;
+  padding: 5rem;
   background: #023d54;
-  padding: 50px 0px;
+}
+
+.footer__link_container {
+  padding: 5rem;
+  min-height: 100%;
+  background: url("./assets/world-map.png") no-repeat;
+  background-size: cover;
+  background-color: rgb(2, 61, 84);
+  position: relative;
+}
+
+.footer-copyright {
+  background-color: #002c3e;
+  color: #fff;
+}
+
+.footer__link_container::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 61, 84, 0.881);
 }
 
 .getintouch h3 {
@@ -1092,101 +1128,81 @@ section#footerbox {
   margin-bottom: 25px;
 }
 
-.recentpost h3 {
+.footer-link-title,
+.business_unit h4 {
+  display: inline-block;
   color: #fff;
-
   font-weight: 500;
-  text-transform: capitalize;
-  margin-bottom: 25px;
+  font-size: 2.25rem;
+  position: relative;
 }
-.recentpost p,
-.footer-logo p {
+
+.footer-link-title::after {
+  content: "";
+  display: block;
+  width: 75%;
+  border-radius: 9999px;
+  height: 0.2rem;
+  background: #fff;
+}
+
+.footer__links {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.business_unit h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+.footer__links a,
+.footer__contact-links a {
   color: #fff;
-  font-size: 16px;
-}
-.getintouch ul {
-  padding-left: 0px;
-}
-
-.getintouch ul li {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.getintouch ul li i {
-  color: #fff;
-  font-size: 25px;
-  margin-right: 5px;
-}
-
-.getintouch ul li a,
-.getintouch ul li span,
-.footer-link-button {
-  color: #fff !important;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
-.getintouch ul li a:hover {
-  color: rgba(255, 255, 255, 0.5) !important;
+.footer__links a:hover,
+.footer__contact-links a:hover {
+  opacity: 0.65;
 }
 
-.footerform h6 {
-  color: #023d54;
-  font-weight: 800;
-  margin-bottom: 25px;
+.footer__contact-links ul {
+  margin-top: 1em;
 }
 
-.footer-link-button {
-  text-align: left;
+.footer__contact-links a {
+  font-size: 1.25rem;
 }
 
-.footerform input#exampleInputEmail1 {
-  padding: 12px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.footerform label {
+.footer__contact-links li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   color: #fff;
-  margin-bottom: 5px;
+  font-size: 1.25rem;
 }
 
-button.subscribebtns {
-  background: #023d54;
-  width: 100%;
-  padding: 10px 30px;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  color: #fff;
-
-  font-size: 18px;
-  transition: all 0.3s ease;
+.footer__contact-links li:not(:last-child),
+.business_unit li:not(:last-child) {
+  margin-bottom: 1em;
 }
 
-button.subscribebtns:hover {
-  background: rgba(179, 131, 42, 0.808);
+@media screen and (max-width: 768px) {
+  .footer__link_container,
+  .footer__logo_container {
+    padding: 3rem 2rem;
+  }
 }
 
-.footerform .subscribebtns {
-  background: #1c3a27;
-}
-
-.footerform .subscribebtns:hover {
-  background: rgba(4, 114, 51, 1);
-}
-
-.bottomlinee {
-  margin-top: 50px;
-  border-top: 1px solid #fff;
-}
-
-.bottomlinee p {
-  margin-bottom: 0px;
-  color: #fff;
-  margin-top: 30px;
+@media screen and (max-width: 550px) {
+  .footer__links {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 /* contact us page css */
@@ -1445,12 +1461,12 @@ button.subscribebtns:hover {
 }
 .spaceupdowngray {
   padding: 0.5em 0;
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
 }
 
 .trsutimages .img-fluid {
   margin: 0 auto !important;
-  max-width: 150px;
+  max-width: 100px;
 }
 
 .logo-slider .slick-track {

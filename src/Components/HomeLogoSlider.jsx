@@ -1,24 +1,22 @@
 import React from "react";
 
-import logo1 from "../assets/Logos/Transparent/Png/Asset 22.png";
-import logo2 from "../assets/Logos/Transparent/Png/Asset 23.png";
-import logo3 from "../assets/Logos/Transparent/Png/Asset 24.png";
-import logo4 from "../assets/Logos/Transparent/Png/Asset 25.png";
-import logo5 from "../assets/Logos/Transparent/Png/Asset 26.png";
-import logo6 from "../assets/Logos/Transparent/Png/Asset 27.png";
-import logo7 from "../assets/Logos/Transparent/Png/Asset 28.png";
-import logo8 from "../assets/Logos/Transparent/Png/Asset 29.png";
-import logo9 from "../assets/Logos/Transparent/Png/Asset 30.png";
-import logo10 from "../assets/Logos/Transparent/Png/Asset 31.png";
-import logo11 from "../assets/Logos/Transparent/Png/Asset 32.png";
-import logo12 from "../assets/Logos/Transparent/Png/Asset 33.png";
-import logo13 from "../assets/Logos/Transparent/Png/Asset 34.png";
-import logo14 from "../assets/Logos/Transparent/Png/Asset 35.png";
-import logo15 from "../assets/Logos/Transparent/Png/Asset 36.png";
-import logo16 from "../assets/Logos/Transparent/Png/Asset 37.png";
-import logo17 from "../assets/Logos/Transparent/Png/Asset 38.png";
-import logo18 from "../assets/Logos/Transparent/Png/Asset 39.png";
-import logo19 from "../assets/Logos/Transparent/Png/Asset 40.png";
+import logo1 from "../assets/Logos/Boxed/1.png";
+import logo2 from "../assets/Logos/Boxed/2.png";
+import logo3 from "../assets/Logos/Boxed/3.png";
+import logo4 from "../assets/Logos/Boxed/4.png";
+import logo5 from "../assets/Logos/Boxed/5.png";
+import logo6 from "../assets/Logos/Boxed/6.png";
+import logo7 from "../assets/Logos/Boxed/7.png";
+import logo8 from "../assets/Logos/Boxed/8.png";
+import logo9 from "../assets/Logos/Boxed/9.png";
+import logo10 from "../assets/Logos/Boxed/10.png";
+import logo11 from "../assets/Logos/Boxed/11.png";
+import logo12 from "../assets/Logos/Boxed/12.png";
+import logo13 from "../assets/Logos/Boxed/13.png";
+import logo14 from "../assets/Logos/Boxed/14.png";
+import logo15 from "../assets/Logos/Boxed/15.png";
+import logo16 from "../assets/Logos/Boxed/16.png";
+import logo17 from "../assets/Logos/Boxed/17.png";
 
 import Slider from "react-slick";
 
@@ -40,8 +38,6 @@ const logos = [
   logo15,
   logo16,
   logo17,
-  logo18,
-  logo19,
 ];
 
 const HomeLogoSlider = () => {
@@ -51,7 +47,7 @@ const HomeLogoSlider = () => {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,

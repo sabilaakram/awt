@@ -1235,7 +1235,9 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 
 .contact-info-card.shadowww-box {
   padding: 2em;
-  transition: all 0.3s ease;
+  background-color: #fff;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
 }
 
 .contact-info-card.shadowww-box button {
@@ -1246,8 +1248,25 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
   text-decoration: underline;
 }
 
+.contact-info-card.shadowww-box:hover .borderr-box {
+  border-color: #fff;
+}
+
 .contact-info-card.shadowww-box:hover {
-  box-shadow: 0 5px 12px 0px rgba(0, 0, 0, 0.5);
+  background-color: #1c3a27;
+  box-shadow: 0 5px 12px 0px rgb(0, 0, 0);
+}
+
+.contact-info-card.shadowww-box:hover h3,
+.contact-info-card.shadowww-box:hover a,
+.contact-info-card.shadowww-box:hover strong,
+.contact-info-card.shadowww-box:hover .link-button {
+  color: #fff;
+}
+.contact-info-card.shadowww-box:hover span,
+.contact-info-card.shadowww-box:hover svg {
+  background: #fff;
+  color: #1c3a27;
 }
 
 .contact-info-card h3 {

@@ -866,6 +866,21 @@ section.yeasrbrands button.slick-arrow.slick-next::before {
   line-height: 3rem;
 }
 
+.header {
+  min-height: 85vh;
+  height: 100%;
+}
+
+.header__background-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoomIn 15s ease-in-out infinite alternate;
+}
+
 .headerpage {
   position: relative;
   padding: 1em;
@@ -2250,23 +2265,19 @@ section.spaceupdown .card p {
 
 .loadingSpinnerContainer {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 50;
   display: flex;
   justify-content: center;
   align-items: center;
+  inset: 0;
 }
 
 .loadingSpinner {
   width: 64px;
   height: 64px;
-  border: 8px solid;
-  border-color: gray;
-  border-color: rgb(28, 58, 39) transparent #41ab6b transparent;
+  border-top: 4px solid;
+  border-color: #023d54;
   border-radius: 100%;
   animation: spin 1s linear infinite;
 }
@@ -2274,9 +2285,9 @@ section.spaceupdown .card p {
 .loadingSpinnerContainer span {
   color: #fff;
   padding-left: 1rem;
-  font-size: 2.25rem;
-  font-weight: 600;
-  line-height: 3rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 500;
 }
 
 @keyframes spin {

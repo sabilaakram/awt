@@ -3,7 +3,7 @@ const LoadingSpinner = () => {
     <div className="loadingSpinnerContainer">
       <div className="loadingSpinner" />
 
-      <span>Please Wait ⏳</span>
+      <span>Loading...</span>
     </div>
   );
 };

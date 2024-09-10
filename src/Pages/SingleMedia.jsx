@@ -6,7 +6,7 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import { getStrapiURL } from "../lib/utils";
 import ImagesSlider from "../Components/ImagesSlider";
 import LighthouseGallery from "../Components/LighthouseGallery";
-import header from "../assets/headers/media.png";
+import header from "../assets/headers/Media.jpg";
 
 const SingleMedia = () => {
   const [show, setShow] = useState(false);

@@ -15,16 +15,13 @@ const HeaderSlider = () => {
       <Carousel controls={false} indicators={false} interval={2500}>
         {data.map((slide, index) => (
           <Carousel.Item key={slide.id}>
-            <div
-              style={{
-                background: `url(${baseurl}${slide.Image.url}) no-repeat`,
-                height: "85vh",
-                width: "100vw",
-                backgroundSize: "cover",
-                animation: "zoomIn 15s ease-in-out infinite alternate",
-              }}
-              className="header d-flex flex-column justify-content-center align-items-center text-white"
-            >
+            <div className="header d-flex flex-column justify-content-center align-items-center text-white position-relative">
+              <img
+                src={`${baseurl}${slide.Image.url}`}
+                alt={slide.Image.alternativeText}
+                className="header__background-image"
+                loading="lazy"
+              />
               <div className="dark-overlay" />
               <div className="headerpage">
                 {index > 0 ? (

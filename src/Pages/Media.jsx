@@ -5,7 +5,7 @@ import { GetGalleryItems } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
 import { Link } from "react-router-dom";
 import PDFFlipbook from "../Components/Flipbook";
-import header from "../assets/headers/media.png";
+import header from "../assets/headers/Media.jpg";
 
 const Media = () => {
   const baseurl = getStrapiURL();

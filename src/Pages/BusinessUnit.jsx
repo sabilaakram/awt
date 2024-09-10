@@ -12,7 +12,7 @@ const baseurl = getStrapiURL();
 const ServiceCard = ({ card }) => {
   return (
     <Col lg={4} md={6} xs={12} className="mb-4 service-card">
-      <div className="card service-card p-0 overflow-hidden">
+      <div className="card p-0 overflow-hidden">
         {card.Image && Object.keys(card.Image).length > 0 && (
           <img
             src={`${baseurl}${card.Image.url}`}
@@ -85,7 +85,7 @@ const BusinessUnit = () => {
       </section>
 
       {data.Partners !== null && (
-        <section className="spaceupdown my-5">
+        <section className="spaceupdown mb-0">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -154,7 +154,7 @@ const BusinessUnit = () => {
       {data.Services !== null && data.Services.Service.length > 0 && (
         <section className="spaceupdown">
           <Container>
-            <div className="row spacebottom">
+            <div className="row mb-2">
               <div className="col-lg-12">
                 <div className="aboutus">
                   <span className="linesheading">Our services</span>
@@ -177,15 +177,9 @@ const BusinessUnit = () => {
         </section>
       )}
 
-      <section className="spaceupdown">
-        <Container>
-          <div className="get-in-touch">
-            <h2>Get in Touch</h2>
-            <p>
-              Explore AWT&apos;s services and projects. Connect with us through
-              the credentials provided below.
-            </p>
-          </div>
+      <section className="spaceupdown unit__contact">
+        <Container className="p-0">
+          <h2>Contact {data.Title}</h2>
 
           <ul className="servicebottommenulinks">
             <li>

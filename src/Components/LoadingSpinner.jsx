@@ -1,9 +1,9 @@
 const LoadingSpinner = () => {
   return (
     <div className="loadingSpinnerContainer">
-      <div className="loadingSpinner"></div>
+      <div className="loadingSpinner" />
 
-      <h1>Please Wait ⏳</h1>
+      <span>Please Wait ⏳</span>
     </div>
   );
 };

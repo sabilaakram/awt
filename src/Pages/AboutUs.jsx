@@ -1,7 +1,7 @@
 import AboutTimeline from "../Components/AboutTimeline.jsx";
 import ImagesSlider from "../Components/ImagesSlider.jsx";
 import { Breadcrumb } from "react-bootstrap";
-import header from "../assets/headers/about-us.png";
+import header from "../assets/headers/About-Us.jpg";
 const AboutUs = () => {
   return (
     <div>

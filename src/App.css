@@ -1133,7 +1133,7 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
   display: inline-block;
   color: #fff;
   font-weight: 500;
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   position: relative;
 }
 
@@ -1155,7 +1155,7 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 }
 
 .business_unit h4 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5em;
 }
 
@@ -1173,10 +1173,6 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 
 .footer__contact-links ul {
   margin-top: 1em;
-}
-
-.footer__contact-links a {
-  font-size: 1.25rem;
 }
 
 .footer__contact-links li {

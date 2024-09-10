@@ -57,9 +57,7 @@ const BusinessUnit = () => {
       >
         <div className="container">
           <div className="row text-center">
-            <h1 className="service-title">
-              {data.Title} <span>| Pakistan</span>
-            </h1>
+            <h1 className="service-title">{data.Title}</h1>
           </div>
         </div>
       </section>

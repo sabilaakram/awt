@@ -9,7 +9,8 @@ import LoadingSpinner from "./LoadingSpinner";
 const FooterItems = [
   { label: "About Us", href: "/aboutus" },
   { label: "MD's message", href: "/mdmessage" },
-  { label: "BODs", href: "/boardofdirector" },
+  { label: "Board of Directors", href: "/boardofdirector" },
+  { label: "Committee of Administration", href: "/committeeofadministration" },
   { label: "News", href: "/news" },
   { label: "Careers", href: "/Careers" },
   { label: "Media", href: "/media" },
@@ -69,13 +70,6 @@ const Footer = () => {
           <div className="z-2 mb-5 position-relative">
             <h3 className="footer-link-title">Our Units</h3>
 
-            {/* <ul className="footer__links">
-              {data.map((unit) => (
-                <li key={unit.id}>
-                  <Link to={`/business-units/${unit.slug}`}>{unit.Title}</Link>
-                </li>
-              ))}
-            </ul> */}
             <BusinessUnitsLinks />
           </div>
 

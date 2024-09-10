@@ -1,5 +1,5 @@
 import { Breadcrumb, Container, Row } from "react-bootstrap";
-import header from "../assets/headers/Careers.png";
+import header from "../assets/headers/Careers.jpg";
 
 const Careers = () => {
   return (

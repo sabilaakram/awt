@@ -5,6 +5,10 @@ import BusinessUnitsSlider from "../Components/BusinessUnitsSlider.jsx";
 import { BusinessUnitsData } from "../data/GetData.jsx";
 import ResourceSlider from "../Components/ResourceSlider.jsx";
 import HomeLogoSlider from "../Components/HomeLogoSlider.jsx";
+import { GiCash } from "react-icons/gi";
+import { FaUsers } from "react-icons/fa6";
+import { MdBusiness } from "react-icons/md";
+import { BsCashStack } from "react-icons/bs";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("All");
@@ -27,25 +31,24 @@ const Home = () => {
 
   const counters = [
     {
-      icon: "fa-thumbs-o-up",
+      icon: <BsCashStack size={40} color="#023d54" />,
       value: "40 Billion",
-      label: "Well Above 40 Billion Rupees Worth company ",
-      colored: true,
+      label: "Well above 40 billion rupees company worth ",
     },
     {
-      icon: "fa-group",
-      value: "28,000",
-      label: "Providing 28,000 Direct & Indirect Employments",
+      icon: <FaUsers size={40} color="#023d54" />,
+      value: "28,000+",
+      label: "Providing 28,000 direct & indirect employments",
     },
     {
-      icon: "fa-shopping-cart",
-      value: "20 Companies",
-      label: "20 Companies And Still Growing",
+      icon: <MdBusiness size={40} color="#023d54" />,
+      value: "18 Companies",
+      label: "18 companies & still growing",
     },
     {
-      icon: "fa-user",
+      icon: <GiCash size={40} color="#023d54" />,
       value: "2 Billion",
-      label: "2 Billion Rupees Contributed To National Excequer",
+      label: "2 Billion rupees contributed to national excequer",
     },
   ];
 

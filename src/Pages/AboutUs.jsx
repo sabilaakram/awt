@@ -1,6 +1,5 @@
 import AboutTimeline from "../Components/AboutTimeline.jsx";
 import ImagesSlider from "../Components/ImagesSlider.jsx";
-import { Breadcrumb } from "react-bootstrap";
 import header from "../assets/headers/About-Us.jpg";
 const AboutUs = () => {
   return (
@@ -19,13 +18,13 @@ const AboutUs = () => {
                   About <span>Us </span>
                 </h1>
 
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>About Us</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </div>
@@ -107,7 +106,7 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-          {/* 
+          {/*
           <div className="row">
             <div className="col-lg-8 m-auto">
               <div className="Corporate">

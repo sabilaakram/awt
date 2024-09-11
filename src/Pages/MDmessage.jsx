@@ -1,4 +1,4 @@
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import ImagesSlider from "../Components/ImagesSlider";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { GetMdMessage } from "../data/GetData";
@@ -29,13 +29,13 @@ const MDmessage = () => {
                   MD's <span>MESSAGE </span>{" "}
                 </h1>
 
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>MD's Message</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </div>

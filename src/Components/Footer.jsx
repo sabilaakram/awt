@@ -68,7 +68,7 @@ const Footer = () => {
 
         <Col lg={8} className="footer__link_container">
           <div className="z-2 mb-5 position-relative">
-            <h3 className="footer-link-title">Our Units</h3>
+            <h3 className="footer-link-title">Business Units</h3>
 
             <BusinessUnitsLinks />
           </div>

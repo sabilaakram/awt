@@ -1,6 +1,6 @@
 import LoadingSpinner from "../Components/LoadingSpinner";
 import ImagesSlider from "../Components/ImagesSlider";
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { GetGalleryItems } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
 import { Link } from "react-router-dom";
@@ -31,13 +31,13 @@ const Media = () => {
                   Our <span>Gallery</span>
                 </h1>
 
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>Gallery</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </Row>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { GetGalleryItemsBySlug } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
@@ -45,7 +45,7 @@ const SingleMedia = () => {
                   Our <span>Gallery</span>
                 </h1>
 
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
@@ -53,7 +53,7 @@ const SingleMedia = () => {
                     Gallery
                   </Breadcrumb.Item>
                   <Breadcrumb.Item active>{data.title}</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </div>

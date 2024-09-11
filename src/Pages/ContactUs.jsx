@@ -1,10 +1,10 @@
 import { MdGroups } from "react-icons/md";
-import contact from "../assets/contactus/contact-img.png";
+import contact from "../assets/contactus/Contact Us.jpg";
 import { MdMailOutline } from "react-icons/md";
 import { LiaHandshake } from "react-icons/lia";
 import ImagesSlider from "../Components/ImagesSlider";
 import { RiCustomerService2Line } from "react-icons/ri";
-import { Breadcrumb, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import ContactInfoCard from "../Components/ContactInfoCard";
 import header from "../assets/headers/contact-us.png";
@@ -39,13 +39,13 @@ const ContactUs = () => {
                   Contact <span>Us </span>
                 </h1>
 
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>Contact Us</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </div>

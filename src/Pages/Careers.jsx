@@ -1,4 +1,4 @@
-import { Breadcrumb, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import header from "../assets/headers/Careers.jpg";
 
 const Careers = () => {
@@ -16,13 +16,13 @@ const Careers = () => {
               <div className="aboutuspage">
                 <h1>Careers</h1>
 
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>Careers</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </Row>

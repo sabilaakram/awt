@@ -1,4 +1,4 @@
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import ImagesSlider from "../Components/ImagesSlider";
 import { GetBods } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
@@ -33,7 +33,7 @@ const CommitteeOfAdministration = () => {
                   {" "}
                   Committee of <span>Administration </span>{" "}
                 </h1>
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
@@ -41,7 +41,7 @@ const CommitteeOfAdministration = () => {
                   <Breadcrumb.Item active>
                     Committee of Administration
                   </Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </div>

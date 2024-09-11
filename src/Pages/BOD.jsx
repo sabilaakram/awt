@@ -1,4 +1,4 @@
-import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import ImagesSlider from "../Components/ImagesSlider";
 import { GetBods } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
@@ -30,14 +30,14 @@ const BOD = () => {
                 <h1>
                   Board of <span>Directors </span>{" "}
                 </h1>
-
+                {/* 
                 <Breadcrumb>
                   <Breadcrumb.Item href="/" className="">
                     Home
                   </Breadcrumb.Item>
 
                   <Breadcrumb.Item active>BODs</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
             </div>
           </div>

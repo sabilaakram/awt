@@ -182,6 +182,18 @@ const BusinessUnit = () => {
           <h2>Contact {data.Title}</h2>
 
           <ul className="servicebottommenulinks">
+            {data.contact?.website && (
+              <li>
+                <FaGlobe size={26} />
+                <a
+                  href={data.contact?.website}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {data.contact?.website}
+                </a>
+              </li>
+            )}
             <li>
               <FaPhone size={26} />
               <a href={`tel:${data.contact.number}`}> {data.contact.number} </a>
@@ -194,12 +206,6 @@ const BusinessUnit = () => {
               <FaLocationDot size={26} />
               <button className="link-button">{data.contact.address}</button>
             </li>
-            {data.contact?.website && (
-              <li>
-                <FaGlobe size={26} />
-                <button className="link-button">{data.contact?.website}</button>
-              </li>
-            )}
           </ul>
         </Container>
       </section>

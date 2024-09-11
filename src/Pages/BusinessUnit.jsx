@@ -4,7 +4,7 @@ import { BusinessUnitDataBySlug } from "../data/GetData";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { Col, Container, Row } from "react-bootstrap";
 import { getStrapiURL } from "../lib/utils";
-import { FaPhone, FaLocationDot } from "react-icons/fa6";
+import { FaPhone, FaLocationDot, FaGlobe } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const baseurl = getStrapiURL();
@@ -194,6 +194,12 @@ const BusinessUnit = () => {
               <FaLocationDot size={26} />
               <button className="link-button">{data.contact.address}</button>
             </li>
+            {data.contact?.website && (
+              <li>
+                <FaGlobe size={26} />
+                <button className="link-button">{data.contact?.website}</button>
+              </li>
+            )}
           </ul>
         </Container>
       </section>

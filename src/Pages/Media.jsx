@@ -1,13 +1,16 @@
 import LoadingSpinner from "../Components/LoadingSpinner";
 import ImagesSlider from "../Components/ImagesSlider";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import { GetGalleryItems } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
 import { Link } from "react-router-dom";
 import PDFFlipbook from "../Components/Flipbook";
 import header from "../assets/headers/Media.jpg";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Media = () => {
+  const [visibleCards, setVisibleCards] = useState(4);
   const baseurl = getStrapiURL();
 
   const { data, error, isPending } = GetGalleryItems();
@@ -15,6 +18,33 @@ const Media = () => {
   if (isPending) return <LoadingSpinner />;
   if (error) return "An error occured!!";
 
+  const handleLoadMore = () => {
+    setVisibleCards((prevCount) => prevCount + 4);
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, when: "beforeChildren" },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
+    },
+  };
   return (
     <>
       <section
@@ -65,13 +95,17 @@ const Media = () => {
 
       <Container>
         <div className="my-5 mx-auto">
-          <Row>
-            {data.map((card) => (
-              <Col
+          <motion.div
+            variants={containerVariants}
+            animate={"visible"}
+            className="row"
+            initial="hidden"
+          >
+            {data.slice(0, visibleCards).map((card) => (
+              <motion.div
+                variants={cardVariants}
                 key={card.id}
-                lg={3}
-                sm={6}
-                className="m-0 service-card gallery-card p-2"
+                className="col-lg-3 col-sm-6 m-0 service-card gallery-card p-2"
               >
                 <Link to={`/media/${card.slug}`}>
                   <div className="card service-card p-0 overflow-hidden border-0 gallery-card overflow-hidden rounded-3">
@@ -87,9 +121,14 @@ const Media = () => {
                     </div>
                   </div>
                 </Link>
-              </Col>
+              </motion.div>
             ))}
-          </Row>
+          </motion.div>
+          {visibleCards < data.length && (
+            <div className="text-center mt-4">
+              <Button onClick={handleLoadMore}>Load More</Button>
+            </div>
+          )}
         </div>
       </Container>
 

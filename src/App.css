@@ -1912,7 +1912,28 @@ section.spaceupdown .card p {
   outline: 10px solid #023d54;
 }
 
+.lg-react-element {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2em;
+  margin-bottom: 2em;
+}
 
+.gallery-thumbnail {
+  object-fit: cover;
+  height: auto;
+}
+
+@media screen and (max-width: 1025px) {
+  .lg-react-element {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 550px) {
+  .lg-react-element {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
 
 .service-card,
 .partner-card {
@@ -2313,20 +2334,19 @@ section.spaceupdown .card p {
 }
 
 .gallery-card img,
-.gallery-card {
-  transition: all 0.3s ease;
+.gallery-card,
+.gallery-thumbnail {
+  transition: transform 0.3s ease;
 }
 
 .gallery-card h3 {
   color: #1c3a27;
 }
 
-.gallery-card:hover {
-  transform: scale(1.01);
-}
-
+.gallery-card:hover,
+.gallery-thumbnail:hover,
 .gallery-card:hover img {
-  transform: scaleX(1.01);
+  transform: scale(1.01);
 }
 
 .react-pdf__Page,

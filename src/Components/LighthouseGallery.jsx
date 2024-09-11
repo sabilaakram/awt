@@ -1,29 +1,38 @@
 import React from "react";
-import { Modal } from "react-bootstrap";
 import { getStrapiURL } from "../lib/utils";
+import LightGallery from "lightgallery/react";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgZoom from "lightgallery/plugins/zoom";
 
-const LighthouseGallery = ({ show, onHide, item }) => {
+// Import LightGallery CSS
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-zoom.css";
+
+const LighthouseGallery = ({ galleryItems }) => {
   const baseurl = getStrapiURL();
-  if (!item) return null;
+
+  if (!galleryItems || galleryItems.length === 0) return null;
 
   return (
-    <Modal
-      centered
-      show={show}
-      onHide={onHide}
-      backdropClassName="custom-backdrop"
-    >
-      {/* <Modal.Header className="border-0" closeButton /> */}
-      <Modal.Body>
-        <img
-          src={baseurl + item.url}
-          alt=""
-          width={item.width}
-          className="w-100 h-100"
-          height={item.height}
-        />
-      </Modal.Body>
-    </Modal>
+    <LightGallery plugins={[lgThumbnail, lgZoom]} speed={500}>
+      {galleryItems.map((galleryItem) => (
+        <a
+          href={baseurl + galleryItem.url}
+          data-src={baseurl + galleryItem.url}
+          data-lg-size={`${galleryItem.width}-${galleryItem.height}`}
+        >
+          <img
+            src={baseurl + galleryItem.url}
+            alt={galleryItem.alternativeText || ""}
+            className="w-100 gallery-thumbnail rounded-2"
+            loading="lazy"
+            width={galleryItem.width}
+            height={galleryItem.height}
+          />
+        </a>
+      ))}
+    </LightGallery>
   );
 };
 

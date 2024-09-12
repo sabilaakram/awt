@@ -67,7 +67,7 @@ const ImagesSlider = () => {
     ],
   };
   return (
-    <Slider {...settings} className="logo-slider">
+    <Slider {...settings} className="logo-slider container">
       {trustImages.map((image, index) => (
         <div key={index}>
           <div className="trsutimages">

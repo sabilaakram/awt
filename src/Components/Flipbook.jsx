@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import HTMLFlipBook from "react-pageflip";
 import pdfURL from "../assets/AWT-Corporate-Profile.pdf";
 
@@ -45,40 +45,36 @@ const PDFFlipbook = () => {
 
   return (
     <Container>
-      <Row>
-        <Col lg={12} className="text-center">
-          <Document
-            file={pdfURL}
-            onLoadSuccess={onDocumentLoadSuccess}
-            error="An error occurred while loading the PDF."
+      <Document
+        file={pdfURL}
+        onLoadSuccess={onDocumentLoadSuccess}
+        error="An error occurred while loading the PDF."
+      >
+        {numPages && (
+          <HTMLFlipBook
+            width={pageWidth}
+            height={750}
+            maxShadowOpacity={0.5}
+            showCover={true}
+            mobileScrollSupport={true}
+            ref={bookRef}
           >
-            {numPages && (
-              <HTMLFlipBook
-                width={pageWidth}
-                height={750}
-                maxShadowOpacity={0.5}
-                showCover={true}
-                mobileScrollSupport={true}
-                ref={bookRef}
-              >
-                {Array.from(new Array(numPages), (el, index) => (
-                  <div key={index} className="demoPage">
-                    <Page
-                      pageNumber={index + 1}
-                      width={550}
-                      renderTextLayer={false}
-                      renderAnnotationLayer={false}
-                      scale={2}
-                      renderMode="svg"
-                      devicePixelRatio={2}
-                    />
-                  </div>
-                ))}
-              </HTMLFlipBook>
-            )}
-          </Document>
-        </Col>
-      </Row>
+            {Array.from(new Array(numPages), (el, index) => (
+              <div key={index} className="demoPage">
+                <Page
+                  pageNumber={index + 1}
+                  width={550}
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                  scale={2}
+                  renderMode="svg"
+                  devicePixelRatio={2}
+                />
+              </div>
+            ))}
+          </HTMLFlipBook>
+        )}
+      </Document>
     </Container>
   );
 };

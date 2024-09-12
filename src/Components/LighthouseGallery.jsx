@@ -2,12 +2,10 @@ import React from "react";
 import { getStrapiURL } from "../lib/utils";
 import LightGallery from "lightgallery/react";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
-import lgZoom from "lightgallery/plugins/zoom";
 
 // Import LightGallery CSS
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-thumbnail.css";
-import "lightgallery/css/lg-zoom.css";
 
 const LighthouseGallery = ({ galleryItems }) => {
   const baseurl = getStrapiURL();
@@ -15,7 +13,7 @@ const LighthouseGallery = ({ galleryItems }) => {
   if (!galleryItems || galleryItems.length === 0) return null;
 
   return (
-    <LightGallery plugins={[lgThumbnail, lgZoom]} speed={500}>
+    <LightGallery plugins={[lgThumbnail]} speed={500}>
       {galleryItems.map((galleryItem) => (
         <a
           href={baseurl + galleryItem.url}

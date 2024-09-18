@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const BodsDropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +23,10 @@ const BodsDropdownMenu = () => {
       </button>
       {isOpen && (
         <div className="bods_dropdown-menu">
-          <a href="/boardofdirector">Board of Director </a>
-          <a href="/committeeofadministration">Committee of Administration</a>
+          <Link to="/committeeofadministration">
+            Committee of Administration
+          </Link>
+          <Link to="/boardofdirector">Board of Director </Link>
         </div>
       )}
     </div>

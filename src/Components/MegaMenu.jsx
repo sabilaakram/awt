@@ -21,7 +21,7 @@ const MegaMenu = () => {
   if (isPending) return <LoadingSpinner />;
 
   const categorizeByWelfareUnit = (items) => {
-    return items.reduce((acc, item) => {
+    const categorized = items.reduce((acc, item) => {
       const category = item.WelfareUnit;
       if (!acc[category]) {
         acc[category] = [];
@@ -29,6 +29,13 @@ const MegaMenu = () => {
       acc[category].push(item);
       return acc;
     }, {});
+
+    // Sort each category's items alphabetically by the Title property after categorization
+    Object.keys(categorized).forEach((category) => {
+      categorized[category].sort((a, b) => a.Title.localeCompare(b.Title));
+    });
+
+    return categorized;
   };
 
   const categorizedData = categorizeByWelfareUnit(data);

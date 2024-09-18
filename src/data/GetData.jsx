@@ -145,3 +145,9 @@ export const GetBods = () => {
 
   return useStrapiQueryHandler("bods", "/api/bods", params);
 };
+
+export const GetUnitsContactInfo = () => {
+  const params = {};
+
+  return useStrapiQueryHandler("contact-info", "/api/contact-infos", params);
+};

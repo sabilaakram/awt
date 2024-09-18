@@ -73,8 +73,8 @@ const AboutUs = () => {
                 <p>
                   From its inception to the establishment of vital business
                   units in different sectors, the journey of the Army Welfare
-                  Trust is a tale of unwavering commitment and transformative
-                  impact on countless lives.
+                  Trust is an unwavering commitment and transformative impact on
+                  countless lives.
                 </p>
               </div>
             </div>

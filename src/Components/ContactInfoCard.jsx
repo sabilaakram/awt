@@ -1,8 +1,10 @@
 import React from "react";
-import { ContactInfo } from "../data/contact-info";
+
 import { MdMailOutline } from "react-icons/md";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { GetUnitsContactInfo } from "../data/GetData";
+import LoadingSpinner from "./LoadingSpinner";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -14,12 +16,17 @@ const cardVariants = {
 };
 
 const ContactInfoCard = () => {
+  const { data, error, isPending } = GetUnitsContactInfo();
+
+  if (isPending) return <LoadingSpinner />;
+  if (error) return "An error occured!!!";
+
   return (
     <>
-      {ContactInfo.map((item, index) => (
+      {data.map((item) => (
         <motion.div
           className="contact-info-card shadowww-box d-flex flex-column gap-2 justify-content-between"
-          key={index}
+          key={item.id}
           variants={cardVariants}
         >
           <h3 className="text-center mb-3">{item.name}</h3>

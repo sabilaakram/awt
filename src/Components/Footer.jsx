@@ -8,13 +8,13 @@ import LoadingSpinner from "./LoadingSpinner";
 
 const FooterItems = [
   { label: "About Us", href: "/aboutus" },
-  { label: "MD's message", href: "/mdmessage" },
   { label: "Board of Directors", href: "/boardofdirector" },
-  { label: "Committee of Administration", href: "/committeeofadministration" },
-  { label: "News", href: "/news" },
   { label: "Careers", href: "/Careers" },
-  { label: "Media", href: "/media" },
+  { label: "Committee of Administration", href: "/committeeofadministration" },
   { label: "Contact Us", href: "/contactus" },
+  { label: "MD's message", href: "/mdmessage" },
+  { label: "Media", href: "/media" },
+  { label: "News", href: "/news" },
 ];
 
 const contactItems = [
@@ -100,22 +100,22 @@ const BusinessUnitsLinks = () => {
   if (error) return "An error occured fetching data...";
 
   if (isPending) return <LoadingSpinner />;
-  const publicListedItems = data.filter(
-    (item) => item.WelfareUnit === "Public Listed Company"
-  );
-  const publicUnListedItems = data.filter(
-    (item) => item.WelfareUnit === "Public Unlisted Company"
-  );
-  const privateLimitedItems = data.filter(
-    (item) => item.WelfareUnit === "Private Limited Company"
-  );
-  const otherUnitItems = data.filter(
-    (item) => item.WelfareUnit === "Other Trust Unit"
-  );
+  const publicListedItems = data
+    .filter((item) => item.WelfareUnit === "Public Listed Company")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+  const publicUnListedItems = data
+    .filter((item) => item.WelfareUnit === "Public Unlisted Company")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+  const privateLimitedItems = data
+    .filter((item) => item.WelfareUnit === "Private Limited Company")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+  const otherUnitItems = data
+    .filter((item) => item.WelfareUnit === "Other Trust Unit")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
   return (
     <div className="d-grid gap-4 w-100 footer footer__links">
       <div className="business_unit">
-        <h4>Public Listed Units</h4>
+        <h4>Public Listed Companies</h4>
 
         <ul>
           {publicListedItems.map((unit) => (
@@ -127,7 +127,7 @@ const BusinessUnitsLinks = () => {
       </div>
 
       <div className="business_unit">
-        <h4>Public Unlisted Units</h4>
+        <h4>Public Unlisted Companies</h4>
 
         <ul>
           {publicUnListedItems.map((unit) => (
@@ -139,7 +139,7 @@ const BusinessUnitsLinks = () => {
       </div>
 
       <div className="business_unit">
-        <h4>Private Limited Units</h4>
+        <h4>Private Limited Companies</h4>
 
         <ul>
           {privateLimitedItems.map((unit) => (
@@ -151,7 +151,7 @@ const BusinessUnitsLinks = () => {
       </div>
 
       <div className="business_unit">
-        <h4>Other Units</h4>
+        <h4>Other Trust Units</h4>
 
         <ul>
           {otherUnitItems.map((unit) => (

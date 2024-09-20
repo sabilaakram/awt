@@ -1,15 +1,13 @@
-import { MdGroups } from "react-icons/md";
-import contact from "../assets/contactus/Contact Us.jpg";
-import { MdMailOutline } from "react-icons/md";
-import { LiaHandshake } from "react-icons/lia";
-import ImagesSlider from "../Components/ImagesSlider";
-import { RiCustomerService2Line } from "react-icons/ri";
+import { useRef } from "react";
 import { Container } from "react-bootstrap";
+import { motion, useInView } from "framer-motion";
+import header from "../assets/headers/contact-us.png";
+import contact from "../assets/contactus/Contact Us.jpg";
+
+import { MdMailOutline } from "react-icons/md";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import ContactInfoCard from "../Components/ContactInfoCard";
-import header from "../assets/headers/contact-us.png";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import ImagesSlider from "../Components/ImagesSlider";
 
 const ContactUs = () => {
   const ref = useRef(null);
@@ -225,9 +223,7 @@ const ContactUs = () => {
       <section className="team-contact">
         <Container>
           <div className="text-center">
-            <span className="leftlineheading justify-content-center">
-              Connect
-            </span>
+            <span className="linesheading justify-content-center">Connect</span>
             <h2 className="m-0 ">AWT Team Members</h2>
           </div>
           <motion.div
@@ -242,7 +238,7 @@ const ContactUs = () => {
         </Container>
       </section>
 
-      <section className="threeboxxx p-3 p-sm-0">
+      {/* <section className="threeboxxx p-3 p-sm-0">
         <div className="container bggg">
           <div className="row">
             <div className="col-lg-4">
@@ -281,7 +277,7 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="mappb0x">
         <div className="container-fluid overflow-hidden no-gutters p-0">

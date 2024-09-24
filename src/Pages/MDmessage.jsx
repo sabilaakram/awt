@@ -3,7 +3,7 @@ import ImagesSlider from "../Components/ImagesSlider";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { GetMdMessage } from "../data/GetData";
 import { getStrapiURL } from "../lib/utils";
-import header from "../assets/headers/MD-messsage.png";
+import header from "../assets/headers/MD-messsage.jpeg";
 
 const MDmessage = () => {
   const { data, error, isPending } = GetMdMessage();

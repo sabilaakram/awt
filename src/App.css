@@ -1287,6 +1287,7 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 }
 
 .info-card-list-item a {
+  word-break: break-word;
   font-size: 1.25rem;
   color: #1c3a27;
   transition: all 0.5s ease-in;

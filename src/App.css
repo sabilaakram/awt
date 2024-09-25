@@ -2354,3 +2354,18 @@ section.spaceupdown .card p {
 .gallery-card:hover img {
   transform: scale(1.01);
 }
+/* 
+.react-pdf__Document {
+  display: inline-block;
+}
+
+.react-pdf__Page {
+  height: 100%;
+  width: 550px;
+  max-height: 720px;
+} */
+
+.react-pdf__Page__annotations,
+.endOfContent {
+  display: none;
+}

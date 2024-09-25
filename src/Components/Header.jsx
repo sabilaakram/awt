@@ -82,7 +82,8 @@ const Header = () => {
                       </Link>
                       <Link
                         className="navmenu-link"
-                        to="/careers"
+                        to="https://jobs.awt.com.pk/"
+                        target="_blank"
                         onClick={closeNav}
                       >
                         Careers

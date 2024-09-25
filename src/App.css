@@ -1448,6 +1448,11 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
   background-color: #1c3a27;
 }
 
+.sendmessage:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .shadowww-box .input-group.mb-3 span#basic-addon1 i {
   color: #023d54;
   font-size: 20px;
@@ -2348,37 +2353,4 @@ section.spaceupdown .card p {
 .gallery-thumbnail:hover,
 .gallery-card:hover img {
   transform: scale(1.01);
-}
-
-.react-pdf__Page,
-.stf__parent canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.demoPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.demoPage > canvas,
-.demoPage > svg {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-.stf__parent {
-  margin: 0 auto;
-}
-
-.stf__item {
-  width: 100% !important;
-  height: 100% !important;
-  left: 0 !important;
-  top: 0 !important;
 }

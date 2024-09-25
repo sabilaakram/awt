@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
 import header from "../assets/headers/contact-us.png";
 import contact from "../assets/contactus/Contact Us.jpg";
+import emailjs from "@emailjs/browser";
 
 import { MdMailOutline } from "react-icons/md";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
@@ -10,6 +11,47 @@ import ContactInfoCard from "../Components/ContactInfoCard";
 import ImagesSlider from "../Components/ImagesSlider";
 
 const ContactUs = () => {
+  const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+  const [formData, setFormData] = useState({
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const form = useRef();
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const clearForm = () => {
+    setFormData({
+      email: "",
+      phone: "",
+      message: "",
+    });
+  };
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+        publicKey: PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          setLoading(false);
+          clearForm();
+        },
+        (error) => {
+          alert("FAILED...", error.text);
+          setLoading(false);
+        }
+      );
+  };
+
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const containerVariants = {
@@ -143,76 +185,83 @@ const ContactUs = () => {
               <img src={contact} className="img-fluid mx-auto mx-md-0" alt="" />
             </div>
 
+            {/* Contact Form */}
             <div className="col-lg-4">
               <div className="alwaybox h-100">
                 <div className="">
-                  <span className="leftlineheading"> Drop a Line </span>
+                  <span className="leftlineheading">Drop a Line</span>
                   <h2>Leave us Message</h2>
                   <p>
                     Please feel free to get in touch using the form below. We'd
-                    love to hear for you.
+                    love to hear from you.
                   </p>
                 </div>
 
                 <div className="shadowww-box">
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa fa-user-o" aria-hidden="true"></i>
-                    </span>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Username"
-                      aria-label="Username"
-                      aria-describedby="basic-addon1"
-                    />
-                  </div>
+                  <form ref={form} onSubmit={sendEmail}>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i className="fa fa-envelope-o" aria-hidden="true"></i>
+                      </span>
+                      <input
+                        type="email"
+                        name="email"
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="email@awt.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
 
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    </span>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="exampleFormControlInput1"
-                      placeholder="name@example.com"
-                    />
-                  </div>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i
+                          className="fa fa-volume-control-phone"
+                          aria-hidden="true"
+                        ></i>
+                      </span>
+                      <input
+                        className="form-control"
+                        name="phone"
+                        placeholder="Phone"
+                        type="tel"
+                        id="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
 
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i
-                        class="fa fa-volume-control-phone"
-                        aria-hidden="true"
-                      ></i>
-                    </span>
-                    <input
-                      class="form-control"
-                      placeholder="Phone"
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                    />
-                  </div>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text" id="basic-addon1">
+                        <i
+                          className="fa fa-commenting-o"
+                          aria-hidden="true"
+                        ></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="message"
+                        className="form-control"
+                        placeholder="Message"
+                        aria-label="message"
+                        aria-describedby="basic-addon1"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
 
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                    </span>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Message"
-                      aria-label="message"
-                      aria-describedby="basic-addon1"
-                    />
-                  </div>
-
-                  <button type="submit" class="sendmessage mb-3">
-                    Send Message
-                  </button>
+                    <button
+                      type="submit"
+                      className="sendmessage mb-3"
+                      disabled={loading}
+                    >
+                      {loading ? "Sending..." : "Send Message"}
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>

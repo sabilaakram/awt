@@ -33,22 +33,22 @@ const Home = () => {
     {
       icon: <BsCashStack size={40} color="#023d54" />,
       value: "40 Billion",
-      label: "Well above 40 billion rupees company worth ",
+      label: "Well Above 40 Billion Rupees Company Worth ",
     },
     {
       icon: <FaUsers size={40} color="#023d54" />,
       value: "28,000+",
-      label: "Providing 28,000 direct & indirect employments",
+      label: "Providing 28,000 Direct & Indirect Employments",
     },
     {
       icon: <MdBusiness size={40} color="#023d54" />,
       value: "18 Companies",
-      label: "18 companies & still growing",
+      label: "18 Companies & Still Growing",
     },
     {
       icon: <GiCash size={40} color="#023d54" />,
-      value: "2 Billion",
-      label: "2 Billion rupees contributed to national excequer",
+      value: "02 Billion",
+      label: "2 Billion Rupees Contributed To National Excequer",
     },
   ];
 
@@ -161,8 +161,8 @@ const Home = () => {
         <div className="container-md">
           <div className="row">
             <div className="col-lg-12">
-              <div className="ourmission">
-                <span className="leftlineheading"> Our Contributions</span>
+              <div className="ourmission ps-4">
+                <span className="leftlineheading">Our Contributions</span>
                 <h2 className="text-primary-green">
                   Committed Services to Pakistan’s Success
                 </h2>
@@ -197,13 +197,8 @@ const Home = () => {
         <div className="ourmission relative p-0">
           <span className="leftlineheading">Latest News And Events</span>
           <h2 className="text-primary-green">
-            Committed Services to Pakistan&apos;s Success
+            Our Contemporary Projects and Recent Updates
           </h2>
-          <p>
-            Army Welfare Trust has been operating tirelessly and devotedly to
-            leave a positive imprint in the lives of its Army officers and the
-            public of Pakistan as a whole.
-          </p>
         </div>
 
         <div className="max-w-lg">

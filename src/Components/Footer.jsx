@@ -9,10 +9,10 @@ import LoadingSpinner from "./LoadingSpinner";
 const FooterItems = [
   { label: "About Us", href: "/aboutus" },
   { label: "Board of Directors", href: "/boardofdirector" },
-  { label: "Careers", href: "/Careers" },
+  { label: "Careers", href: "https://jobs.awt.com.pk", target: true },
   { label: "Committee of Administration", href: "/committeeofadministration" },
   { label: "Contact Us", href: "/contactus" },
-  { label: "MD's message", href: "/mdmessage" },
+  { label: "MD's Message", href: "/mdmessage" },
   { label: "Media", href: "/media" },
   { label: "News", href: "/news" },
 ];
@@ -79,7 +79,12 @@ const Footer = () => {
             <ul className="footer__links">
               {FooterItems.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.href}>{item.label}</Link>
+                  <Link
+                    to={item.href}
+                    target={item.target === true ? "_blank" : ""}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

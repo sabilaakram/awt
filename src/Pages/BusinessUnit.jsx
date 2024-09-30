@@ -66,7 +66,7 @@ const BusinessUnit = () => {
         <div className="container">
           <div className="row justify-content-start align-items-center gap-3 flex-lg-nowrap flex-wrap">
             <div className="col-lg-6">
-              <div className="ourmission">
+              <div className="ourmission p-0">
                 <span className="leftlineheading">{data.Title}</span>
                 <h2>{data.PageTitle}</h2>
                 <p>{data.PageDescription}</p>
@@ -90,7 +90,7 @@ const BusinessUnit = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="aboutus">
-                  <span className="linesheading">Trusted Partners</span>
+                  <span className="linesheading">Features</span>
                   <h2>{data.Partners.PartnerSectionTitle}</h2>
                   {data.Partners.PartnerSectionDescription !== null && (
                     <p>{data.Partners.PartnerSectionDescription}</p>
@@ -108,7 +108,7 @@ const BusinessUnit = () => {
             {data.Partners.Partner.map((partner) => (
               <Col lg={4} md={6} xs={12} className="p-3" key={partner.id}>
                 <div className="card partner-card h-100">
-                  <div className="position-relative d-flex flex-column text-center align-items-center gap-3 w-100">
+                  <div className="position-relative d-flex flex-column text-center align-items-center gap-3 w-100 my-auto">
                     {partner.image !== "" && (
                       <img
                         loading="lazy"
@@ -141,7 +141,7 @@ const BusinessUnit = () => {
               />
             </div>
             <div className="col-lg-6">
-              <div className="ourmission">
+              <div className="ourmission p-0">
                 <span className="leftlineheading">Support</span>
                 <h2>{data.SupportTitle}</h2>
                 <p>{data.SupportDescription}</p>
@@ -157,7 +157,7 @@ const BusinessUnit = () => {
             <div className="row mb-2">
               <div className="col-lg-12">
                 <div className="aboutus">
-                  <span className="linesheading">Our services</span>
+                  {/* <span className="linesheading">Our services</span> */}
                   <h2>{data.Services.ServiceSectionTitle}</h2>
                   {data.Services.ServiceSectionDescription !== null && (
                     <p>{data.Services.ServiceSectionDescription}</p>

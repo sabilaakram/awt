@@ -90,7 +90,7 @@ const BusinessUnit = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="aboutus">
-                  <span className="linesheading">Features</span>
+                  {/* <span className="linesheading">Features</span> */}
                   <h2>{data.Partners.PartnerSectionTitle}</h2>
                   {data.Partners.PartnerSectionDescription !== null && (
                     <p>{data.Partners.PartnerSectionDescription}</p>

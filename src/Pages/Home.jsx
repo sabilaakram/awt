@@ -66,7 +66,7 @@ const Home = () => {
             <div className="aboutus">
               <span className="linesheading">Introduction</span>
               <h2 className="text-primary-green">
-                A Promise of Resolute and Exceptional Cooperation
+                A Culture of Excellence - A Tradition of Trust{" "}
               </h2>
               <p>
                 We are excelling and achieving our objective with 53 years of
@@ -90,7 +90,7 @@ const Home = () => {
                 <div className="mb-5 mb-lg-0">
                   <div className="tabsheadingsmove d-flex justify-content-start justify-content-lg-end">
                     <span className="leftlineheading rightsss">
-                      Welfare Units
+                      Business Units
                     </span>
                   </div>
 
@@ -167,9 +167,13 @@ const Home = () => {
                   Committed Services to Pakistan’s Success
                 </h2>
                 <p>
-                  Army Welfare Trust has been operating tirelessly and devotedly
-                  to leave a positive imprint in the lives of its Army officers
-                  and the public of Pakistan as a whole.
+                  We stand out amongst the business leaders. Ours is a story of
+                  perseverance, innovation, business acumen and going beyond the
+                  frontiers in Insurance, Aviation, CNG, Agriculture,
+                  Manufacturing, Sugar, Lubricants, Real Estate, Security
+                  Solutions and many other diverse fields. Our investments will
+                  go a long way in consolidating the national economy of
+                  Pakistan.
                 </p>
               </div>
             </div>

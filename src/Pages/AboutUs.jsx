@@ -90,19 +90,13 @@ const AboutUs = () => {
             <div className="col-lg-8 m-auto">
               <div className="aboutus">
                 <span className="linesheading"> Insights About Our </span>
-                <h2> Corporate Journey 2022</h2>
+                <h2> Corporate Journey 2024</h2>
                 <p>
-                  From healthcare initiatives to sustainable development
-                  projects, the Army Welfare Trust accomplished significant
-                  milestones. 2022 proved to be a year of impressive advancement
+                  From sustainable development projects to other key
+                  initiatives, the Army Welfare Trust accomplished significant
+                  milestones. 2024 proved to be a year of impressive advancement
                   for the Army Welfare Trust.
                 </p>
-
-                {/* <p>
-                  {" "}
-                  Get a complete picture of the events from our Corporate
-                  Profile 2022. Enter your email address to download it now!
-                </p> */}
               </div>
             </div>
           </div>

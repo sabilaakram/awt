@@ -370,6 +370,7 @@ button.contactsus {
   display: flex !important;
   align-items: center;
   gap: 1em;
+  transition: all 0.3s ease;
 }
 
 .dropdown-item .nav-link {
@@ -411,6 +412,10 @@ button.contactsus {
   .dropdown-item:hover {
     color: rgba(255, 255, 255, 0.61) !important;
     background-color: transparent;
+  }
+
+  .dropdown-item:active {
+    background-color: transparent !important;
   }
 }
 

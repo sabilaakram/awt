@@ -92,9 +92,14 @@ const Footer = () => {
         </Col>
       </Row>
 
-      <p className="footer-copyright p-3 m-0 text-center">
-        Copyrights © 2024 Army Welfare Trust, All Rights Reserved.
-      </p>
+      <div className="footer-copyright">
+        <p className="p-3 text-center">
+          Copyrights © 2024 Army Welfare Trust, All Rights Reserved. Powered by{" "}
+          <a href="http://cyberxstudio.com/" target="_blank" rel="noreferrer">
+            CyberX Studio
+          </a>
+        </p>
+      </div>
     </footer>
   );
 };

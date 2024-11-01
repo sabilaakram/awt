@@ -406,6 +406,12 @@ button.contactsus {
   .mainmenu {
     background: transparent;
   }
+
+  .dropdown-item:focus,
+  .dropdown-item:hover {
+    color: rgba(255, 255, 255, 0.61) !important;
+    background-color: transparent;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1127,6 +1133,11 @@ section.yeasrbrands ul#ex1 li.nav-item a i {
 .footer-copyright {
   background-color: #002c3e;
   color: #fff;
+}
+
+.footer-copyright p {
+  max-width: 768px;
+  margin: 0 auto;
 }
 
 .footer__link_container::before {

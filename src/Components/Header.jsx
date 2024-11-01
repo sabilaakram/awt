@@ -120,6 +120,19 @@ const MobileMenu = ({ closeNav }) => {
   if (error) return "An error occurred";
   if (isPending) return <LoadingSpinner />;
 
+  const publicListedItems = data
+    .filter((item) => item.WelfareUnit === "Public Listed Company")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+  const publicUnListedItems = data
+    .filter((item) => item.WelfareUnit === "Public Unlisted Company")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+  const privateLimitedItems = data
+    .filter((item) => item.WelfareUnit === "Private Limited Company")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+  const otherUnitItems = data
+    .filter((item) => item.WelfareUnit === "Other Trust Unit")
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+
   return (
     <Dropdown className="d-block d-lg-none p-0">
       <Dropdown.Toggle className="border-0 bg-transparent text-white m-0 mx-auto d-flex align-items-center gap-3">
@@ -127,15 +140,24 @@ const MobileMenu = ({ closeNav }) => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="bg-transparent border-0 p-2 my-0">
-        {data.map((item) => (
-          <div className="my-2" key={item.id}>
-            <Dropdown.Item
-              href={`/business-units/${item.slug}`}
-              className="text-white justify-content-center"
-              onClick={closeNav}
-            >
-              {item.Title}
-            </Dropdown.Item>
+        {[
+          { title: "Public Listed Companies", items: publicListedItems },
+          { title: "Public Unlisted Companies", items: publicUnListedItems },
+          { title: "Private Limited Companies", items: privateLimitedItems },
+          { title: "Other Trust Units", items: otherUnitItems },
+        ].map((category, index) => (
+          <div key={index} className="my-2">
+            <h5 className="text-white text-center">{category.title}</h5>
+            {category.items.map((item) => (
+              <Dropdown.Item
+                key={item.id}
+                href={`/business-units/${item.slug}`}
+                className="text-white justify-content-center"
+                onClick={closeNav}
+              >
+                {item.Title}
+              </Dropdown.Item>
+            ))}
           </div>
         ))}
       </Dropdown.Menu>

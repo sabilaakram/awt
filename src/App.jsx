@@ -1,6 +1,6 @@
 import "./App.css";
 import { Suspense } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 //Import Components
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -43,7 +43,7 @@ function App() {
             <Route path="/media" element={<Media />} />
             <Route path="/media/:slug" element={<SingleMedia />} />
             <Route path="/careers" element={<Careers />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
 

@@ -11,6 +11,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import { Dropdown } from "react-bootstrap";
 import { useState } from "react";
 import BodsDropdownMenu from "./BodDropdownMenu";
+import MediaDropdownMenu from "./MediaDropdownMenu";
 
 const Header = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -88,13 +89,9 @@ const Header = () => {
                       >
                         Careers
                       </Link>
-                      <Link
-                        className="navmenu-link"
-                        to="/media"
-                        onClick={closeNav}
-                      >
-                        Media
-                      </Link>
+
+                      <MediaMenu closeNav={closeNav} />
+
                       <Link
                         className="navmenu-link"
                         to="/contactus"
@@ -162,6 +159,49 @@ const MobileMenu = ({ closeNav }) => {
         ))}
       </Dropdown.Menu>
     </Dropdown>
+  );
+};
+
+const MediaMenu = ({ closeNav }) => {
+  const [mediaMenu, showMediaMenu] = useState(false);
+
+  const handleItemClick = () => {
+    closeNav();
+    showMediaMenu(false);
+  };
+
+  return (
+    <>
+      <MediaDropdownMenu />
+
+      {/* Mobile Media dropdown */}
+      <Dropdown className="d-block d-lg-none p-0">
+        <Dropdown.Toggle className="border-0 bg-transparent text-white m-0 mx-auto d-flex align-items-center gap-3">
+          Media <FaChevronDown className="text-white" />
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className="bg-transparent border-0 p-2 my-0">
+          <div className="my-2">
+            <Dropdown.Item
+              href="/media"
+              className="text-white justify-content-center"
+              onClick={handleItemClick}
+            >
+              Media
+            </Dropdown.Item>
+          </div>
+          <div className="my-2">
+            <Dropdown.Item
+              href="/newsletter"
+              className="text-white justify-content-center"
+              onClick={handleItemClick}
+            >
+              Newsletter
+            </Dropdown.Item>
+          </div>
+        </Dropdown.Menu>
+      </Dropdown>
+    </>
   );
 };
 

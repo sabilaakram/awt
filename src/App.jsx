@@ -19,6 +19,8 @@ import SingleMedia from "./Pages/SingleMedia";
 import BusinessUnit from "./Pages/BusinessUnit";
 import CommitteeOfAdministration from "./Pages/CommitteeOfAdministration";
 import ScrollToTop from "./Components/ScrollToTop";
+import Newsletter from "./Pages/Newsletter";
+import SingleNewsletter from "./Pages/SingleNewsletter";
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/media" element={<Media />} />
             <Route path="/media/:slug" element={<SingleMedia />} />
+            <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="/newsletter/:slug" element={<SingleNewsletter />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

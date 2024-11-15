@@ -151,3 +151,40 @@ export const GetUnitsContactInfo = () => {
 
   return useStrapiQueryHandler("contact-info", "/api/contact-infos", params);
 };
+
+export const GetCorporateProfile = () => {
+  const params = {
+    populate: {
+      CorporateProfile: { fields: ["name", "url", "alternativeText"] },
+    },
+  };
+
+  return useStrapiQueryHandler(
+    "corporate-profile",
+    "/api/corporate-profile",
+    params
+  );
+};
+
+export const GetNewsletter = () => {
+  const params = {
+    populate: {
+      CoverImage: { fields: ["name", "url", "alternativeText"] },
+    },
+  };
+  return useStrapiQueryHandler("newsletters", "/api/newsletters", params);
+};
+
+export const GetNewsletterBySlug = (slug) => {
+  const params = {
+    populate: {
+      CoverImage: { fields: ["name", "url", "alternativeText"] },
+      Pages: { fields: ["name", "url", "alternativeText"] },
+    },
+  };
+  return useStrapiQueryHandler(
+    `${slug}-newsletter`,
+    `/api/newsletters/${slug}`,
+    params
+  );
+};

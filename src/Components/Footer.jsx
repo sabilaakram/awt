@@ -15,6 +15,7 @@ const FooterItems = [
   { label: "MD's Message", href: "/mdmessage" },
   { label: "Media", href: "/media" },
   { label: "News", href: "/news" },
+  { label: "Newsletter", href: "/newsletter" },
 ];
 
 const contactItems = [

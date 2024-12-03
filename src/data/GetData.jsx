@@ -107,6 +107,10 @@ export const GetResources = () => {
         fields: ["url", "alternativeText", "width", "height"],
       },
     },
+    pagination: {
+      pageSize: 45,
+    },
+    sort: ["createdAt:desc"],
   };
 
   return useStrapiQueryHandler("resources", "/api/resources", params);

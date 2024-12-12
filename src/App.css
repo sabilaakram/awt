@@ -1946,7 +1946,9 @@ section.spaceupdown .card p {
 
 .gallery-thumbnail {
   object-fit: cover;
-  height: auto;
+  height: 450px;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 1025px) {
@@ -1957,6 +1959,10 @@ section.spaceupdown .card p {
 @media screen and (max-width: 550px) {
   .lg-react-element {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .gallery-thumbnail {
+    max-width: 100%;
   }
 }
 

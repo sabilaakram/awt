@@ -4,8 +4,8 @@ import { GetNewsletterBySlug } from "../data/GetData";
 import header from "../assets/headers/Media.jpg";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { Container, Row } from "react-bootstrap";
-import LighthouseGallery from "../Components/LighthouseGallery";
 import ImagesSlider from "../Components/ImagesSlider";
+import NewsletterLighthouse from "../Components/NewsletterLighthouse";
 
 const SingleNewsletter = () => {
   const { slug } = useParams();
@@ -40,27 +40,8 @@ const SingleNewsletter = () => {
         </Container>
       </section>
 
-      <section className="aboutusbox">
-        <Container>
-          <Row>
-            <div className="col-lg-12">
-              <div className="aboutus">
-                <span className="linesheading">AWT</span>
-                <h2>Inspiring Lives with Dignified Service</h2>
-                <p>
-                  Discover the scenic stories of manpowers’ struggle,
-                  resilience, and diligence by exploring the gallery of Army
-                  Welfare Trust. Witness the success our subsidiaries have
-                  achieved so far!
-                </p>
-              </div>
-            </div>
-          </Row>
-        </Container>
-      </section>
-
-      <Container>
-        <LighthouseGallery galleryItems={data.Pages.data} />
+      <Container className="mt-5">
+        <NewsletterLighthouse galleryItems={data.Pages.data} />
       </Container>
 
       <section className="spaceupdowngray">

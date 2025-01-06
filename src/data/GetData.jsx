@@ -175,6 +175,7 @@ export const GetNewsletter = () => {
     populate: {
       CoverImage: { fields: ["name", "url", "alternativeText"] },
     },
+    sort: ["createdAt:desc"],
   };
   return useStrapiQueryHandler("newsletters", "/api/newsletters", params);
 };

@@ -46,7 +46,7 @@ const ContactUs = () => {
           clearForm();
         },
         (error) => {
-          alert("FAILED...", error.text);
+          alert("Failed to send email!!", error.text);
           setLoading(false);
         }
       );

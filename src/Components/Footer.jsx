@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import footerlogo from "../assets/footerlogonew.png";
 import { Col, Row } from "react-bootstrap";
 import { BusinessUnitsData } from "../data/GetData";
-import { FaLocationDot, FaPhone } from "react-icons/fa6";
+import { FaLocationDot, FaPhone, FaLinkedinIn } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -33,6 +33,11 @@ const contactItems = [
     value: "AWT Plaza The Mall Rawalpindi",
     icon: <FaLocationDot size={24} />,
     href: "https://maps.app.goo.gl/suqDQye9BsNQrVJRA",
+  },
+  {
+    value: "Army Welfare Trust",
+    icon: <FaLinkedinIn size={24} />,
+    href: "https://www.linkedin.com/company/armywelfaretrust",
   },
 ];
 
@@ -95,7 +100,7 @@ const Footer = () => {
 
       <div className="footer-copyright">
         <p className="p-3 text-center">
-          Copyrights © 2024 Army Welfare Trust, All Rights Reserved.
+          Copyrights © 2025 Army Welfare Trust, All Rights Reserved.
         </p>
       </div>
     </footer>
